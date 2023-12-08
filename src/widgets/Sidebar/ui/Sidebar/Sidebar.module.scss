@@ -1,0 +1,25 @@
+@import 'app/styles';
+
+.Sidebar {
+  position: relative;
+  width: 300px;
+  height: calc(100vh - var(--navbar-height));
+  background-color: var(--inverted-bg-color);
+  transition: width 0.3s;
+}
+
+.collapsed {
+  width: var(--sidebar-width-collapsed);
+}
+
+.switchers {
+  @include flex(center);
+
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+}
+
+.lang {
+  margin-left: 20px;
+}
