@@ -1,0 +1,9 @@
+@import 'app/styles';
+
+.NotFoundPage {
+  @include flex(center, center);
+
+  height: 100%;
+
+  font: var(--font-l);
+}

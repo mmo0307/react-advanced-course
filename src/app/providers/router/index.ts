@@ -1,3 +1,1 @@
-export {
-    AppRouter
-} from './ui/App.Router';
+export { AppRouter } from './ui/AppRouter';

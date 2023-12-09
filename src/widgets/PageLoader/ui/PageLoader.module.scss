@@ -1,0 +1,9 @@
+@import 'app/styles';
+
+.PageLoader {
+  @include flex();
+
+  flex-grow: 1;
+
+  min-height: calc(100vh - var(--navbar-height));
+}
