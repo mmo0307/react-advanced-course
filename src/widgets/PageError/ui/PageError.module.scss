@@ -1,0 +1,53 @@
+@import "app/styles";
+
+.PageError {
+  @include flex(center, center, column);
+
+  gap: 25px;
+
+  width: 100%;
+  height: 100vh;
+
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+
+.button {
+  background-color: var(--dark);
+  border: 1px solid transparent;
+  border-radius: .75rem;
+  box-sizing: border-box;
+  color: var(--white);
+  cursor: pointer;
+  flex: 0 0 auto;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+  padding: .75rem 1.2rem;
+  text-align: center;
+  text-decoration: none var(--gray-25) solid;
+  text-decoration-thickness: auto;
+  transition-duration: .2s;
+  transition-property: background-color,border-color,color,fill,stroke;
+  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+
+  &:hover {
+    background-color: var(--gray-50);
+  }
+
+  &:focus {
+      box-shadow: none;
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+  }
+
+  @media (min-width: 768px) {
+      padding: .75rem 1.5rem;
+  }
+}

@@ -9,6 +9,7 @@ import './styles/index.scss';
 
 function App() {
   const { theme } = useTheme();
+
   return (
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback=''>
