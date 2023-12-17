@@ -1,11 +1,10 @@
-.app_dark_theme {
+.app.dark {
   --bg-color: #090949;
+  --inverted-bg-color: #e8e8ea;
 
   --primary-color: #04ff04;
+  --inverted-primary-color: #0232c2;
 
   --secondary-color: #049604;
-
-  --inverted-bg-color: #e8e8ea;
-  --inverted-primary-color: #0232c2;
   --inverted-secondary-color: #0452ff;
 }
