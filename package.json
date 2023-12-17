@@ -14,7 +14,8 @@
     "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "build-storybook": "storybook build -c ./config/storybook",
-    "loki": "npx loki test"
+    "loki": "npx loki test",
+    "loki:ui:ok": "npx loki test approve"
   },
   "keywords": [],
   "author": "",
