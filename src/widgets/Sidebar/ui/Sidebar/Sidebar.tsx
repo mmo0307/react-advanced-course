@@ -1,7 +1,12 @@
 import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import AboutIcon from 'shared/assets/icons/about.svg';
+import MainIcon from 'shared/assets/icons/main.svg';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button';
+import { AppLink } from 'shared/ui/AppLink';
+import { AppLinkThemes } from 'shared/ui/AppLink/ui/AppLink';
+import { Button, ButtonSize, ButtonThemes } from 'shared/ui/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 
@@ -27,12 +32,29 @@ const Sidebar: FC<SideBarProps> = ({ className }) => {
         className
       ])}
     >
-      <Button data-testid='sidebar-toggle' onClick={onToggleClick}>
-        {t('Переключить')}
+      <div className={styles.items}>
+        <AppLink to={RoutePath.main} theme={AppLinkThemes.SECONDARY}>
+          <MainIcon className={styles.icon} />
+          <span className={styles.link}>{t('Главная')}</span>
+        </AppLink>
+        <AppLink to={RoutePath.about} theme={AppLinkThemes.SECONDARY}>
+          <AboutIcon className={styles.icon} />
+          <span className={styles.link}>{t('О сайте')}</span>
+        </AppLink>
+      </div>
+      <Button
+        data-testid='sidebar-toggle'
+        className={styles.collapseBtn}
+        theme={ButtonThemes.BACKGROUND_INVERTED}
+        onClick={onToggleClick}
+        size={ButtonSize.L}
+        square
+      >
+        {collapsed ? '>>' : '<<'}
       </Button>
       <div className={styles.switchers}>
         <ThemeSwitcher />
-        <LangSwitcher className={styles.lang} />
+        <LangSwitcher className={styles.lang} short={collapsed} />
       </div>
     </div>
   );

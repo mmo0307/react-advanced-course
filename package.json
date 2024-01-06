@@ -69,6 +69,7 @@
     "loki": "^0.33.1",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.1.0",
+    "reg-cli": "^0.17.7",
     "sass": "^1.69.5",
     "sass-loader": "^13.3.2",
     "storybook": "^7.6.4",

@@ -31,18 +31,130 @@ export const Outline: Story = {
   }
 };
 
-export const OutlineSizeL: Story = {
+export const Background: Story = {
   args: {
     ...Template.args,
-    theme: ButtonThemes.OUTLINE,
+    theme: ButtonThemes.BACKGROUND
+  }
+};
+
+export const BackgroundInverted: Story = {
+  args: {
+    ...Template.args,
+    theme: ButtonThemes.BACKGROUND_INVERTED
+  }
+};
+
+export const Square: Story = {
+  args: {
+    ...Template.args,
+    children: '>>',
+    theme: ButtonThemes.BACKGROUND,
+    square: true
+  }
+};
+
+export const ClearSizeM: Story = {
+  args: {
+    ...Clear.args,
+    size: ButtonSize.M
+  }
+};
+
+export const ClearSizeL: Story = {
+  args: {
+    ...Clear.args,
+    size: ButtonSize.L
+  }
+};
+
+export const ClearSizeXl: Story = {
+  args: {
+    ...Clear.args,
+    size: ButtonSize.XL
+  }
+};
+
+export const OutlineSizeM: Story = {
+  args: {
+    ...Outline.args,
+    size: ButtonSize.M
+  }
+};
+
+export const OutlineSizeL: Story = {
+  args: {
+    ...Outline.args,
     size: ButtonSize.L
   }
 };
 
 export const OutlineSizeXl: Story = {
   args: {
-    ...Template.args,
-    theme: ButtonThemes.OUTLINE,
+    ...Outline.args,
+    size: ButtonSize.XL
+  }
+};
+
+export const BackgroundSizeM: Story = {
+  args: {
+    ...Background.args,
+    size: ButtonSize.M
+  }
+};
+
+export const BackgroundSizeL: Story = {
+  args: {
+    ...Background.args,
+    size: ButtonSize.L
+  }
+};
+
+export const BackgroundSizeXl: Story = {
+  args: {
+    ...Background.args,
+    size: ButtonSize.XL
+  }
+};
+
+export const BackgroundInvertedSizeM: Story = {
+  args: {
+    ...BackgroundInverted.args,
+    size: ButtonSize.M
+  }
+};
+
+export const BackgroundInvertedSizeL: Story = {
+  args: {
+    ...BackgroundInverted.args,
+    size: ButtonSize.L
+  }
+};
+
+export const BackgroundInvertedSizeXl: Story = {
+  args: {
+    ...BackgroundInverted.args,
+    size: ButtonSize.XL
+  }
+};
+
+export const SquareSizeM: Story = {
+  args: {
+    ...Square.args,
+    size: ButtonSize.M
+  }
+};
+
+export const SquareSizeL: Story = {
+  args: {
+    ...Square.args,
+    size: ButtonSize.L
+  }
+};
+
+export const SquareSizeXl: Story = {
+  args: {
+    ...Square.args,
     size: ButtonSize.XL
   }
 };
