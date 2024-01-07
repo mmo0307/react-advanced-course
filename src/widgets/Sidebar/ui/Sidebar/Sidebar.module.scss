@@ -41,9 +41,9 @@
 .items {
   @include flex(flex-start, flex-start, column);
 
-  margin-top: 20px;
-
   margin-left: 30px;
+
+  margin-top: 20px;
 }
 
 .link {
@@ -74,10 +74,9 @@
   }
 
   .link {
+    width: 0;
     opacity: 0;
 
     transition: 0.2s opacity;
-
-    width: 0;
   }
 }
