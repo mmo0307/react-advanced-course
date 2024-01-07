@@ -39,7 +39,7 @@
 }
 
 .items {
-    @include flex(flex-start, flex-start, column);
+  @include flex(flex-start, flex-start, column);
 
   margin-top: 20px;
 
