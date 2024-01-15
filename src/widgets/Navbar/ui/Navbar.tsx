@@ -8,7 +8,7 @@ interface NavbarProps {
 }
 
 const Navbar: FC<NavbarProps> = ({ className }) => {
-  return <div className={classNames(styles.navbar, {}, [className])}></div>;
+  return <div className={classNames(styles.Navbar, {}, [className])}></div>;
 };
 
 export { Navbar };

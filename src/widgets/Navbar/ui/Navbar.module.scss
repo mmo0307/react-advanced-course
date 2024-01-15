@@ -1,12 +1,23 @@
 @import 'app/styles';
 
-.navbar {
-  @include flex();
-
+.Navbar {
   width: 100%;
+
   height: var(--navbar-height);
 
-  padding: 20px;
+  background: var(--inverted-bg-color);
 
-  background-color: var(--inverted-bg-color);
+  display: flex;
+
+  align-items: center;
+
+  padding: 20px;
+}
+
+.links {
+  margin-left: auto;
+}
+
+.mainLink {
+  margin-right: 15px;
 }

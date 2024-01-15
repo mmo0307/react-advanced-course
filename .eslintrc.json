@@ -15,11 +15,12 @@
     "overrides": [
         {
             "files": [
-                "*.js",
-                "*.jsx",
+//                "*.js",
+//                "*.jsx",
                 "*.ts",
                 "*.tsx",
-                "**/src/**/*.test.{js,jsx,ts,tsx}"
+               // "**/src/**/*.test.{js,jsx,ts,tsx}"
+                "**/src/**/*.test.{ts,tsx}"
             ],
             "rules": {
                 "react/react-in-jsx-scope": "off",
@@ -90,8 +91,8 @@
         "import/resolver": {
             "node": {
                 "extensions": [
-                    ".js",
-                    ".jsx",
+//                    ".js",
+//                    ".jsx",
                     ".ts",
                     ".tsx",
                     ".d.ts"
