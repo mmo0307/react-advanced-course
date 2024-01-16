@@ -4,9 +4,9 @@ import AboutIcon from 'shared/assets/icons/about.svg';
 import MainIcon from 'shared/assets/icons/main.svg';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { AppLink } from 'shared/ui/AppLink';
-import { AppLinkThemes } from 'shared/ui/AppLink/ui/AppLink';
-import { Button, ButtonSize, ButtonThemes } from 'shared/ui/Button';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { AppLinkThemes } from 'shared/ui/AppLink/AppLink';
+import { Button, ButtonSize, ButtonThemes } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 

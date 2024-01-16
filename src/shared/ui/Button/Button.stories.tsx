@@ -24,6 +24,13 @@ export const Clear: Story = {
   }
 };
 
+export const ClearInverted: Story = {
+  args: {
+    ...Template.args,
+    theme: ButtonThemes.CLEAR_INVERTED
+  }
+};
+
 export const Outline: Story = {
   args: {
     ...Template.args,
@@ -71,6 +78,27 @@ export const ClearSizeL: Story = {
 export const ClearSizeXl: Story = {
   args: {
     ...Clear.args,
+    size: ButtonSize.XL
+  }
+};
+
+export const ClearInvertedSizeM: Story = {
+  args: {
+    ...ClearInverted.args,
+    size: ButtonSize.M
+  }
+};
+
+export const ClearInvertedSizeL: Story = {
+  args: {
+    ...ClearInverted.args,
+    size: ButtonSize.L
+  }
+};
+
+export const ClearInvertedSizeXl: Story = {
+  args: {
+    ...ClearInverted.args,
     size: ButtonSize.XL
   }
 };

@@ -8,6 +8,7 @@ import { DeepPartial } from 'shared/lib/types/DeepPartial';
 
 export interface componentRenderOptions {
   route?: string;
+
   initialState?: DeepPartial<StateSchema>;
 }
 

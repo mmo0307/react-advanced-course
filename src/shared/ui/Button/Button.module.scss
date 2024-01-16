@@ -1,18 +1,35 @@
 .Button {
   padding: 6px 15px;
+
   color: var(--primary-color);
   cursor: pointer;
 }
 
 .clear {
   padding: 0;
+
   background: none;
+
   border: none;
+
+  outline: none;
+}
+
+.clearInverted {
+  padding: 0;
+
+  color: var(--inverted-primary-color);
+
+  background: none;
+
+  border: none;
+
   outline: none;
 }
 
 .outline {
   color: var(--primary-color);
+
   background: none;
   border: 1px solid var(--primary-color);
 }
@@ -20,12 +37,14 @@
 .background {
   color: var(--primary-color);
   background: var(--bg-color);
+
   border: none;
 }
 
 .backgroundInverted {
   color: var(--inverted-primary-color);
   background: var(--inverted-bg-color);
+
   border: none;
 }
 
@@ -35,16 +54,19 @@
 
 .square.size_m {
   width: var(--font-line-m);
+
   height: var(--font-line-m);
 }
 
 .square.size_l {
   width: var(--font-line-l);
+
   height: var(--font-line-l);
 }
 
 .square.size_xl {
   width: var(--font-line-xl);
+
   height: var(--font-line-xl);
 }
 
@@ -58,4 +80,8 @@
 
 .size_xl {
   font: var(--font-xl);
+}
+
+.disabled {
+  opacity: 0.5;
 }

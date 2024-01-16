@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/ui/Portal/ui/Portal';
+import { Portal } from 'shared/ui/Portal/Portal';
 
 import styles from './Modal.module.scss';
 
@@ -30,8 +30,8 @@ const Modal: FC<ModalProps> = ({
   isOpen,
   onClose
 }) => {
-  const [isClosing, setIsClosing] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
+  const [isClosing, setIsClosing] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
 

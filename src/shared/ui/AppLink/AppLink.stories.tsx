@@ -22,9 +22,9 @@ export const Template: Story = {
 };
 
 export const SECONDARY: Story = {
+  ...Template,
   args: {
     ...Template.args,
     theme: AppLinkThemes.SECONDARY
-  },
-  decorators: [RouterDecorator]
+  }
 };
