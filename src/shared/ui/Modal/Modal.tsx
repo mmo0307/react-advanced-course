@@ -54,7 +54,6 @@ const Modal: FC<ModalProps> = ({
   // Новые ссылки!!!
   const onKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      console.log('e=>', e);
       if (e.key === 'Escape') {
         closeHandler();
       }
