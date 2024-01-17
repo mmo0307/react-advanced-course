@@ -13,23 +13,20 @@ type Story = StoryObj<typeof Modal>;
 
 export default meta;
 
-export const Template: Story = {
-  args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
-    isOpen: true
-  }
-};
-
 export const Light: Story = {
   args: {
-    ...Template.args
+    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    isOpen: true,
+    lazy: true
   },
   decorators: [ThemeDecorator(Theme.LIGHT)]
 };
 
 export const DARK: Story = {
   args: {
-    ...Template.args
+    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    isOpen: true,
+    lazy: true
   },
   decorators: [ThemeDecorator(Theme.DARK)]
 };
