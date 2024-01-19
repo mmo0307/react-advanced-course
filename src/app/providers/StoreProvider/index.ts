@@ -1,4 +1,3 @@
 export { StateSchema } from './config/StateSchema';
-export { createReduxStore } from './config/store';
-export { useAppDispatch } from './hook/useAppDispatch';
+export { AppDispatch, createReduxStore } from './config/store';
 export { StoreProvider } from './ui/StoreProvider';

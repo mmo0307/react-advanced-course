@@ -1,10 +1,10 @@
 import React, { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'app/providers/StoreProvider';
 import { getAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'feature/AuthByUserName';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';
 import { View } from 'shared/ui/View/View';
 
@@ -56,7 +56,9 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
           {t('Войти')}
         </Button>
 
-        <LoginModal isOpen={isAuthModal} onClose={onClose} />
+        <View.Condition if={isAuthModal}>
+          <LoginModal isOpen={isAuthModal} onClose={onClose} />
+        </View.Condition>
       </View.Condition>
     </div>
   );

@@ -1,5 +1,6 @@
 import React, { FC, ReactNode } from 'react';
 import { Provider } from 'react-redux';
+import { ReducersMapObject } from '@reduxjs/toolkit';
 import { DeepPartial } from 'shared/lib/types/DeepPartial';
 
 import { StateSchema } from '../config/StateSchema';
@@ -9,10 +10,22 @@ interface StoreProviderProps {
   children?: ReactNode;
 
   initialState?: DeepPartial<StateSchema>;
+
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
-const StoreProvider: FC<StoreProviderProps> = ({ children, initialState }) => {
-  const store = createReduxStore(initialState as StateSchema);
+const StoreProvider: FC<StoreProviderProps> = ({
+  children,
+  initialState,
+  asyncReducers
+}) => {
+  //const navigate = useNavigate();
+
+  const store = createReduxStore(
+    initialState as StateSchema,
+    asyncReducers as ReducersMapObject<StateSchema>
+    // navigate
+  );
 
   return <Provider store={store}>{children}</Provider>;
 };

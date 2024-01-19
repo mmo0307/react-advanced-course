@@ -1,9 +1,9 @@
 import React, { Suspense, useEffect } from 'react';
 import { AppRouter } from 'app/providers/router';
-import { useAppDispatch } from 'app/providers/StoreProvider';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { userActions } from 'entities/User';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 
