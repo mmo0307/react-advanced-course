@@ -1,7 +1,7 @@
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { getAuthData, userActions } from 'entities/User';
+import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'feature/AuthByUserName';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -14,12 +14,12 @@ interface NavbarProps {
   className?: string;
 }
 
-const Navbar: FC<NavbarProps> = ({ className }) => {
+const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
 
-  const authData = useSelector(getAuthData);
+  const authData = useSelector(getUserAuthData);
 
   const [isAuthModal, setIsAuthModal] = useState<boolean>(false);
 
@@ -62,6 +62,6 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
       </View.Condition>
     </div>
   );
-};
+});
 
 export { Navbar };

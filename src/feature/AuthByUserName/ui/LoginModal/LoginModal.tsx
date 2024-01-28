@@ -21,7 +21,7 @@ const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) => (
     onClose={onClose}
     lazy
   >
-    <LoginForm />
+    <LoginForm onSucess={onClose} />
   </Modal>
 );
 

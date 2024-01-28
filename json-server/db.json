@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstName": "Misha",
+    "lastName": "Mishin",
+    "age": 22,
+    "currency": "USD",
+    "country": "Ukraine",
+    "city": "Dnipro",
+    "username": "admin",
+    "avatar": "https://www.w3schools.com/howto/img_avatar.png"
+  }
 }

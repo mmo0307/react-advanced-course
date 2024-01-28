@@ -46,20 +46,6 @@
   margin-top: 20px;
 }
 
-.link {
-  margin-top: 10px;
-
-  opacity: 1;
-
-  transition: 0.5s opacity;
-}
-
-.icon {
-  @include size(30px);
-
-  fill: var(--inverted-primary-color);
-}
-
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
@@ -71,12 +57,5 @@
 
   .lang {
     margin-left: 0;
-  }
-
-  .link {
-    width: 0;
-    opacity: 0;
-
-    transition: 0.2s opacity;
   }
 }

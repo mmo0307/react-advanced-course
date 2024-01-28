@@ -11,7 +11,7 @@ describe('classNames', () => {
   });
 
   test('with mods', () => {
-    const result = 'someClass hovered focus class1 class2';
+    const result = 'someClass class1 class2 hovered focus';
     expect(
       classNames('someClass', { hovered: true, focus: true }, [
         'class1',
@@ -21,7 +21,7 @@ describe('classNames', () => {
   });
 
   test('with mods', () => {
-    const result = 'someClass hovered class1 class2';
+    const result = 'someClass class1 class2 hovered';
     expect(
       classNames('someClass', { hovered: true, focus: false }, [
         'class1',
@@ -31,7 +31,7 @@ describe('classNames', () => {
   });
 
   test('with mods', () => {
-    const result = 'someClass focus class1 class2';
+    const result = 'someClass class1 class2 focus';
     expect(
       classNames('someClass', { hovered: null, focus: true }, [
         'class1',

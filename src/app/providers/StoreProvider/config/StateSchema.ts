@@ -4,11 +4,14 @@ import {
   Reducer,
   ReducersMapObject
 } from '@reduxjs/toolkit';
+import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'feature/AuthByUserName';
 
 export interface StateSchema {
   user: UserSchema;
+
+  profile: ProfileSchema;
 
   loginForm?: LoginSchema;
 }

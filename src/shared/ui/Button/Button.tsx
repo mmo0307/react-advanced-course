@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC } from 'react';
+import React, { ButtonHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import styles from './Button.module.scss';
@@ -25,32 +25,34 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-const Button: FC<ButtonProps> = ({
-  className,
-  children,
-  theme,
-  square,
-  disabled,
-  size = ButtonSize.M,
-  ...otherProps
-}) => (
-  <button
-    type='button'
-    className={classNames(
-      styles.Button,
-      {
-        [styles[theme]]: true,
-        [styles.square]: square,
-        [styles[size]]: true,
-        [styles.disabled]: disabled
-      },
-      [className, styles[theme]]
-    )}
-    disabled={disabled}
-    {...otherProps}
-  >
-    {children}
-  </button>
+const Button = memo(
+  ({
+    className,
+    children,
+    theme,
+    square,
+    disabled,
+    size = ButtonSize.M,
+    ...otherProps
+  }: ButtonProps) => (
+    <button
+      type='button'
+      className={classNames(
+        styles.Button,
+        {
+          [styles[theme]]: true,
+          [styles.square]: square,
+          [styles[size]]: true,
+          [styles.disabled]: disabled
+        },
+        [className, styles[theme]]
+      )}
+      disabled={disabled}
+      {...otherProps}
+    >
+      {children}
+    </button>
+  )
 );
 
 export { Button };
