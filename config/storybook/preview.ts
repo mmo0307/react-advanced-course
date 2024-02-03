@@ -17,11 +17,11 @@ const preview: Preview = {
       }
     },
     decorators: [
-      StyleDecorator,
-      TranslationDecorator,
-      ThemeDecorator(Theme.LIGHT),
+      RouterDecorator,
       StoreDecorator,
-      RouterDecorator
+      TranslationDecorator,
+      StyleDecorator,
+      ThemeDecorator(Theme.LIGHT)
     ]
   }
 };

@@ -1,5 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { DeepPartial } from 'shared/lib/types/DeepPartial';
 
 import { getLoginPassword } from './getLoginPassword';
 

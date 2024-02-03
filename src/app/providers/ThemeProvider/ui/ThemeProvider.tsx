@@ -32,4 +32,4 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
   );
 };
 
-export default ThemeProvider;
+export { ThemeProvider };

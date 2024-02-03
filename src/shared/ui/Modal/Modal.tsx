@@ -1,7 +1,8 @@
 import React, {
   FC,
   MouseEvent,
-  ReactNode,
+  MutableRefObject,
+  PropsWithChildren,
   useCallback,
   useEffect,
   useRef,
@@ -13,11 +14,13 @@ import { Portal } from 'shared/ui/Portal/Portal';
 
 import styles from './Modal.module.scss';
 
-interface ModalProps {
+interface ModalProps extends PropsWithChildren {
   className?: string;
-  children?: ReactNode;
+
   isOpen?: boolean;
+
   onClose?: () => void;
+
   lazy?: boolean;
 }
 
@@ -32,7 +35,7 @@ const Modal: FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
   const [isMounted, setIsMounted] = useState<boolean>(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -44,8 +47,10 @@ const Modal: FC<ModalProps> = ({
   const closeHandler = useCallback(() => {
     if (onClose) {
       setIsClosing(true);
+
       timerRef.current = setTimeout(() => {
         onClose();
+
         setIsClosing(false);
       }, ANIMATION_DELAY);
     }
@@ -72,6 +77,7 @@ const Modal: FC<ModalProps> = ({
 
     return () => {
       clearTimeout(timerRef.current);
+
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);

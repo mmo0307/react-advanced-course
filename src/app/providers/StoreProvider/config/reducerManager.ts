@@ -14,7 +14,7 @@ export function createReducerManager(
 
   let combinedReducer = combineReducers(reducers);
 
-  let keysToRemove: StateSchemaKey[] = [];
+  let keysToRemove: Array<StateSchemaKey> = [];
 
   return {
     getReducerMap: () => reducers,
@@ -22,11 +22,16 @@ export function createReducerManager(
     reduce: (state: StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
         state = { ...state };
-        keysToRemove.forEach(key => delete state[key]);
+
+        keysToRemove.forEach(key => {
+          delete state[key];
+        });
+
         keysToRemove = [];
       }
-
-      return combinedReducer(state, action);
+      // TODO fix type
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return combinedReducer(state as any, action);
     },
 
     add: (key: StateSchemaKey, reducer: Reducer) => {

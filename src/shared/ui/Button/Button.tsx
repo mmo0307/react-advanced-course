@@ -19,9 +19,13 @@ export enum ButtonSize {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
+
   theme?: ButtonThemes;
+
   square?: boolean;
+
   size?: ButtonSize;
+
   disabled?: boolean;
 }
 
@@ -29,7 +33,7 @@ const Button = memo(
   ({
     className,
     children,
-    theme,
+    theme = ButtonThemes.OUTLINE,
     square,
     disabled,
     size = ButtonSize.M,
