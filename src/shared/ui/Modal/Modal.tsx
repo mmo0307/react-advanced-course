@@ -34,8 +34,11 @@ const Modal: FC<ModalProps> = ({
   onClose
 }) => {
   const [isClosing, setIsClosing] = useState<boolean>(false);
+
   const [isMounted, setIsMounted] = useState<boolean>(false);
+
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+
   const { theme } = useTheme();
 
   useEffect(() => {
