@@ -38,6 +38,13 @@ export const Outline: Story = {
   }
 };
 
+export const OutlineRed: Story = {
+  args: {
+    ...Template.args,
+    theme: ButtonThemes.OUTLINE_RED
+  }
+};
+
 export const Background: Story = {
   args: {
     ...Template.args,
@@ -120,6 +127,27 @@ export const OutlineSizeL: Story = {
 export const OutlineSizeXl: Story = {
   args: {
     ...Outline.args,
+    size: ButtonSize.XL
+  }
+};
+
+export const OutlineRedSizeM: Story = {
+  args: {
+    ...OutlineRed.args,
+    size: ButtonSize.M
+  }
+};
+
+export const OutlineRedSizeL: Story = {
+  args: {
+    ...OutlineRed.args,
+    size: ButtonSize.L
+  }
+};
+
+export const OutlineRedSizeXL: Story = {
+  args: {
+    ...OutlineRed.args,
     size: ButtonSize.XL
   }
 };

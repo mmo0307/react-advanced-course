@@ -32,6 +32,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
           <SidebarItem key={item.path} item={item} collapsed={collapsed} />
         ))}
       </div>
+
       <Button
         data-testid='sidebar-toggle'
         className={styles.collapseBtn}
@@ -42,8 +43,10 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
       >
         {collapsed ? '>>' : '<<'}
       </Button>
+
       <div className={styles.switchers}>
         <ThemeSwitcher />
+
         <LangSwitcher className={styles.lang} short={collapsed} />
       </div>
     </div>

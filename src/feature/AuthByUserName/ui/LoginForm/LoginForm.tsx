@@ -22,6 +22,7 @@ import styles from './LoginForm.module.scss';
 
 interface LoginFormProps {
   className?: string;
+
   onSucess: () => void;
 }
 
@@ -75,7 +76,6 @@ const LoginForm: FC<LoginFormProps> = memo(
           )}
 
           <Input
-            className={styles.input}
             placeholder={t('Введите username')}
             onChange={onChangeUserName}
             value={username}
@@ -83,7 +83,6 @@ const LoginForm: FC<LoginFormProps> = memo(
           />
 
           <Input
-            className={styles.input}
             placeholder={t('Введите пароль')}
             onChange={onChangeUserPassword}
             value={password}
