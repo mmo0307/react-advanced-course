@@ -25,7 +25,7 @@ export const WithError: Story = {
   args: {},
   decorators: [
     StoreDecorator({
-      loginForm: { username: '123', password: 'asd', error: 'ERROR' }
+      loginForm: { username: '123', password: 'fff', error: 'ERROR' }
     })
   ]
 };
