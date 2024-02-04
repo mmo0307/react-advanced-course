@@ -1,4 +1,5 @@
 import React, { CSSProperties, FC, useMemo } from 'react';
+import avatar from 'shared/assets/images/avatar.jpg';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import styles from './Avatar.module.scss';
@@ -24,7 +25,7 @@ const Avatar: FC<AvatarProps> = ({ className, src, size, alt }) => {
 
   return (
     <img
-      src={src}
+      src={src || avatar}
       alt={alt}
       style={customStyle}
       className={classNames(styles.Avatar, {}, [className])}

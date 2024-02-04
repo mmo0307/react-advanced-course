@@ -19,9 +19,9 @@ const preview: Preview = {
     decorators: [
       RouterDecorator,
       StoreDecorator,
+      ThemeDecorator(Theme.LIGHT),
       TranslationDecorator,
-      StyleDecorator,
-      ThemeDecorator(Theme.LIGHT)
+      StyleDecorator
     ]
   }
 };
