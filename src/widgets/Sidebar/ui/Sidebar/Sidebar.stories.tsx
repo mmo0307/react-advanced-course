@@ -20,3 +20,25 @@ export const Light: Story = {
 export const DARK: Story = {
   decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})]
 };
+
+export const Auth: Story = {
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+      user: {
+        authData: {}
+      }
+    })
+  ]
+};
+
+export const AuthDark: Story = {
+  decorators: [
+    ThemeDecorator(Theme.LIGHT),
+    StoreDecorator({
+      user: {
+        authData: {}
+      }
+    })
+  ]
+};

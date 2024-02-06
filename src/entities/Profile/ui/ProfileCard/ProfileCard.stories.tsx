@@ -3,7 +3,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { ProfileCard } from 'entities/Profile';
-import avatar from 'shared/assets/images/avatar.jpg';
+import avatar from 'shared/assets/tests/avatar.jpg';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta = {
@@ -43,20 +43,16 @@ export const ProfileCardLoading: Story = {
 };
 
 export const ProfileCardDark: Story = {
-  ...ProfileCardTemplate.args,
+  ...ProfileCardTemplate,
   decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const ProfileCardErrorDark: Story = {
-  args: {
-    error: 'true'
-  },
+  ...ProfileCardError,
   decorators: [ThemeDecorator(Theme.DARK)]
 };
 
 export const ProfileCardLoadingDark: Story = {
-  args: {
-    isLoading: true
-  },
+  ...ProfileCardLoading,
   decorators: [ThemeDecorator(Theme.DARK)]
 };

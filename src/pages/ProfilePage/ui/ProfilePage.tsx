@@ -50,10 +50,6 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст')
   };
 
-  useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
-
   const onChangeFirstname = useCallback(
     (value?: string) => {
       dispatch(profileActions.updateProfile({ firstName: value || '' }));
@@ -109,6 +105,12 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
     },
     [dispatch]
   );
+
+  useEffect(() => {
+    if (__PROJECT__ === 'frontend') {
+      dispatch(fetchProfileData());
+    }
+  }, [dispatch]);
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
