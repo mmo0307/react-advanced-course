@@ -16,6 +16,8 @@ const AppRouter = memo(() => {
       </Suspense>
     );
 
+    console.log('route.authOnly=>', route.authOnly);
+
     return (
       <Route
         key={route.path}

@@ -107,7 +107,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   );
 
   useEffect(() => {
-    if (__PROJECT__ === 'frontend') {
+    if (__PROJECT__ !== 'storybook') {
       dispatch(fetchProfileData());
     }
   }, [dispatch]);
