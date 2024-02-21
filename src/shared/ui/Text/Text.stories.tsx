@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text, TextAlign, TextTheme } from './Text';
+import { Text, TextAlign, TextSize, TextTheme } from './Text';
 
 const meta = {
   title: 'shared/Text',
@@ -20,6 +20,34 @@ export const Title: Story = {
 export const Texts: Story = {
   args: {
     text: 'Texts'
+  }
+};
+
+export const TitleSizeM: Story = {
+  args: {
+    title: 'Title',
+    size: TextSize.M
+  }
+};
+
+export const TextsSizeM: Story = {
+  args: {
+    text: 'Texts',
+    size: TextSize.M
+  }
+};
+
+export const TitleSizeL: Story = {
+  args: {
+    title: 'Title',
+    size: TextSize.L
+  }
+};
+
+export const TextsSizeL: Story = {
+  args: {
+    text: 'Texts',
+    size: TextSize.L
   }
 };
 

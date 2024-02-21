@@ -3,11 +3,10 @@
 .Sidebar {
   position: relative;
 
-  width: 300px;
-
+  width: var(--sidebar-width);
   height: calc(100vh - var(--navbar-height));
 
-  background-color: var(--inverted-bg-color);
+  background: var(--inverted-bg-color);
 
   transition: width 0.3s;
 }
