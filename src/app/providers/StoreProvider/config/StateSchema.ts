@@ -9,6 +9,7 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'feature/AuthByUserName';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
 
 export interface StateSchema {
   user: UserSchema;
@@ -19,6 +20,8 @@ export interface StateSchema {
   loginForm?: LoginSchema;
 
   articleDetails?: ArticleDetailsSchema;
+
+  articleDetailsComments?: ArticleDetailsCommentsSchema;
   //Async Reducers
 }
 

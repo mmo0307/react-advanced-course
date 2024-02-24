@@ -95,7 +95,7 @@
       "id": "2",
       "text": "some comment 2",
       "articleId": "1",
-      "userId": "1"
+      "userId": "2"
     },
     {
       "id": "3",
@@ -110,24 +110,38 @@
       "username": "admin",
       "password": "123",
       "role": "ADMIN",
-      "avatar": "https://avatars.mds.yandex.net/get-zen_doc/3413519/pub_5ff887b2fe4e686f6ae6ba3f_5ff887d7f906b16872a69755/scale_1200"
+      "avatar": "https://www.pngitem.com/pimgs/m/375-3757223_free-icon-download-people-avatar-icon-transparent-background.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
       "role": "USER",
-      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+      "avatar": "https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg"
     }
   ],
-  "profile": {
-    "firstName": "Misha2",
-    "lastName": "Mishin",
-    "age": 22,
-    "city": "Dnipro",
-    "username": "misha7737",
-    "avatar": "https://avatarfiles.alphacoders.com/371/371697.png",
-    "currency": "USD",
-    "country": "Ukraine"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "firstName": "Misha2",
+      "lastName": "Mishin",
+      "age": 22,
+      "city": "Dnipro",
+      "username": "misha7737",
+      "avatar": "https://avatarfiles.alphacoders.com/371/371697.png",
+      "currency": "USD",
+      "country": "Ukraine"
+    },
+    {
+      "id": "2",
+      "firstName": "Petro",
+      "lastName": "Petrenko",
+      "age": 55,
+      "city": "Dnipro",
+      "username": "petro228",
+      "avatar": "https://avatarfiles.alphacoders.com/371/371698.png",
+      "currency": "USD",
+      "country": "Ukraine"
+    }
+  ]
 }

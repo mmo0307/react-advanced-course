@@ -9,8 +9,6 @@ interface IconProps {
   Svg: VFC<SVGProps<SVGSVGElement>>;
 }
 
-export const Icon = memo((props: IconProps) => {
-  const { className, Svg } = props;
-
-  return <Svg className={classNames(styles.Icon, {}, [className])} />;
-});
+export const Icon = memo(({ className, Svg }: IconProps) => (
+  <Svg className={classNames(styles.Icon, {}, [className])} />
+));
