@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Page } from './Page';
@@ -15,6 +14,6 @@ type Story = StoryObj<typeof meta>;
 
 export const PageStory: Story = {
   args: {
-    children: <span>{useTranslation().t('PageStory')}</span>
+    children: <span />
   }
 };
