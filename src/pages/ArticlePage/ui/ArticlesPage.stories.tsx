@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ArticlesPage } from 'pages/ArticlePage';
+import { ArticlesPageAsync as ArticlesPage } from 'pages/ArticlePage/ui/ArticlesPage.async';
 
 const meta = {
   title: 'page/ArticlePage',

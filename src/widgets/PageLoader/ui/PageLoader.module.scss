@@ -1,7 +1,7 @@
 @import 'app/styles';
 
 .PageLoader {
-  @include flex();
+  @include flex(center, center);
 
   flex-grow: 1;
 

@@ -1,14 +1,15 @@
 import React, { memo } from 'react';
-import { ArticleTextBlock } from 'entities/Article/model/types/article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
+
+import { ArticleTextBlockType } from '../../model/types/article';
 
 import styles from './ArticleTextBlock.module.scss';
 
 interface ArticleTextBlockProps {
   className?: string;
 
-  block: ArticleTextBlock;
+  block: ArticleTextBlockType;
 }
 
 const ArticleTextBlock = memo(({ className, block }: ArticleTextBlockProps) => (

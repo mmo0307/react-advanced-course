@@ -1,22 +1,32 @@
-import React from 'react';
-import { Article, ArticleList, ArticleView } from 'entities/Article';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'shared/ui/Page/Page';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Article, ArticleView } from 'entities/Article';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
-import styles from './ArticlesPage.module.scss';
+import { ArticleList } from './ArticleList';
 
-interface ArticlePageProps {
-  className?: string;
-}
+const meta = {
+  title: 'entities/ArticleList',
+  component: ArticleList
+} satisfies Meta<typeof ArticleList>;
+
+type Story = StoryObj<typeof ArticleList>;
+
+export default meta;
 
 const article = {
   id: '1',
-  title: 'Javascript news',
+  title: 'Javascript news asfasjf asfjkask f',
   subtitle: 'Что нового в JS за 2022 год?',
   img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
   views: 1022,
   createdAt: '26.02.2022',
-  type: ['IT'],
+  user: {
+    id: '1',
+    username: 'Misha',
+    avatar:
+      'https://www.pngitem.com/pimgs/m/375-3757223_free-icon-download-people-avatar-icon-transparent-background.png'
+  },
+  type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
   blocks: [
     {
       id: '1',
@@ -76,28 +86,45 @@ const article = {
         'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.'
       ]
     }
-  ],
-  user: {
-    id: '1',
-    username: 'admin',
-    password: '123',
-    role: 'ADMIN',
-    avatar:
-      'https://www.pngitem.com/pimgs/m/375-3757223_free-icon-download-people-avatar-icon-transparent-background.png'
-  }
+  ]
 } as Article;
 
-function ArticlesPage({ className }: ArticlePageProps) {
-  return (
-    <Page className={classNames(styles.ArticlesPage, {}, [className])}>
-      <ArticleList
-        articles={new Array(2).fill(0).map(() => ({
-          ...article
-        }))}
-        view={ArticleView.LIST}
-      />
-    </Page>
-  );
-}
+export const LoadingList: Story = {
+  args: {
+    articles: [],
+    isLoading: true,
+    view: ArticleView.LIST
+  }
+};
 
-export default ArticlesPage;
+export const LoadingGrid: Story = {
+  args: {
+    articles: [],
+    isLoading: true,
+    view: ArticleView.GRID
+  }
+};
+
+export const List: Story = {
+  args: {
+    articles: new Array(9).fill(0).map((item, index) => ({
+      ...article,
+      id: String(index)
+    })),
+    isLoading: false,
+    view: ArticleView.LIST
+  },
+  decorators: [RouterDecorator]
+};
+
+export const Grid: Story = {
+  args: {
+    articles: new Array(9).fill(0).map((item, index) => ({
+      ...article,
+      id: String(index)
+    })),
+    isLoading: false,
+    view: ArticleView.GRID
+  },
+  decorators: [RouterDecorator]
+};
