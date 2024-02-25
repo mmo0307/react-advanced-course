@@ -1,8 +1,7 @@
 import React, { memo } from 'react';
+import { ArticleTextBlockType } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
-
-import { ArticleTextBlockType } from '../../model/types/article';
 
 import styles from './ArticleTextBlock.module.scss';
 

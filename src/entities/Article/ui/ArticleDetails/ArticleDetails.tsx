@@ -1,6 +1,7 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { ArticleBlock, ArticleBlockType } from 'entities/Article';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -22,7 +23,6 @@ import {
 } from '../../model/selectors';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
