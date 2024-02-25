@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Page } from 'shared/ui/Page/Page';
 
 import styles from './ArticlesPage.module.scss';
 
@@ -12,9 +13,9 @@ function ArticlesPage({ className }: ArticlePageProps) {
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(styles.ArticlePage, {}, [className])}>
+    <Page className={classNames(styles.ArticlePage, {}, [className])}>
       {t('ArticlePage')}
-    </div>
+    </Page>
   );
 }
 

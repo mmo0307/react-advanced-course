@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
 import { CommentList } from './CommentList';
 
@@ -45,5 +46,6 @@ export const Main: Story = {
         }
       }
     ]
-  }
+  },
+  decorators: [RouterDecorator]
 };

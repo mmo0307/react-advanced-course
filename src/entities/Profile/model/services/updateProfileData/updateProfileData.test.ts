@@ -11,7 +11,8 @@ const data = {
   lastName: 'ulbi tv',
   firstName: 'asd',
   city: 'asf',
-  currency: Currency.USD
+  currency: Currency.USD,
+  id: '1'
 };
 
 describe('updateProfileData.test', () => {

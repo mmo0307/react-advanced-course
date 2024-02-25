@@ -1,0 +1,19 @@
+@import 'app/styles';
+
+.AddCommentForm {
+  @include flex(space-between, center);
+
+  padding: 20px;
+
+  border: 1px solid var(--primary-color);
+}
+
+.input {
+  flex-grow: 1;
+}
+
+.errorText {
+  margin-top: 5px;
+
+  color: var(--red-light);
+}

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { CommentCard } from 'entities/Comment/ui/CommentCard/CommentCard';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
 const meta = {
   title: 'page/CommentCard',
@@ -22,5 +23,6 @@ export const Main: Story = {
           'https://www.pngitem.com/pimgs/m/375-3757223_free-icon-download-people-avatar-icon-transparent-background.png'
       }
     }
-  }
+  },
+  decorators: [RouterDecorator]
 };

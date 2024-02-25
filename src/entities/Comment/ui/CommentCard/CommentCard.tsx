@@ -13,7 +13,7 @@ import styles from './CommentCard.module.scss';
 interface CommentCardProps {
   className?: string;
 
-  comment: Comment;
+  comment?: Comment;
 
   isLoading?: boolean;
 }
@@ -22,7 +22,15 @@ const CommentCard: FC<CommentCardProps> = memo(
   ({ className, comment, isLoading }: CommentCardProps) => (
     <>
       <View.Condition if={Boolean(isLoading)}>
-        <div className={classNames(styles.CommentCard, {}, [className])}>
+        <div
+          className={classNames(
+            styles.CommentCard,
+            {
+              [styles.loading]: isLoading
+            },
+            [className]
+          )}
+        >
           <div className={styles.header}>
             <Skeleton width={30} height={30} border='50%' />
 
@@ -33,22 +41,22 @@ const CommentCard: FC<CommentCardProps> = memo(
         </div>
       </View.Condition>
 
-      <View.Condition if={Boolean(!isLoading)}>
+      <View.Condition if={Boolean(!isLoading && comment)}>
         <div className={classNames(styles.CommentCard, {}, [className])}>
           <AppLink
-            to={`${RoutePath.profile}/${comment.user.id}`}
+            to={`${RoutePath.profile}/${comment?.user.id}`}
             className={styles.header}
           >
             <Avatar
               className={styles.avatar}
-              src={comment.user.avatar}
-              alt={comment.user.username}
+              src={comment?.user.avatar}
+              alt={comment?.user.username}
             />
 
-            <Text className={styles.username} title={comment.user.username} />
+            <Text className={styles.username} title={comment?.user.username} />
           </AppLink>
 
-          <Text className={styles.text} text={comment.text} />
+          <Text className={styles.text} text={comment?.text} />
         </div>
       </View.Condition>
     </>

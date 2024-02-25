@@ -4,6 +4,7 @@ import { CommentCard } from 'entities/Comment';
 import { Comment } from 'entities/Comment/model/types/comment';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
+import { View } from 'shared/ui/View/View';
 
 import styles from './CommentList.module.scss';
 
@@ -21,18 +22,32 @@ const CommentList: FC<CommentListProps> = memo(
 
     return (
       <div className={classNames(styles.CommentList, {}, [className])}>
-        {comments?.length ? (
-          comments.map((comment, index) => (
-            <CommentCard
-              key={index}
-              isLoading={isLoading}
-              className={styles.comment}
-              comment={comment}
-            />
-          ))
-        ) : (
-          <Text text={t('Комментарии отсутствуют')} />
-        )}
+        <View.Condition if={Boolean(isLoading)}>
+          <>
+            <CommentCard isLoading className={styles.comment} />
+
+            <CommentCard isLoading className={styles.comment} />
+
+            <CommentCard isLoading className={styles.comment} />
+          </>
+        </View.Condition>
+
+        <View.Condition if={Boolean(!isLoading)}>
+          <View.Condition if={Boolean(comments?.length)}>
+            {comments?.map((comment, index) => (
+              <CommentCard
+                key={index}
+                isLoading={isLoading}
+                className={styles.comment}
+                comment={comment}
+              />
+            ))}
+          </View.Condition>
+
+          <View.Condition if={!Boolean(comments?.length)}>
+            <Text text={t('Комментарии отсутствуют')} />
+          </View.Condition>
+        </View.Condition>
       </div>
     );
   }

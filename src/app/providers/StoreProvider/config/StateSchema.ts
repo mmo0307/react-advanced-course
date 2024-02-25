@@ -8,6 +8,7 @@ import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
+import { AddCommentFormSchema } from 'feature/addCommentForm';
 import { LoginSchema } from 'feature/AuthByUserName';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
 
@@ -22,6 +23,8 @@ export interface StateSchema {
   articleDetails?: ArticleDetailsSchema;
 
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+
+  addCommentForm?: AddCommentFormSchema;
   //Async Reducers
 }
 

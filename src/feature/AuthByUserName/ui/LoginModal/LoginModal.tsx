@@ -2,9 +2,7 @@ import React, { FC } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Modal } from 'shared/ui/Modal/Modal';
 
-import { LoginForm } from '../LoginForm/LoginForm';
-
-import styles from './LoginModal.module.scss';
+import { LoginFormAsync as LoginForm } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -16,12 +14,12 @@ interface LoginModalProps {
 
 const LoginModal: FC<LoginModalProps> = ({ className, isOpen, onClose }) => (
   <Modal
-    className={classNames(styles.LoginModal, {}, [className])}
+    className={classNames('', {}, [className])}
     isOpen={isOpen}
     onClose={onClose}
     lazy
   >
-    <LoginForm onSucess={onClose} />
+    <LoginForm onSuccess={onClose} />
   </Modal>
 );
 

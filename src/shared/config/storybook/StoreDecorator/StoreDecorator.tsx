@@ -3,6 +3,7 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailsSlice';
 import { profileReducer } from 'entities/Profile';
+import { addCommentFormReducer } from 'feature/addCommentForm/model/slices/addCommentSlice';
 import { loginReducer } from 'feature/AuthByUserName';
 import { ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 
@@ -11,7 +12,11 @@ const defaultAsyncReducers: ReducersList = {
 
   profile: profileReducer,
 
-  articleDetails: articleDetailsReducer
+  articleDetails: articleDetailsReducer,
+
+  articleDetailsComments: articleDetailsReducer,
+
+  addCommentForm: addCommentFormReducer
 };
 
 export const StoreDecorator =
