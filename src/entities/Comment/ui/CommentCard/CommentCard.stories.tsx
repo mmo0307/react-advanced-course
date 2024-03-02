@@ -3,7 +3,7 @@ import { CommentCard } from 'entities/Comment/ui/CommentCard/CommentCard';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
 const meta = {
-  title: 'page/CommentCard',
+  title: 'entities/CommentCard',
   component: CommentCard
 } satisfies Meta<typeof CommentCard>;
 
