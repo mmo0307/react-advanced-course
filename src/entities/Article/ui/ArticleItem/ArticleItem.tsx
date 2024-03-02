@@ -10,6 +10,7 @@ import {
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';
 import { Card } from 'shared/ui/Card/Card';
@@ -44,18 +45,45 @@ const ArticleItem: FC<ArticleItemProps> = memo(
     ) as ArticleTextBlockType;
 
     return (
-      <div
+      <AppLink
+        to={`${RoutePath.article_details}/${article.id}`}
         className={classNames(styles.ArticleItem, {}, [
           className,
           styles[view]
         ])}
       >
+        <View.Condition if={view === ArticleView.GRID}>
+          <Card className={styles.card}>
+            <div className={styles.imageWrapper}>
+              <img
+                alt={article.title}
+                src={article.img}
+                className={styles.img}
+              />
+
+              <Text text={article.createdAt} className={styles.date} />
+            </div>
+
+            <div className={styles.infoWrapper}>
+              <Text text={article.type.join(', ')} className={styles.types} />
+
+              <>
+                <Text text={String(article.views)} className={styles.views} />
+
+                <Icon Svg={EyeIcon} />
+              </>
+            </div>
+
+            <Text text={article.title} className={styles.title} />
+          </Card>
+        </View.Condition>
+
         <View.Condition if={view === ArticleView.LIST}>
           <Card className={styles.card}>
             <div className={styles.header}>
-              <Avatar size={30} src={article.user.avatar} />
+              <Avatar size={30} src={article.user?.avatar} />
 
-              <Text text={article.user.username} className={styles.username} />
+              <Text text={article.user?.username} className={styles.username} />
 
               <Text text={article.createdAt} className={styles.date} />
             </div>
@@ -86,33 +114,7 @@ const ArticleItem: FC<ArticleItemProps> = memo(
             </div>
           </Card>
         </View.Condition>
-
-        <View.Condition if={view === ArticleView.GRID}>
-          <Card className={styles.card}>
-            <div className={styles.imageWrapper}>
-              <img
-                alt={article.title}
-                src={article.img}
-                className={styles.img}
-              />
-
-              <Text text={article.createdAt} className={styles.date} />
-            </div>
-
-            <div className={styles.infoWrapper}>
-              <Text text={article.type.join(', ')} className={styles.types} />
-
-              <>
-                <Text text={String(article.views)} className={styles.views} />
-
-                <Icon Svg={EyeIcon} />
-              </>
-            </div>
-
-            <Text text={article.title} className={styles.title} />
-          </Card>
-        </View.Condition>
-      </div>
+      </AppLink>
     );
   }
 );
