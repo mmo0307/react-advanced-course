@@ -24,7 +24,7 @@ const article = {
     id: '1',
     username: 'Misha',
     avatar:
-      'https://www.pngitem.com/pimgs/m/375-3757223_free-icon-download-people-avatar-icon-transparent-background.png'
+      'https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg'
   },
   type: ['IT', 'SCIENCE', 'POLITICS', 'ECONOMICS'],
   blocks: [
