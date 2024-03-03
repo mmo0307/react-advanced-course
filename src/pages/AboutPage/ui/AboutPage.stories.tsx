@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { AboutPage } from 'pages/AboutPage';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 
 const meta = {
@@ -14,10 +15,10 @@ export default meta;
 
 export const About: Story = {
   args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT)]
+  decorators: [ThemeDecorator(Theme.LIGHT), StoreDecorator({})]
 };
 
 export const About_DARK: Story = {
   ...About,
-  decorators: [ThemeDecorator(Theme.DARK)]
+  decorators: [ThemeDecorator(Theme.DARK), StoreDecorator({})]
 };

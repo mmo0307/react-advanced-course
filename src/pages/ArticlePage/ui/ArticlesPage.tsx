@@ -53,11 +53,15 @@ function ArticlesPage({ className }: ArticlePageProps) {
   );
 
   const onLoadNextPart = useCallback(() => {
-    dispatch(fetchArticlesPage());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchArticlesPage());
+    }
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(initArticlesPage());
+    }
   });
 
   return (
