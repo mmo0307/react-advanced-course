@@ -34,9 +34,9 @@ const CommentList: FC<CommentListProps> = memo(
 
         <View.Condition if={Boolean(!isLoading)}>
           <View.Condition if={Boolean(comments?.length)}>
-            {comments?.map((comment, index) => (
+            {comments?.map(comment => (
               <CommentCard
-                key={index}
+                key={Math.random()}
                 isLoading={isLoading}
                 className={styles.comment}
                 comment={comment}

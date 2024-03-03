@@ -107,7 +107,7 @@ export const LoadingGrid: Story = {
 
 export const List: Story = {
   args: {
-    articles: new Array(9).fill(0).map((item, index) => ({
+    articles: new Array(9).fill(0).map((_, index) => ({
       ...article,
       id: String(index)
     })),
@@ -119,7 +119,7 @@ export const List: Story = {
 
 export const Grid: Story = {
   args: {
-    articles: new Array(9).fill(0).map((item, index) => ({
+    articles: new Array(9).fill(0).map((_, index) => ({
       ...article,
       id: String(index)
     })),

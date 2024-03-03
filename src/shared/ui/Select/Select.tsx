@@ -34,7 +34,11 @@ export const Select = memo(
     const optionsList = useMemo(
       () =>
         options?.map(opt => (
-          <option className={styles.option} value={opt.value} key={opt.value}>
+          <option
+            className={styles.option}
+            value={opt.value}
+            key={Math.random()}
+          >
             {opt.content}
           </option>
         )),

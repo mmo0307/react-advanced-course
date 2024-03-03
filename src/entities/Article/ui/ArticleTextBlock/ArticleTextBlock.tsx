@@ -16,7 +16,7 @@ const ArticleTextBlock = memo(({ className, block }: ArticleTextBlockProps) => (
     {block.title && <Text title={block.title} className={styles.title} />}
 
     {block.paragraphs.map(paragraph => (
-      <Text key={paragraph} text={paragraph} className={styles.paragraph} />
+      <Text key={Math.random()} text={paragraph} className={styles.paragraph} />
     ))}
   </div>
 ));

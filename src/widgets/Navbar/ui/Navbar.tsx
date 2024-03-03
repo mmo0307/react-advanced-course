@@ -36,7 +36,7 @@ const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(styles.Navbar, {}, [className])}>
+    <header className={classNames(styles.Navbar, {}, [className])}>
       <View.Condition if={Boolean(authData)}>
         <Button
           theme={ButtonThemes.CLEAR_INVERTED}
@@ -60,7 +60,7 @@ const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
           <LoginModal isOpen={isAuthModal} onClose={onClose} />
         </View.Condition>
       </View.Condition>
-    </div>
+    </header>
   );
 });
 

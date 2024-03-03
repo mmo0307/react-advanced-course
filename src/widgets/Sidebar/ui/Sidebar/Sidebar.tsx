@@ -24,7 +24,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
   };
 
   return (
-    <div
+    <menu
       data-testid='sidebar'
       className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
         className
@@ -32,7 +32,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
     >
       <div className={styles.items}>
         {sidebarItemsList.map(item => (
-          <SidebarItem key={item.path} item={item} collapsed={collapsed} />
+          <SidebarItem key={Math.random()} item={item} collapsed={collapsed} />
         ))}
       </div>
 
@@ -52,7 +52,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
 
         <LangSwitcher className={styles.lang} short={collapsed} />
       </div>
-    </div>
+    </menu>
   );
 });
 

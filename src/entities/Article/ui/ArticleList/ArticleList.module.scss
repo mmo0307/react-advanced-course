@@ -1,6 +1,8 @@
 @import 'app/styles';
 
 .LIST {
+  display: grid;
+
   .card {
     margin-bottom: 30px;
   }
@@ -12,8 +14,8 @@
   flex-wrap: wrap;
 
   .card {
-    margin-right: 30px;
+    margin-right: 20px;
 
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 }

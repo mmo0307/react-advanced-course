@@ -1,13 +1,16 @@
-import React, { memo, MutableRefObject, ReactNode, useRef } from 'react';
+import React, {
+  memo,
+  MutableRefObject,
+  PropsWithChildren,
+  useRef
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
 
 import styles from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends PropsWithChildren {
   className?: string;
-
-  children: ReactNode;
 
   onScrollEnd?: () => void;
 }

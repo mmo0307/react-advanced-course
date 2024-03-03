@@ -131,7 +131,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
         {validateErrors?.length &&
           validateErrors.map(err => (
             <Text
-              key={err}
+              key={Math.random()}
               theme={TextTheme.ERROR}
               text={validateErrorTranslates[err]}
             />

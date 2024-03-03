@@ -19,8 +19,12 @@ interface ArticleListProps {
 const getSkeletons = (view: ArticleView) =>
   new Array(view === ArticleView.GRID ? 9 : 3)
     .fill(0)
-    .map((_, index) => (
-      <ArticleSkeleton className={styles.card} key={index} view={view} />
+    .map(() => (
+      <ArticleSkeleton
+        className={styles.card}
+        key={Math.random()}
+        view={view}
+      />
     ));
 
 const ArticleList: FC<ArticleListProps> = memo(
@@ -33,10 +37,6 @@ const ArticleList: FC<ArticleListProps> = memo(
     <div
       className={classNames(styles.ArticleList, {}, [className, styles[view]])}
     >
-      <View.Condition if={Boolean(isLoading)}>
-        {getSkeletons(view)}
-      </View.Condition>
-
       <View.Condition if={Boolean(articles.length && !isLoading)}>
         {articles.map(article => (
           <ArticleItem
@@ -46,6 +46,10 @@ const ArticleList: FC<ArticleListProps> = memo(
             className={styles.card}
           />
         ))}
+      </View.Condition>
+
+      <View.Condition if={Boolean(isLoading)}>
+        {getSkeletons(view)}
       </View.Condition>
     </div>
   )
