@@ -11,7 +11,7 @@ export const fetchArticlesPage = createAsyncThunk<
   void,
   void,
   ThunkConfig<string>
->('articlesPage/fetchArticlesList', async (_, thunkApi) => {
+>('articlesPage/fetchArticlesPage', async (_, thunkApi) => {
   const { getState, dispatch } = thunkApi;
 
   const page = getArticlePageNumber(getState());

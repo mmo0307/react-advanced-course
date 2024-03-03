@@ -31,7 +31,9 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
 
   ids: [],
 
-  entities: {}
+  entities: {},
+
+  _inited: false
 });
 
 const articlesPageSlice = createSlice({
@@ -54,6 +56,8 @@ const articlesPageSlice = createSlice({
       state.view = view;
 
       state.limit = view === ArticleView.GRID ? 9 : 4;
+
+      state._inited = true;
     }
   },
   extraReducers: builder => {
