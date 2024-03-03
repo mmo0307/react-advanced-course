@@ -10,11 +10,14 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'feature/addCommentForm';
 import { LoginSchema } from 'feature/AuthByUserName';
+import { ScrollObjSchema } from 'feature/ScrollSave';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
 
 export interface StateSchema {
   user: UserSchema;
+
+  scrollPosition: ScrollObjSchema;
 
   //Async Reducers
   profile?: ProfileSchema;

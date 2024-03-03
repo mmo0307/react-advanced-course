@@ -10,9 +10,9 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'shared/ui/Page/Page';
 import { Text } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
+import { Page } from 'widgets/Page/ui/Page';
 
 import { getArticlePageError } from '../model/selectors/getArticlePageError/getArticlePageError';
 import { getArticlePageIsLoading } from '../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';

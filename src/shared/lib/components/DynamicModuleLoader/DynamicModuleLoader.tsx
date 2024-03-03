@@ -24,6 +24,7 @@ const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
   removeAfterUnmount
 }) => {
   const store = useStore() as ReduxStoreWithManager;
+
   const dispatch = useDispatch();
 
   useEffect(() => {

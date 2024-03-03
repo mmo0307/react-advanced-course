@@ -1,12 +1,11 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-
-import { Text } from '../Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 
 import { Page } from './Page';
 
 const meta = {
-  title: 'shared/Page',
+  title: 'widget/Page',
   component: Page
 } satisfies Meta<typeof Page>;
 
