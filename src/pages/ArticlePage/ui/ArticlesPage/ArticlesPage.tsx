@@ -1,8 +1,7 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ArticleList, ArticleView } from 'entities/Article';
-import { ArticleViewSelector } from 'feature/ArticleViewSelector';
+import { ArticleList } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -14,16 +13,16 @@ import { Text } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
 import { Page } from 'widgets/Page/ui/Page';
 
-import { getArticlePageError } from '../model/selectors/getArticlePageError/getArticlePageError';
-import { getArticlePageIsLoading } from '../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
-import { getArticlePageView } from '../model/selectors/getArticlePageView/getArticlePageView';
-import { fetchArticlesPage } from '../model/services/fetchArticlesPage/fetchArticlesPage';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
+import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
+import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';
+import { fetchArticlesPage } from '../../model/services/fetchArticlesPage/fetchArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
-  articlesPageActions,
   articlesPageReducer,
   getArticles
-} from '../model/slices/articlesPageSlice';
+} from '../../model/slices/articlesPageSlice';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 
 import styles from './ArticlesPage.module.scss';
 
@@ -44,13 +43,6 @@ function ArticlesPage({ className }: ArticlePageProps) {
   const view = useSelector(getArticlePageView);
   const isLoading = useSelector(getArticlePageIsLoading);
   const error = useSelector(getArticlePageError);
-
-  const onChangeView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
 
   const onLoadNextPart = useCallback(() => {
     if (__PROJECT__ !== 'storybook') {
@@ -75,7 +67,7 @@ function ArticlesPage({ className }: ArticlePageProps) {
         </View.Condition>
 
         <View.Condition if={!Boolean(error)}>
-          <ArticleViewSelector view={view} onViewClick={onChangeView} />
+          <ArticlesPageFilters />
 
           <ArticleList articles={articles} view={view} isLoading={isLoading} />
         </View.Condition>

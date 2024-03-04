@@ -1,11 +1,13 @@
 @import 'app/styles';
 
+.ArticleList {
+  margin-top: 30px;
+}
+
 .LIST {
   display: grid;
 
-  .card {
-    margin-bottom: 30px;
-  }
+  row-gap: 20px;
 }
 
 .GRID {
@@ -13,9 +15,5 @@
 
   flex-wrap: wrap;
 
-  .card {
-    margin-right: 20px;
-
-    margin-bottom: 20px;
-  }
+  gap: 20px;
 }

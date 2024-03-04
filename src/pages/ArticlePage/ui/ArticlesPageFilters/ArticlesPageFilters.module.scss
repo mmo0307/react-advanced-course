@@ -1,0 +1,13 @@
+@import 'app/styles';
+
+.sortWrapper {
+  @include flex(space-between, center);
+}
+
+.search {
+  margin-top: 16px;
+}
+
+.tabs {
+  margin-top: 16px;
+}

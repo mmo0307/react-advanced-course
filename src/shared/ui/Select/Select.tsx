@@ -1,62 +1,63 @@
-import React, { ChangeEvent, memo, useMemo } from 'react';
+import React, { ChangeEvent, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import styles from './Select.module.scss';
 
-export interface SelectOption {
-  value: string;
+export interface SelectOption<T extends string> {
+  value: T;
 
   content: string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
   className?: string;
 
   label?: string;
 
-  options?: SelectOption[];
+  options?: SelectOption<T>[];
 
-  value?: string;
+  value?: T;
 
-  onChange?: (value: string) => void;
+  onChange?: (value: T) => void;
 
   readonly?: boolean;
 }
 
-export const Select = memo(
-  ({ className, label, options, onChange, value, readonly }: SelectProps) => {
-    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-      if (onChange) {
-        onChange(e.target.value);
-      }
-    };
+export const Select = <T extends string>({
+  className,
+  label,
+  options,
+  onChange,
+  value,
+  readonly
+}: SelectProps<T>) => {
+  const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+    if (onChange) {
+      onChange(e.target.value as T);
+    }
+  };
 
-    const optionsList = useMemo(
-      () =>
-        options?.map(opt => (
-          <option
-            className={styles.option}
-            value={opt.value}
-            key={Math.random()}
-          >
-            {opt.content}
-          </option>
-        )),
-      [options]
-    );
+  const optionsList = useMemo(
+    () =>
+      options?.map(opt => (
+        <option className={styles.option} value={opt.value} key={Math.random()}>
+          {opt.content}
+        </option>
+      )),
+    [options]
+  );
 
-    return (
-      <div className={classNames(styles.Wrapper, {}, [className])}>
-        {label && <span className={styles.label}>{`${label}>`}</span>}
-        <select
-          disabled={readonly}
-          className={styles.select}
-          value={value}
-          onChange={onChangeHandler}
-        >
-          {optionsList}
-        </select>
-      </div>
-    );
-  }
-);
+  return (
+    <div className={classNames(styles.Wrapper, {}, [className])}>
+      {label && <span className={styles.label}>{`${label}>`}</span>}
+      <select
+        disabled={readonly}
+        className={styles.select}
+        value={value}
+        onChange={onChangeHandler}
+      >
+        {optionsList}
+      </select>
+    </div>
+  );
+};

@@ -1,0 +1,7 @@
+@import 'app/styles';
+
+.ArticleSortSelector {
+  @include flex($alignItems: center);
+
+  gap: 20px;
+}
