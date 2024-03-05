@@ -4,7 +4,12 @@ import {
   PayloadAction
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleSortField, ArticleView } from 'entities/Article';
+import {
+  Article,
+  ArticleSortField,
+  ArticleType,
+  ArticleView
+} from 'entities/Article';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
 import { OrderBy } from 'shared/types';
@@ -38,6 +43,8 @@ const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
 
   search: '',
 
+  type: ArticleType.ALL,
+
   ids: [],
 
   entities: {},
@@ -66,6 +73,9 @@ const articlesPageSlice = createSlice({
     setSearch: (state, action: PayloadAction<string>) => {
       state.search = action.payload;
     },
+    setType: (state, action: PayloadAction<ArticleType>) => {
+      state.type = action.payload;
+    },
     initState: state => {
       const view = localStorage.getItem(
         ARTICLES_VIEW_LOCALSTORAGE_KEY
@@ -92,7 +102,7 @@ const articlesPageSlice = createSlice({
       .addCase(fetchArticlesList.fulfilled, (state, action) => {
         state.isLoading = false;
 
-        state.hasMore = action.payload.length > 0;
+        state.hasMore = action.payload.length > state.limit;
 
         if (action.meta.arg.replace) {
           articlesAdapter.setAll(state, action.payload);

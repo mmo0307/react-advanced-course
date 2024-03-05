@@ -4,21 +4,25 @@ import { useSelector } from 'react-redux';
 import {
   ArticleSortField,
   ArticleSortSelector,
+  ArticleType,
+  ArticleTypeTabs,
   ArticleView
 } from 'entities/Article';
 import { ArticleViewSelector } from 'feature/ArticleViewSelector';
-import { fetchArticlesList } from 'pages/ArticlePage/model/services/fetchArticlesList/fetchArticlesList';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { OrderBy } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
+import { TabItem } from 'shared/ui/Tabs/Tabs';
 
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';
 import { getArticlePageSort } from '../../model/selectors/getArticlePageSort/getArticlePageSort';
+import { getArticlePageType } from '../../model/selectors/getArticlePageType/getArticlePageType';
 import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 import styles from './ArticlesPageFilters.module.scss';
@@ -37,6 +41,7 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
     const order = useSelector(getArticlePageOrder);
     const sort = useSelector(getArticlePageSort);
     const search = useSelector(getArticlePageSearch);
+    const type = useSelector(getArticlePageType);
 
     const fetchData = useCallback(() => {
       dispatch(fetchArticlesList({ replace: true }));
@@ -84,6 +89,17 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
       [dispatch, debounceFetchData]
     );
 
+    const onChangeType = useCallback(
+      (tab: TabItem) => {
+        dispatch(articlesPageActions.setType(tab.value as ArticleType));
+
+        dispatch(articlesPageActions.setPage(1));
+
+        debounceFetchData();
+      },
+      [dispatch, debounceFetchData]
+    );
+
     return (
       <div className={classNames(styles.ArticlesPageFilters, {}, [className])}>
         <div className={styles.sortWrapper}>
@@ -97,13 +113,15 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
           <ArticleViewSelector view={view} onViewClick={onChangeView} />
         </div>
 
-        <Card className={styles.search}>
+        <Card>
           <Input
             value={search}
             onChange={onChangeSearch}
             placeholder={t('Поиск')}
           />
         </Card>
+
+        <ArticleTypeTabs value={type} onTabClick={onChangeType} />
       </div>
     );
   }

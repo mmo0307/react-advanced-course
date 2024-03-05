@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { ArticleList } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import {
@@ -37,6 +38,8 @@ const reducers: ReducersList = {
 function ArticlesPage({ className }: ArticlePageProps) {
   const { t } = useTranslation();
 
+  const [searchParams] = useSearchParams();
+
   const dispatch = useAppDispatch();
 
   const articles = useSelector(getArticles.selectAll);
@@ -52,7 +55,7 @@ function ArticlesPage({ className }: ArticlePageProps) {
 
   useInitialEffect(() => {
     if (__PROJECT__ !== 'storybook') {
-      dispatch(initArticlesPage());
+      dispatch(initArticlesPage(searchParams));
     }
   });
 

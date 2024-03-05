@@ -5,7 +5,7 @@ import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterD
 import { ArticleItem } from './ArticleItem';
 
 const meta = {
-  title: 'entities/ArticleItem',
+  title: 'entities/Article/ArticleItem',
   component: ArticleItem
 } satisfies Meta<typeof ArticleItem>;
 

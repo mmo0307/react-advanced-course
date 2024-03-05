@@ -1,7 +1,13 @@
 import React, { FC, memo } from 'react';
-import { Article } from 'entities/Article';
-import { ArticleItem, ArticleSkeleton, ArticleView } from 'entities/Article';
+import { useTranslation } from 'react-i18next';
+import {
+  Article,
+  ArticleItem,
+  ArticleSkeleton,
+  ArticleView
+} from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
 
 import styles from './ArticleList.module.scss';
@@ -33,26 +39,41 @@ const ArticleList: FC<ArticleListProps> = memo(
     articles,
     isLoading,
     view = ArticleView.GRID
-  }: ArticleListProps) => (
-    <div
-      className={classNames(styles.ArticleList, {}, [className, styles[view]])}
-    >
-      <View.Condition if={Boolean(articles.length && !isLoading)}>
-        {articles.map(article => (
-          <ArticleItem
-            key={Math.random()}
-            article={article}
-            view={view}
-            className={styles.card}
-          />
-        ))}
-      </View.Condition>
+  }: ArticleListProps) => {
+    const { t } = useTranslation();
 
-      <View.Condition if={Boolean(isLoading)}>
-        {getSkeletons(view)}
-      </View.Condition>
-    </div>
-  )
+    return (
+      <>
+        <View.Condition if={Boolean(!isLoading && !articles.length)}>
+          <Text title={t('Статьи не найдены')} size={TextSize.L} />
+        </View.Condition>
+
+        <View.Condition if={!Boolean(!isLoading && !articles.length)}>
+          <div
+            className={classNames(styles.ArticleList, {}, [
+              className,
+              styles[view]
+            ])}
+          >
+            <View.Condition if={Boolean(articles.length && !isLoading)}>
+              {articles.map(article => (
+                <ArticleItem
+                  key={Math.random()}
+                  article={article}
+                  view={view}
+                  className={styles.card}
+                />
+              ))}
+            </View.Condition>
+
+            <View.Condition if={Boolean(isLoading)}>
+              {getSkeletons(view)}
+            </View.Condition>
+          </div>
+        </View.Condition>
+      </>
+    );
+  }
 );
 
 export { ArticleList };

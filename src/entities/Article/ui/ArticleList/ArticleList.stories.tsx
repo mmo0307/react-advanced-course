@@ -5,7 +5,7 @@ import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterD
 import { ArticleList } from './ArticleList';
 
 const meta = {
-  title: 'entities/ArticleList',
+  title: 'entities/Article/ArticleList',
   component: ArticleList
 } satisfies Meta<typeof ArticleList>;
 

@@ -11,7 +11,7 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'feature/addCommentForm';
 import { LoginSchema } from 'feature/AuthByUserName';
 import { ScrollObjSchema } from 'feature/ScrollSave';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage/model/types/ArticleDetailsCommentsSchema';
+import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlePage';
 
 export interface StateSchema {
