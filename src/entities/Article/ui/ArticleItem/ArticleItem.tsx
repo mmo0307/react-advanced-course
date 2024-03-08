@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { Article } from 'entities/Article';
@@ -28,10 +28,12 @@ interface ArticleItemProps {
   article: Article;
 
   view: ArticleView;
+
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const ArticleItem: FC<ArticleItemProps> = memo(
-  ({ className, article, view }: ArticleItemProps) => {
+  ({ className, article, view, target }: ArticleItemProps) => {
     const { t } = useTranslation();
 
     const navigate = useNavigate();
@@ -51,6 +53,7 @@ const ArticleItem: FC<ArticleItemProps> = memo(
           className,
           styles[view]
         ])}
+        target={target}
       >
         <View.Condition if={view === ArticleView.GRID}>
           <Card className={styles.card}>

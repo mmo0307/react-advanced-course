@@ -7,3 +7,9 @@
 .commentTitle {
   margin-top: 20px;
 }
+
+.recommendationsList {
+  flex-wrap: nowrap;
+
+  overflow: auto hidden;
+}

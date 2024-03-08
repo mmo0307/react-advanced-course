@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Article,
@@ -19,7 +19,9 @@ interface ArticleListProps {
 
   isLoading?: boolean;
 
-  view: ArticleView;
+  view?: ArticleView;
+
+  target?: HTMLAttributeAnchorTarget;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -38,7 +40,8 @@ const ArticleList: FC<ArticleListProps> = memo(
     className,
     articles,
     isLoading,
-    view = ArticleView.GRID
+    view = ArticleView.GRID,
+    target
   }: ArticleListProps) => {
     const { t } = useTranslation();
 
@@ -58,6 +61,7 @@ const ArticleList: FC<ArticleListProps> = memo(
             <View.Condition if={Boolean(articles.length && !isLoading)}>
               {articles.map(article => (
                 <ArticleItem
+                  target={target}
                   key={Math.random()}
                   article={article}
                   view={view}
