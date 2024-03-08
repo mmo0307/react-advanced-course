@@ -10,7 +10,9 @@ import styles from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {
   className?: string;
+
   view: ArticleView;
+
   onViewClick?: (view: ArticleView) => void;
 }
 

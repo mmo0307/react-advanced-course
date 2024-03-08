@@ -44,7 +44,9 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
     const type = useSelector(getArticlePageType);
 
     const fetchData = useCallback(() => {
-      dispatch(fetchArticlesList({ replace: true }));
+      if (__PROJECT__ !== 'storybook') {
+        dispatch(fetchArticlesList({ replace: true }));
+      }
     }, [dispatch]);
 
     const debounceFetchData = useDebounce(fetchData, 1000);

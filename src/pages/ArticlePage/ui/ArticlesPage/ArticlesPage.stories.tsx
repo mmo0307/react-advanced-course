@@ -5,7 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDeco
 import { ArticlesPageAsync as ArticlesPage } from './ArticlesPage.async';
 
 const meta = {
-  title: 'page/ArticlePage',
+  title: 'page/Article/ArticlePage',
   component: ArticlesPage
 } satisfies Meta<typeof ArticlesPage>;
 
