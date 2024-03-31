@@ -31,7 +31,7 @@ export function buildPlugins({
     }),
 
     new CopyPlugin({
-      patterns: [{ from: paths.build, to: paths.buildLocales }]
+      patterns: [{ from: paths.locales, to: paths.buildLocales }]
     })
   ];
 
