@@ -1,5 +1,6 @@
-import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo, useId } from 'react';
 import { useTranslation } from 'react-i18next';
+import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import {
   Article,
   ArticleItem,
@@ -9,6 +10,7 @@ import {
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
+import { PAGE_ID } from 'widgets/Page/ui/Page';
 
 import styles from './ArticleList.module.scss';
 
@@ -19,7 +21,21 @@ interface ArticleListProps {
 
   isLoading?: boolean;
 
+  target?: HTMLAttributeAnchorTarget;
+
   view?: ArticleView;
+}
+
+interface RowProps
+  extends Omit<
+    ListRowProps,
+    'columnIndex' | 'isScrolling' | 'isVisible' | 'parent'
+  > {
+  articles: Article[];
+
+  itemsPerRow: number;
+
+  view: ArticleView;
 
   target?: HTMLAttributeAnchorTarget;
 }
@@ -35,49 +51,115 @@ const getSkeletons = (view: ArticleView) =>
       />
     ));
 
-const ArticleList: FC<ArticleListProps> = memo(
+const Row = ({
+  index,
+  key,
+  style,
+  articles,
+  view,
+  target,
+  itemsPerRow
+}: RowProps) => {
+  const fromIndex = index * itemsPerRow;
+
+  const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+
+  const visibleArticles = articles.slice(fromIndex, toIndex);
+
+  return (
+    <div key={key} style={style} className={styles.row}>
+      {visibleArticles.map(article => (
+        <ArticleItem
+          key={useId()}
+          className={styles.card}
+          article={article}
+          target={target}
+          view={view}
+        />
+      ))}
+    </div>
+  );
+};
+
+export const ArticleList = memo(
   ({
     className,
     articles,
-    isLoading,
     view = ArticleView.GRID,
+    isLoading,
     target
   }: ArticleListProps) => {
     const { t } = useTranslation();
 
+    const isBig = view === ArticleView.LIST;
+
+    const itemsPerRow = isBig ? 1 : 3;
+
+    const rowCount = isBig
+      ? articles.length
+      : Math.ceil(articles.length / itemsPerRow);
+
     return (
       <>
         <View.Condition if={Boolean(!isLoading && !articles.length)}>
-          <Text title={t('Статьи не найдены')} size={TextSize.L} />
-        </View.Condition>
-
-        <View.Condition if={!Boolean(!isLoading && !articles.length)}>
           <div
             className={classNames(styles.ArticleList, {}, [
               className,
               styles[view]
             ])}
           >
-            <View.Condition if={Boolean(articles.length && !isLoading)}>
-              {articles.map(article => (
-                <ArticleItem
-                  target={target}
-                  key={Math.random()}
-                  article={article}
-                  view={view}
-                  className={styles.card}
-                />
-              ))}
-            </View.Condition>
-
-            <View.Condition if={Boolean(isLoading)}>
-              {getSkeletons(view)}
-            </View.Condition>
+            <Text size={TextSize.L} title={t('Статьи не найдены')} />
           </div>
+        </View.Condition>
+
+        <View.Condition if={!Boolean(!isLoading && !articles.length)}>
+          <WindowScroller
+            scrollElement={document.getElementById(PAGE_ID) as Element}
+          >
+            {({
+              height,
+              width,
+              registerChild,
+              onChildScroll,
+              isScrolling,
+              scrollTop
+            }) => (
+              <div
+                /* eslint-disable-next-line */
+                // @ts-ignore
+                ref={registerChild}
+                className={classNames(styles.ArticleList, {}, [
+                  className,
+                  styles[view]
+                ])}
+              >
+                <List
+                  height={height ?? 700}
+                  rowCount={rowCount}
+                  rowHeight={isBig ? 700 : 330}
+                  rowRenderer={({ index, key, style }) => (
+                    <Row
+                      index={index}
+                      key={key}
+                      style={style}
+                      articles={articles}
+                      itemsPerRow={itemsPerRow}
+                      view={view}
+                      target={target}
+                    />
+                  )}
+                  width={width ? width - 80 : 700}
+                  autoHeight
+                  onScroll={onChildScroll}
+                  isScrolling={isScrolling}
+                  scrollTop={scrollTop}
+                />
+                {isLoading && getSkeletons(view)}
+              </div>
+            )}
+          </WindowScroller>
         </View.Condition>
       </>
     );
   }
 );
-
-export { ArticleList };

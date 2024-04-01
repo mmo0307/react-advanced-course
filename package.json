@@ -95,10 +95,10 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "-": "^0.0.1",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@reduxjs/toolkit": "^2.0.1",
     "@storybook/addons": "^7.6.5",
+    "@types/react-virtualized": "^9.21.29",
     "i18next": "^23.7.8",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.2",
@@ -107,7 +107,9 @@
     "react-i18next": "^13.5.0",
     "react-redux": "^9.0.4",
     "react-refresh": "^0.14.0",
-    "react-router-dom": "^6.20.1"
+    "react-router-dom": "^6.20.1",
+    "react-virtualized": "^9.22.5",
+    "react-window": "^1.8.10"
   },
   "loki": {
     "configurations": {
