@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Code } from 'shared/ui/Code/Code';
+
+import { Code } from './Code';
 
 const meta = {
   title: 'shared/Code',

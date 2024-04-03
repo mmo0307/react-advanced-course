@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
-import { ArticleView } from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { View } from 'shared/ui/View/View';
+
+import { ArticleView } from '../../model/types/article';
 
 import styles from './ArticleItem.module.scss';
 

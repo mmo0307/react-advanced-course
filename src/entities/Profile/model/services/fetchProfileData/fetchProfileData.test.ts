@@ -1,7 +1,8 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { fetchProfileData } from 'entities/Profile';
 import { TestAsyncThunk } from 'shared/lib/test/TestAsyncThunk/TestAsyncThunk';
+
+import { fetchProfileData } from '../fetchProfileData/fetchProfileData';
 
 const data = {
   username: 'admin',

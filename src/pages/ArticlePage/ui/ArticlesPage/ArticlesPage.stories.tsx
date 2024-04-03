@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
-import { ArticlesPageAsync as ArticlesPage } from './ArticlesPage.async';
+import ArticlesPage from './ArticlesPage';
 
 const meta = {
   title: 'page/Article/ArticlePage',

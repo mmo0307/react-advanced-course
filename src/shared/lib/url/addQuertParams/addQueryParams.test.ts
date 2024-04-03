@@ -1,4 +1,4 @@
-import { getQueryParams } from 'shared/lib/url/addQuertParams/addQueryParams';
+import { getQueryParams } from '../addQuertParams/addQueryParams';
 
 describe('addQueryParams', () => {
   test('test with one param', () => {

@@ -1,16 +1,14 @@
-import { HTMLAttributeAnchorTarget, memo, useId } from 'react';
+import React, { HTMLAttributeAnchorTarget, memo, useId } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
-import {
-  Article,
-  ArticleItem,
-  ArticleSkeleton,
-  ArticleView
-} from 'entities/Article';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
 import { PAGE_ID } from 'widgets/Page/ui/Page';
+
+import { Article, ArticleView } from '../../model/types/article';
+import { ArticleItem } from '../ArticleItem/ArticleItem';
+import { ArticleSkeleton } from '../ArticleItem/ArticleSkeleton';
 
 import styles from './ArticleList.module.scss';
 
@@ -136,7 +134,7 @@ export const ArticleList = memo(
                 <List
                   height={height ?? 700}
                   rowCount={rowCount}
-                  rowHeight={isBig ? 700 : 330}
+                  rowHeight={isBig ? 700 : 320}
                   rowRenderer={({ index, key, style }) => (
                     <Row
                       index={index}

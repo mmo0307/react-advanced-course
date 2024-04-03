@@ -31,36 +31,36 @@
                 "i18next/no-literal-string": ["error", {
                     "markupOnly": true,
                     "ignoreAttribute": ["data-testid", "to"]
-                }],
-                "simple-import-sort/imports": [
-                    "warn",
-                    {
-                        "groups": [
-                            [
-                                "^react",
-                                "^@?\\w"
-                            ],
-                            [
-                                "^(@|components)(/.*|$)"
-                            ],
-                            [
-                                "^\\u0000"
-                            ],
-                            [
-                                "^\\.\\.(?!/?$)",
-                                "^\\.\\./?$"
-                            ],
-                            [
-                                "^\\./(?=.*/)(?!/?$)",
-                                "^\\.(?!/?$)",
-                                "^\\./?$"
-                            ],
-                            [
-                                "^.+\\.?(css)$"
-                            ]
-                        ]
-                    }
-                ]
+                }]
+//                "simple-import-sort/imports": [
+//                    "warn",
+//                    {
+//                        "groups": [
+//                            [
+//                                "^react",
+//                                "^@?\\w"
+//                            ],
+//                            [
+//                                "^(@|components)(/.*|$)"
+//                            ],
+//                            [
+//                                "^\\u0000"
+//                            ],
+//                            [
+//                                "^\\.\\.(?!/?$)",
+//                                "^\\.\\./?$"
+//                            ],
+//                            [
+//                                "^\\./(?=.*/)(?!/?$)",
+//                                "^\\.(?!/?$)",
+//                                "^\\./?$"
+//                            ],
+//                            [
+//                                "^.+\\.?(css)$"
+//                            ]
+//                        ]
+//                    }
+//                ]
             }
         }
     ],
@@ -72,8 +72,9 @@
     "plugins": [
         "react",
         "@typescript-eslint",
-        "simple-import-sort",
-        "i18next"
+//        "simple-import-sort",
+        "i18next",
+        "plugin-checker"
     ],
     "rules": {
         "no-extra-boolean-cast": 0,
@@ -84,14 +85,15 @@
                 "markupOnly": true
             }
         ],
-        "simple-import-sort/exports": "warn",
-        "simple-import-sort/imports": "warn",
+//        "simple-import-sort/exports": "warn",
+//        "simple-import-sort/imports": "warn",
         "@typescript-eslint/no-empty-interface": [
             "error",
             {
                 "allowSingleExtends": true
             }
-        ]
+        ],
+        "plugin-checker/path-checker": "error"
     },
     "settings": {
         "import/resolver": {

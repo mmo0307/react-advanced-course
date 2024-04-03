@@ -1,12 +1,6 @@
 import React, { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { Article } from 'entities/Article';
-import {
-  ArticleBlockType,
-  ArticleTextBlockType,
-  ArticleView
-} from 'entities/Article';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -18,6 +12,12 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import { Text } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
 
+import {
+  Article,
+  ArticleBlockType,
+  ArticleTextBlockType,
+  ArticleView
+} from '../../model/types/article';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import styles from './ArticleItem.module.scss';

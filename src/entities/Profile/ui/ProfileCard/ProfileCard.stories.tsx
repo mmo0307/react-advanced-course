@@ -2,9 +2,10 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { ProfileCard } from 'entities/Profile';
 import avatar from 'shared/assets/tests/avatar.jpg';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
+import { ProfileCard } from '../ProfileCard/ProfileCard';
 
 const meta = {
   title: 'entities/ProfileCard',

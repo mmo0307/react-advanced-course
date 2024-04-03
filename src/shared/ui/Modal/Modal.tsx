@@ -10,7 +10,8 @@ import React, {
 } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { Portal } from 'shared/ui/Portal/Portal';
+
+import { Portal } from '../Portal/Portal';
 
 import styles from './Modal.module.scss';
 

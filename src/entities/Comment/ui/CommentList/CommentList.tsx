@@ -1,10 +1,11 @@
 import React, { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CommentCard } from 'entities/Comment';
-import { Comment } from 'entities/Comment/model/types/comment';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { Text } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
+
+import { Comment } from '../../model/types/comment';
+import { CommentCard } from '../CommentCard/CommentCard';
 
 import styles from './CommentList.module.scss';
 
