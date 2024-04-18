@@ -1,4 +1,9 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  PropsWithChildren
+} from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Flex.module.scss';
 
@@ -16,7 +21,12 @@ type FlexDirection = 'row' | 'column';
 
 type FlexGap = '4' | '8' | '16' | '32';
 
-interface FlexProps extends PropsWithChildren {
+type DivProps = DetailedHTMLProps<
+  HTMLAttributes<HTMLDivElement>,
+  HTMLDivElement
+>;
+
+interface FlexProps extends PropsWithChildren, DivProps {
   className?: string;
 
   justify?: FlexJustify;

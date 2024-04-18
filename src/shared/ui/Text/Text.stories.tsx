@@ -120,3 +120,27 @@ export const TextAlignRight: Story = {
     align: TextAlign.RIGHT
   }
 };
+
+export const SizeL: Story = {
+  args: {
+    title: 'Title L',
+    text: 'Texts L',
+    size: TextSize.L
+  }
+};
+
+export const SizeM: Story = {
+  args: {
+    title: 'Title M',
+    text: 'Texts M',
+    size: TextSize.M
+  }
+};
+
+export const SizeS: Story = {
+  args: {
+    title: 'Title S',
+    text: 'Texts S',
+    size: TextSize.S
+  }
+};
