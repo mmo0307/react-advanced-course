@@ -27,6 +27,7 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Page } from 'widgets/Page/ui/Page';
 
 import { ProfilePageHeader } from '../ui/ProfilePageHeader/ProfilePageHeader';
+import { VStack } from 'shared/ui/Stack';
 
 interface ProfilePageProps {
   className?: string;
@@ -126,31 +127,33 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
       <Page className={classNames('', {}, [className])}>
-        <ProfilePageHeader />
+        <VStack gap='16' max>
+          <ProfilePageHeader />
 
-        {validateErrors?.length &&
-          validateErrors.map(err => (
-            <Text
-              key={Math.random()}
-              theme={TextTheme.ERROR}
-              text={validateErrorTranslates[err]}
-            />
-          ))}
+          {validateErrors?.length &&
+            validateErrors.map(err => (
+              <Text
+                key={Math.random()}
+                theme={TextTheme.ERROR}
+                text={validateErrorTranslates[err]}
+              />
+            ))}
 
-        <ProfileCard
-          data={formData}
-          isLoading={isLoading}
-          error={error}
-          readonly={readonly}
-          onChangeFirstname={onChangeFirstname}
-          onChangeLastname={onChangeLastname}
-          onChangeAge={onChangeAge}
-          onChangeCity={onChangeCity}
-          onChangeUsername={onChangeUsername}
-          onChangeAvatar={onChangeAvatar}
-          onChangeCurrency={onChangeCurrency}
-          onChangeCountry={onChangeCountry}
-        />
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            readonly={readonly}
+            onChangeFirstname={onChangeFirstname}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeCity={onChangeCity}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+          />
+        </VStack>
       </Page>
     </DynamicModuleLoader>
   );

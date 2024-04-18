@@ -6,8 +6,7 @@ import { View } from 'shared/ui/View/View';
 
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../CommentCard/CommentCard';
-
-import styles from './CommentList.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 interface CommentListProps {
   className?: string;
@@ -22,14 +21,14 @@ const CommentList: FC<CommentListProps> = memo(
     const { t } = useTranslation();
 
     return (
-      <div className={classNames(styles.CommentList, {}, [className])}>
+      <VStack gap='16' max className={classNames('', {}, [className])}>
         <View.Condition if={Boolean(isLoading)}>
           <>
-            <CommentCard isLoading className={styles.comment} />
+            <CommentCard isLoading />
 
-            <CommentCard isLoading className={styles.comment} />
+            <CommentCard isLoading />
 
-            <CommentCard isLoading className={styles.comment} />
+            <CommentCard isLoading />
           </>
         </View.Condition>
 
@@ -39,7 +38,6 @@ const CommentList: FC<CommentListProps> = memo(
               <CommentCard
                 key={Math.random()}
                 isLoading={isLoading}
-                className={styles.comment}
                 comment={comment}
               />
             ))}
@@ -49,7 +47,7 @@ const CommentList: FC<CommentListProps> = memo(
             <Text text={t('Комментарии отсутствуют')} />
           </View.Condition>
         </View.Condition>
-      </div>
+      </VStack>
     );
   }
 );

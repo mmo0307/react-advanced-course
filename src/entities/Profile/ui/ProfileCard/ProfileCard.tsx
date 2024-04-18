@@ -12,6 +12,7 @@ import { View } from 'shared/ui/View/View';
 import { Profile } from '../../model/types/profile';
 
 import styles from './ProfileCard.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 interface ProfileCardProps {
   className?: string;
@@ -59,7 +60,10 @@ const ProfileCard: FC<ProfileCardProps> = ({
   const { t } = useTranslation('profile');
 
   return (
-    <div
+    <VStack
+      max
+      gap='16'
+      justify='center'
       className={classNames(
         styles.ProfileCard,
         {
@@ -84,67 +88,65 @@ const ProfileCard: FC<ProfileCardProps> = ({
       </View.Condition>
 
       <View.Condition if={!Boolean(isLoading) && !Boolean(error)}>
-        <div className={styles.data}>
-          <View.Condition if={Boolean(data?.avatar)}>
-            <Avatar src={data?.avatar} />
-          </View.Condition>
+        <View.Condition if={Boolean(data?.avatar)}>
+          <Avatar src={data?.avatar} />
+        </View.Condition>
 
-          <Input
-            value={data?.firstName}
-            placeholder={t('Ваше имя')}
-            onChange={onChangeFirstname}
-            readonly={readonly}
-          />
+        <Input
+          value={data?.firstName}
+          placeholder={t('Ваше имя')}
+          onChange={onChangeFirstname}
+          readonly={readonly}
+        />
 
-          <Input
-            value={data?.lastName}
-            placeholder={t('Ваша фамилия')}
-            onChange={onChangeLastname}
-            readonly={readonly}
-          />
+        <Input
+          value={data?.lastName}
+          placeholder={t('Ваша фамилия')}
+          onChange={onChangeLastname}
+          readonly={readonly}
+        />
 
-          <Input
-            value={data?.age}
-            placeholder={t('Ваш возраст')}
-            onChange={onChangeAge}
-            readonly={readonly}
-          />
+        <Input
+          value={data?.age}
+          placeholder={t('Ваш возраст')}
+          onChange={onChangeAge}
+          readonly={readonly}
+        />
 
-          <Input
-            value={data?.city}
-            placeholder={t('Город')}
-            onChange={onChangeCity}
-            readonly={readonly}
-          />
+        <Input
+          value={data?.city}
+          placeholder={t('Город')}
+          onChange={onChangeCity}
+          readonly={readonly}
+        />
 
-          <Input
-            value={data?.username}
-            placeholder={t('Введите имя пользователя')}
-            onChange={onChangeUsername}
-            readonly={readonly}
-          />
+        <Input
+          value={data?.username}
+          placeholder={t('Введите имя пользователя')}
+          onChange={onChangeUsername}
+          readonly={readonly}
+        />
 
-          <Input
-            value={data?.avatar}
-            placeholder={t('Введите ссылку на аватар')}
-            onChange={onChangeAvatar}
-            readonly={readonly}
-          />
+        <Input
+          value={data?.avatar}
+          placeholder={t('Введите ссылку на аватар')}
+          onChange={onChangeAvatar}
+          readonly={readonly}
+        />
 
-          <CurrencySelect
-            value={data?.currency}
-            onChange={onChangeCurrency}
-            readonly={readonly}
-          />
+        <CurrencySelect
+          value={data?.currency}
+          onChange={onChangeCurrency}
+          readonly={readonly}
+        />
 
-          <CountrySelect
-            value={data?.country}
-            onChange={onChangeCountry}
-            readonly={readonly}
-          />
-        </div>
+        <CountrySelect
+          value={data?.country}
+          onChange={onChangeCountry}
+          readonly={readonly}
+        />
       </View.Condition>
-    </div>
+    </VStack>
   );
 };
 

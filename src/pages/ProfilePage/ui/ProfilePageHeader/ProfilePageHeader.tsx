@@ -13,8 +13,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonThemes } from 'shared/ui/Button/Button';
 import { Text } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
-
-import styles from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -46,43 +45,35 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames(styles.ProfilePageHeader, {}, [className])}>
+    <HStack
+      max
+      justify='space-between'
+      className={classNames('', {}, [className])}
+    >
       <Text title={t('Профиль')} />
 
       <View.Condition if={Boolean(canEdit)}>
-        <div className={styles.buttonsWrapper}>
+        <>
           <View.Condition if={Boolean(readonly)}>
-            <Button
-              className={styles.editBtn}
-              theme={ButtonThemes.OUTLINE}
-              onClick={onEdit}
-            >
+            <Button theme={ButtonThemes.OUTLINE} onClick={onEdit}>
               {t('Редактировать')}
             </Button>
           </View.Condition>
 
           <View.Condition if={!Boolean(readonly)}>
-            <>
-              <Button
-                className={styles.editBtn}
-                theme={ButtonThemes.OUTLINE_RED}
-                onClick={onCancelEdit}
-              >
+            <HStack>
+              <Button theme={ButtonThemes.OUTLINE_RED} onClick={onCancelEdit}>
                 {t('Отменить')}
               </Button>
 
-              <Button
-                className={styles.saveBtn}
-                theme={ButtonThemes.OUTLINE}
-                onClick={onSave}
-              >
+              <Button theme={ButtonThemes.OUTLINE} onClick={onSave}>
                 {t('Сохранить')}
               </Button>
-            </>
+            </HStack>
           </View.Condition>
-        </div>
+        </>
       </View.Condition>
-    </div>
+    </HStack>
   );
 };
 

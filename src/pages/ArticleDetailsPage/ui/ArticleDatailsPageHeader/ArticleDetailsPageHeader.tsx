@@ -10,7 +10,7 @@ import { View } from 'shared/ui/View/View';
 
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCanEditArticle';
 
-import styles from './ArticleDetailsPageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;
@@ -34,23 +34,21 @@ const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
     }, [article?.id, navigate]);
 
     return (
-      <div
-        className={classNames(styles.ArticleDetailsPageHeader, {}, [className])}
+      <HStack
+        max
+        justify='space-between'
+        className={classNames('', {}, [className])}
       >
         <Button theme={ButtonThemes.OUTLINE} onClick={onBackToList}>
           {t('Назад к  списку')}
         </Button>
 
         <View.Condition if={canEdit}>
-          <Button
-            className={styles.editBtn}
-            theme={ButtonThemes.OUTLINE}
-            onClick={onEditArticle}
-          >
+          <Button theme={ButtonThemes.OUTLINE} onClick={onEditArticle}>
             {t('Редактировать')}
           </Button>
         </View.Condition>
-      </div>
+      </HStack>
     );
   }
 );

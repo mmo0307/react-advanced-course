@@ -1,9 +1,0 @@
-@import 'app/styles';
-
-.ArticleDetailsPageHeader {
-  @include flex($alignItems: center);
-}
-
-.editBtn {
-  margin-left: auto;
-}

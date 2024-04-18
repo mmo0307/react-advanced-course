@@ -9,6 +9,7 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import styles from './Sidebar.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 interface SideBarProps {
   className?: string;
@@ -30,11 +31,11 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
         className
       ])}
     >
-      <div className={styles.items}>
+      <VStack gap='8' className={styles.items}>
         {sidebarItemsList.map(item => (
           <SidebarItem key={Math.random()} item={item} collapsed={collapsed} />
         ))}
-      </div>
+      </VStack>
 
       <Button
         data-testid='sidebar-toggle'

@@ -1,8 +1,6 @@
 @import 'app/styles';
 
 .AddCommentForm {
-  @include flex(space-between, center);
-
   padding: 20px;
 
   border: 1px solid var(--primary-color);

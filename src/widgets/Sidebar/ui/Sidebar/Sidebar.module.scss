@@ -29,6 +29,8 @@
 .collapseBtn {
   position: absolute;
 
+  z-index: 1;
+
   bottom: 30px;
 
   right: -32px;
@@ -39,8 +41,6 @@
 }
 
 .items {
-  @include flex(flex-start, flex-start, column);
-
   margin-left: 30px;
 
   margin-top: 20px;

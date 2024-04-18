@@ -10,6 +10,7 @@ import { View } from 'shared/ui/View/View';
 import { Comment } from '../../model/types/comment';
 
 import styles from './CommentCard.module.scss';
+import { VStack } from 'shared/ui/Stack';
 
 interface CommentCardProps {
   className?: string;
@@ -43,7 +44,11 @@ const CommentCard: FC<CommentCardProps> = memo(
       </View.Condition>
 
       <View.Condition if={Boolean(!isLoading && comment)}>
-        <div className={classNames(styles.CommentCard, {}, [className])}>
+        <VStack
+          max
+          gap='8'
+          className={classNames(styles.CommentCard, {}, [className])}
+        >
           <AppLink
             to={`${RoutePath.profile}/${comment?.user.id}`}
             className={styles.header}
@@ -58,7 +63,7 @@ const CommentCard: FC<CommentCardProps> = memo(
           </AppLink>
 
           <Text className={styles.text} text={comment?.text} />
-        </div>
+        </VStack>
       </View.Condition>
     </>
   )
