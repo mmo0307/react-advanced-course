@@ -96,6 +96,7 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.19",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@reduxjs/toolkit": "^2.0.1",
     "@storybook/addons": "^7.6.5",

@@ -61,7 +61,7 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
           </View.Condition>
 
           <View.Condition if={!Boolean(readonly)}>
-            <HStack>
+            <HStack gap='4'>
               <Button theme={ButtonThemes.OUTLINE_RED} onClick={onCancelEdit}>
                 {t('Отменить')}
               </Button>

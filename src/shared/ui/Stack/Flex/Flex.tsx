@@ -27,8 +27,6 @@ type DivProps = DetailedHTMLProps<
 >;
 
 interface FlexProps extends PropsWithChildren, DivProps {
-  className?: string;
-
   justify?: FlexJustify;
 
   align?: FlexAlign;
