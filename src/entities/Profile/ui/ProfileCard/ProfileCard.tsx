@@ -97,6 +97,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
           placeholder={t('Ваше имя')}
           onChange={onChangeFirstname}
           readonly={readonly}
+          data-testid='ProfileCard.firstName'
         />
 
         <Input
@@ -104,6 +105,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
           placeholder={t('Ваша фамилия')}
           onChange={onChangeLastname}
           readonly={readonly}
+          data-testid='ProfileCard.lastName'
         />
 
         <Input
@@ -111,6 +113,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
           placeholder={t('Ваш возраст')}
           onChange={onChangeAge}
           readonly={readonly}
+          data-testid='ProfileCard.age'
         />
 
         <Input
@@ -118,6 +121,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
           placeholder={t('Город')}
           onChange={onChangeCity}
           readonly={readonly}
+          data-testid='ProfileCard.city'
         />
 
         <Input
@@ -125,6 +129,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
           placeholder={t('Введите имя пользователя')}
           onChange={onChangeUsername}
           readonly={readonly}
+          data-testid='ProfileCard.username'
         />
 
         <Input
@@ -132,6 +137,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
           placeholder={t('Введите ссылку на аватар')}
           onChange={onChangeAvatar}
           readonly={readonly}
+          data-testid='ProfileCard.avatar'
         />
 
         <CurrencySelect

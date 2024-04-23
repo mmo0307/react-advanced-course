@@ -1,4 +1,4 @@
-import React, { HTMLAttributeAnchorTarget, memo, useId } from 'react';
+import React, { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -22,6 +22,8 @@ interface ArticleListProps {
   target?: HTMLAttributeAnchorTarget;
 
   view?: ArticleView;
+
+  virtualized?: boolean;
 }
 
 interface RowProps
@@ -68,7 +70,7 @@ const Row = ({
     <div key={key} style={style} className={styles.row}>
       {visibleArticles.map(article => (
         <ArticleItem
-          key={useId()}
+          key={Math.random()}
           className={styles.card}
           article={article}
           target={target}
@@ -85,7 +87,8 @@ export const ArticleList = memo(
     articles,
     view = ArticleView.GRID,
     isLoading,
-    target
+    target,
+    virtualized = true
   }: ArticleListProps) => {
     const { t } = useTranslation();
 
@@ -111,51 +114,66 @@ export const ArticleList = memo(
         </View.Condition>
 
         <View.Condition if={!Boolean(!isLoading && !articles.length)}>
-          <WindowScroller
-            scrollElement={document.getElementById(PAGE_ID) as Element}
-          >
-            {({
-              height,
-              width,
-              registerChild,
-              onChildScroll,
-              isScrolling,
-              scrollTop
-            }) => (
-              <div
-                /* eslint-disable-next-line */
-                // @ts-ignore
-                ref={registerChild}
-                className={classNames(styles.ArticleList, {}, [
-                  className,
-                  styles[view]
-                ])}
-              >
-                <List
-                  height={height ?? 700}
-                  rowCount={rowCount}
-                  rowHeight={isBig ? 700 : 320}
-                  rowRenderer={({ index, key, style }) => (
-                    <Row
-                      index={index}
-                      key={key}
-                      style={style}
-                      articles={articles}
-                      itemsPerRow={itemsPerRow}
-                      view={view}
-                      target={target}
-                    />
-                  )}
-                  width={width ? width - 80 : 700}
-                  autoHeight
-                  onScroll={onChildScroll}
-                  isScrolling={isScrolling}
-                  scrollTop={scrollTop}
-                />
-                {isLoading && getSkeletons(view)}
-              </div>
-            )}
-          </WindowScroller>
+          <View.Condition if={virtualized}>
+            <WindowScroller
+              scrollElement={document.getElementById(PAGE_ID) as Element}
+            >
+              {({
+                height,
+                width,
+                registerChild,
+                onChildScroll,
+                isScrolling,
+                scrollTop
+              }) => (
+                <div
+                  /* eslint-disable-next-line */
+                  // @ts-ignore
+                  ref={registerChild}
+                  className={classNames(styles.ArticleList, {}, [
+                    className,
+                    styles[view]
+                  ])}
+                >
+                  <List
+                    height={height ?? 700}
+                    rowCount={rowCount}
+                    rowHeight={isBig ? 700 : 320}
+                    rowRenderer={({ index, key, style }) => (
+                      <Row
+                        index={index}
+                        key={key}
+                        style={style}
+                        articles={articles}
+                        itemsPerRow={itemsPerRow}
+                        view={view}
+                        target={target}
+                      />
+                    )}
+                    width={width ? width - 80 : 700}
+                    autoHeight
+                    onScroll={onChildScroll}
+                    isScrolling={isScrolling}
+                    scrollTop={scrollTop}
+                  />
+
+                  {isLoading && getSkeletons(view)}
+                </div>
+              )}
+            </WindowScroller>
+          </View.Condition>
+
+          <View.Condition if={!virtualized}>
+            {articles.map(article => (
+              <ArticleItem
+                key={Math.random()}
+                className={styles.card}
+                article={article}
+                target={target}
+                view={view}
+              />
+            ))}
+          </View.Condition>
         </View.Condition>
       </>
     );

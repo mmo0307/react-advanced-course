@@ -122,7 +122,7 @@ export const EditableProfileCard = memo(
       if (id) {
         dispatch(fetchProfileData(id));
       }
-    }, [dispatch]);
+    });
 
     return (
       <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
@@ -135,6 +135,7 @@ export const EditableProfileCard = memo(
                 key={Math.random()}
                 theme={TextTheme.ERROR}
                 text={validateErrorTranslates[err]}
+                data-testid='EditableProfileCard.Error'
               />
             ))}
           </View.Condition>

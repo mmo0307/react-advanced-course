@@ -54,18 +54,30 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
       <View.Condition if={Boolean(canEdit)}>
         <>
           <View.Condition if={Boolean(readonly)}>
-            <Button theme={ButtonThemes.OUTLINE} onClick={onEdit}>
+            <Button
+              theme={ButtonThemes.OUTLINE}
+              onClick={onEdit}
+              data-testid='EditableProfileCardHeader.EditButton'
+            >
               {t('Редактировать')}
             </Button>
           </View.Condition>
 
           <View.Condition if={!Boolean(readonly)}>
             <HStack gap='4'>
-              <Button theme={ButtonThemes.OUTLINE_RED} onClick={onCancelEdit}>
+              <Button
+                theme={ButtonThemes.OUTLINE_RED}
+                onClick={onCancelEdit}
+                data-testid='EditableProfileCardHeader.CancelButton'
+              >
                 {t('Отменить')}
               </Button>
 
-              <Button theme={ButtonThemes.OUTLINE} onClick={onSave}>
+              <Button
+                theme={ButtonThemes.OUTLINE}
+                onClick={onSave}
+                data-testid='EditableProfileCardHeader.SaveButton'
+              >
                 {t('Сохранить')}
               </Button>
             </HStack>
