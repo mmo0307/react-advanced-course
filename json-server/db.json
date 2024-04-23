@@ -1522,14 +1522,14 @@
   "profile": [
     {
       "id": "1",
-      "firstName": "Misha2",
+      "firstName": "Misha5",
       "lastName": "Mishin",
       "age": 22,
       "city": "Dnipro",
       "username": "misha7737",
       "avatar": "https://avatarfiles.alphacoders.com/371/371697.png",
-      "currency": "USD",
-      "country": "Kazahstan"
+      "currency": "EUR",
+      "country": "Ukraine"
     },
     {
       "id": "2",

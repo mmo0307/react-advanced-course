@@ -8,8 +8,7 @@ import {
   ArticleTypeTabs,
   ArticleView
 } from 'entities/Article';
-import { ArticleViewSelector } from 'feature/ArticleViewSelector';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useDebounce } from 'shared/lib/hooks/useDebounce';
 import { OrderBy } from 'shared/types';
@@ -26,6 +25,8 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 import styles from './ArticlesPageFilters.module.scss';
+import { VStack } from 'shared/ui/Stack';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 interface ArticlesPageFiltersProps {
   className?: string;
@@ -103,7 +104,12 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
     );
 
     return (
-      <div className={classNames(styles.ArticlesPageFilters, {}, [className])}>
+      <VStack
+        max
+        gap='16'
+        align='stretch'
+        className={classNames('', {}, [className])}
+      >
         <div className={styles.sortWrapper}>
           <ArticleSortSelector
             order={order}
@@ -124,7 +130,7 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
         </Card>
 
         <ArticleTypeTabs value={type} onTabClick={onChangeType} />
-      </div>
+      </VStack>
     );
   }
 );

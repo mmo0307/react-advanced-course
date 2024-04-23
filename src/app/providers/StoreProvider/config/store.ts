@@ -1,10 +1,11 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { userReducer } from 'entities/User';
-import { scrollReducer } from 'feature/ScrollSave';
+import { scrollReducer } from 'features/ScrollSave';
 import { $api } from 'shared/api/api';
 
 import { StateSchema, ThunkExtraArg } from './StateSchema';
+import { rtkApi } from 'shared/api/rtlApi';
 
 function createReduxStore(
   initialState?: StateSchema,
@@ -13,7 +14,8 @@ function createReduxStore(
   const reducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
-    scrollPosition: scrollReducer
+    scrollPosition: scrollReducer,
+    [rtkApi.reducerPath]: rtkApi.reducer
   };
 
   const reducerManager = createReducerManager(reducer);
@@ -31,7 +33,7 @@ function createReduxStore(
         thunk: {
           extraArgument: extraArg
         }
-      })
+      }).concat(rtkApi.middleware)
   });
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment

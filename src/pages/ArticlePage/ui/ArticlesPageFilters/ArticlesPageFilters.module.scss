@@ -1,11 +1,5 @@
 @import 'app/styles';
 
-.ArticlesPageFilters {
-  display: grid;
-
-  gap: 16px;
-}
-
 .sortWrapper {
   @include flex(space-between, center);
 }

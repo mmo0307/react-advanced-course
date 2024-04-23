@@ -2,7 +2,7 @@ import React, { FC, memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
-import { LoginModal } from 'feature/AuthByUserName';
+import { LoginModal } from 'features/AuthByUserName';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';

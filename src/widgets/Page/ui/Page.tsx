@@ -8,7 +8,7 @@ import React, {
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getScrollByPath, scrollActions } from 'feature/ScrollSave';
+import { getScrollByPath, scrollActions } from 'features/ScrollSave';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
