@@ -12,6 +12,8 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
 
 import styles from './Navbar.module.scss';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar/Avatar';
 
 interface NavbarProps {
   className?: string;
@@ -55,13 +57,21 @@ const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
       </AppLink>
 
       <View.Condition if={Boolean(authData)}>
-        <Button
-          theme={ButtonThemes.CLEAR_INVERTED}
-          className={styles.links}
-          onClick={onLogout}
-        >
-          {t('Выйти')}
-        </Button>
+        <Dropdown
+          direction='down-left'
+          className={styles.dropdown}
+          items={[
+            {
+              content: t('Профиль'),
+              href: RoutePath.profile + `/${authData?.id}`
+            },
+            {
+              onClick: onLogout,
+              content: t('Выйти')
+            }
+          ]}
+          trigger={<Avatar size={30} src={authData?.avatar} />}
+        />
       </View.Condition>
 
       <View.Condition if={!authData}>

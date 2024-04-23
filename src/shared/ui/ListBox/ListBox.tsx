@@ -4,6 +4,7 @@ import styles from './ListBox.module.scss';
 import { Listbox as HListbox } from '@headlessui/react';
 import { Button } from '../Button/Button';
 import { HStack } from '../Stack';
+import { DropdownDirection } from 'shared/types/ui';
 
 export interface ListBoxItem {
   value: string;
@@ -12,8 +13,6 @@ export interface ListBoxItem {
 
   disabled?: boolean;
 }
-
-type DropdownDirection = 'up' | 'down';
 
 interface ListBoxProps extends PropsWithChildren {
   className?: string;
@@ -41,7 +40,7 @@ const ListBox: FC<ListBoxProps> = memo(
     value,
     defaultValue,
     readonly,
-    direction = 'down',
+    direction = 'down-left',
     onChange
   }: ListBoxProps) => (
     <HStack gap='4'>

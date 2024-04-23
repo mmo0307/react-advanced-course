@@ -1,10 +1,10 @@
 @import 'app/styles';
 
-.ListBox {
+.Dropdown {
   position: relative;
 }
 
-.trigger {
+.button {
   margin: 0;
 
   padding: 0;
@@ -13,33 +13,45 @@
 
   border: none;
 
+  cursor: pointer;
+
   outline: none;
 }
 
-.options {
+.menu {
   position: absolute;
 
   z-index: 10000;
 
-  min-width: 100%;
+  display: flex;
 
-  background-color: var(--listbox-bg);
+  flex-direction: column;
 
-  border-radius: 12px;
+  background-color: var(--card-bg);
 
-  box-shadow: 4px 4px 8px var(--listbox-bg);
+  border: 1px solid var(--primary-color);
+
+  border-radius: 8px;
 }
 
 .item {
-  padding: 10px 20px;
+  width: 100%;
+
+  padding: 10px 25px;
+
+  color: var(--primary-color);
+
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  outline: none;
 }
 
 .active {
   background-color: var(--inverted-primary-color);
-}
-
-.disabled {
-  opacity: 0.7;
 }
 
 .up-left {
