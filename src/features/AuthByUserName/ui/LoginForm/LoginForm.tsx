@@ -19,6 +19,8 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { loginByUsername } from '../../model/services/loginByUserName/loginByUsername';
 
 import styles from './LoginForm.module.scss';
+import { useNavigate } from 'react-router-dom';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 
 interface LoginFormProps {
   className?: string;
@@ -33,6 +35,8 @@ const initialReducers: ReducersList = {
 const LoginForm: FC<LoginFormProps> = memo(
   ({ className, onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
+
+    const navigate = useNavigate();
 
     const dispatch = useAppDispatch();
 
@@ -63,6 +67,12 @@ const LoginForm: FC<LoginFormProps> = memo(
 
       if (result.meta.requestStatus === 'fulfilled') {
         onSuccess();
+
+        /* eslint-disable-next-line */
+        // @ts-ignore
+        const id = result.payload?.id;
+
+        navigate(`${RoutePath.profile}/${id}`);
       }
     }, [onSuccess, dispatch, password, username]);
 

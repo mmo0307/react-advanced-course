@@ -21,7 +21,7 @@
 .menu {
   position: absolute;
 
-  z-index: 10000;
+  z-index: var(--z-index);
 
   display: flex;
 
