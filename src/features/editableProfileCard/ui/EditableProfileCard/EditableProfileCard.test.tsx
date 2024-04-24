@@ -3,7 +3,7 @@ import { componentRender } from 'shared/lib/test/componentRender/componentRender
 
 import { EditableProfileCard } from './EditableProfileCard';
 import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { Profile } from 'entities/Profile';
 import { profileReducer } from '../../model/slice/profileSlice';
 import userEvent from '@testing-library/user-event';
@@ -15,7 +15,7 @@ const profile: Profile = {
   lastName: 'admin',
   age: 20,
   currency: Currency.USD,
-  country: Country.Ukraine,
+  country: Index.Ukraine,
   city: 'Kyiv',
   username: 'admin'
 };

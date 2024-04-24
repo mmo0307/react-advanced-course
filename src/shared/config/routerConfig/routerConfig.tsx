@@ -8,27 +8,15 @@ import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { AdminPanelPage } from 'pages/AdminPanelPage';
-import { UserRole } from 'entities/User/model/types/userSchema';
 import { ForbiddenPage } from 'pages/ForbiddenPage';
+import { UserRole } from 'entities/User';
+import { AppRoutes } from './model/consts/routerConfigConsts';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
 
   roles?: UserRole[];
 };
-
-export enum AppRoutes {
-  MAIN = 'main',
-  ABOUT = 'about',
-  PROFILE = 'profile',
-  ARTICLE = 'articles',
-  ARTICLE_DETAILS = 'article_details',
-  ARTICLE_CREATE = 'article_create',
-  ARTICLE_EDIT = 'article_edit',
-  ADMIN_PANEL = 'admin_panel',
-  FORBIDDEN = 'forbidden',
-  NOT_FOUND = 'not_found'
-}
 
 export const RoutePath: Record<AppRoutes, string> = {
   [AppRoutes.MAIN]: '/',

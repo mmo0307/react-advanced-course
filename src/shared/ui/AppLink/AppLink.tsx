@@ -1,21 +1,10 @@
-import React, { memo, ReactNode } from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import React, { memo } from 'react';
+import { Link } from 'react-router-dom';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import styles from './AppLink.module.scss';
-
-export enum AppLinkThemes {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary'
-}
-
-interface AppLinkProps extends LinkProps {
-  className?: string;
-
-  theme?: AppLinkThemes;
-
-  children?: ReactNode;
-}
+import { AppLinkThemes } from './model/consts';
+import { AppLinkProps } from './model/types';
 
 const AppLink = memo(
   ({

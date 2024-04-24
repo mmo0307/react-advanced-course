@@ -1,13 +1,13 @@
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../consts';
 import { validateProfileData } from './validateProfileData';
 
 const data = {
   username: 'Misha37',
   age: 22,
-  country: Country.Ukraine,
+  country: Index.Ukraine,
   lastName: 'Mishin',
   firstName: 'Misha',
   city: 'Dnipro',

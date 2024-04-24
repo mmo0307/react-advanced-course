@@ -1,17 +1,15 @@
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { profileActions, profileReducer } from './profileSlice';
-import {
-  ProfileSchema,
-  ValidateProfileError
-} from '../../model/types/editableProfileCardSchema';
+import { ProfileSchema } from '../../model/types/editableProfileCardSchema';
+import { ValidateProfileError } from '../consts';
 
 const data = {
   username: 'admin',
   age: 22,
-  country: Country.Ukraine,
+  country: Index.Ukraine,
   lastName: 'Blog tv',
   firstName: 'asd',
   city: 'asf',

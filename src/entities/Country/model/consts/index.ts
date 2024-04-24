@@ -1,4 +1,4 @@
-export enum Country {
+export enum Index {
   Russia = 'Russia',
   Belarus = 'Belarus',
   Ukraine = 'Ukraine',

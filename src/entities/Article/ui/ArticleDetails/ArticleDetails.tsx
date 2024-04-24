@@ -12,7 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
 
 import {
@@ -22,13 +22,15 @@ import {
 } from '../../model/selectors';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
 import styles from './ArticleDetails.module.scss';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlockType } from '../../model/const';
+import { TextAlign, TextSize } from 'shared/ui/Text/model/consts';
 
 interface ArticleDetailsProps {
   className?: string;

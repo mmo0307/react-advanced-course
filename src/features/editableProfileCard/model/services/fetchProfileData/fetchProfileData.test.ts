@@ -1,4 +1,4 @@
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { TestAsyncThunk } from 'shared/lib/test/TestAsyncThunk/TestAsyncThunk';
 
@@ -7,7 +7,7 @@ import { fetchProfileData } from './fetchProfileData';
 const data = {
   username: 'admin',
   age: 22,
-  country: Country.Ukraine,
+  country: Index.Ukraine,
   lastName: 'Blog tv',
   firstName: 'asd',
   city: 'asf',

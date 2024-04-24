@@ -11,15 +11,18 @@ import { LoginModal } from 'features/AuthByUserName';
 import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { AppLink, AppLinkThemes } from 'shared/ui/AppLink/AppLink';
-import { Button, ButtonThemes } from 'shared/ui/Button/Button';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { Button } from 'shared/ui/Button/Button';
+import { Text } from 'shared/ui/Text/Text';
 import { View } from 'shared/ui/View/View';
 
 import styles from './Navbar.module.scss';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { useNavigate } from 'react-router-dom';
+import { TextTheme } from 'shared/ui/Text/model/consts';
+import { AppLinkThemes } from 'shared/ui/AppLink/model/consts';
+import { ButtonThemes } from 'shared/ui/Button/model/consts';
 
 interface NavbarProps {
   className?: string;

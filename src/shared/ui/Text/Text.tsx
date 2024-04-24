@@ -2,42 +2,8 @@ import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 
 import styles from './Text.module.scss';
-
-export enum TextTheme {
-  PRIMARY = 'primary',
-  INVERTED = 'inverted',
-  ERROR = 'error'
-}
-
-export enum TextAlign {
-  LEFT = 'left',
-  CENTER = 'center',
-  RIGHT = 'right'
-}
-
-export enum TextSize {
-  S = 'size_s',
-  M = 'size_m',
-  L = 'size_l'
-}
-
-interface TextProps {
-  className?: string;
-
-  title?: string;
-
-  text?: string;
-
-  theme?: TextTheme;
-
-  align?: TextAlign;
-
-  size?: TextSize;
-
-  'data-testid'?: string;
-}
-
-type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+import { TextAlign, TextSize, TextTheme } from './model/consts';
+import { HeaderTagType, TextProps } from './model/types';
 
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   [TextSize.S]: 'h3',

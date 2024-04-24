@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
 import { getProfileData } from '../getProfileData/getProfileData';
@@ -9,7 +9,7 @@ describe('getProfileData.test', () => {
     const data = {
       username: 'admin',
       age: 22,
-      country: Country.Ukraine,
+      country: Index.Ukraine,
       lastName: 'Blog tv',
       firstName: 'asd',
       city: 'asf',

@@ -1,6 +1,6 @@
 export * from './model/types/article';
-export { ArticleSortField } from './model/types/article';
-export { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
+export { ArticleSortField } from './model/const';
+export type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 export { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
 export { ArticleItem } from './ui/ArticleItem/ArticleItem';
 export { ArticleSkeleton } from './ui/ArticleItem/ArticleSkeleton';

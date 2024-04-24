@@ -4,7 +4,7 @@ import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { View } from 'shared/ui/View/View';
 
-import { ArticleView } from '../../model/types/article';
+import { ArticleView } from '../../model/const';
 
 import styles from './ArticleItem.module.scss';
 

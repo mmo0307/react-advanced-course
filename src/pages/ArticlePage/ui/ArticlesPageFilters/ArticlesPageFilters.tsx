@@ -4,9 +4,7 @@ import { useSelector } from 'react-redux';
 import {
   ArticleSortField,
   ArticleSortSelector,
-  ArticleType,
-  ArticleTypeTabs,
-  ArticleView
+  ArticleTypeTabs
 } from 'entities/Article';
 import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -27,6 +25,7 @@ import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import styles from './ArticlesPageFilters.module.scss';
 import { VStack } from 'shared/ui/Stack';
 import { classNames } from 'shared/lib/classNames/classNames';
+import { ArticleType, ArticleView } from 'entities/Article/model/const';
 
 interface ArticlesPageFiltersProps {
   className?: string;

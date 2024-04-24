@@ -7,9 +7,9 @@ import {
   ReducersList
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, ButtonThemes } from 'shared/ui/Button/Button';
+import { Button } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 
 import { getAddCommentFormError } from '../model/selectors/getAddCommentFormError/getAddCommentFormError';
 import { getAddCommentFormText } from '../model/selectors/getAddCommentFormText/getAddCommentFormText';
@@ -20,6 +20,8 @@ import {
 
 import styles from './AddCommentForm.module.scss';
 import { HStack } from 'shared/ui/Stack';
+import { ButtonThemes } from 'shared/ui/Button/model/consts';
+import { TextTheme } from 'shared/ui/Text/model/consts';
 
 export interface AddCommentFormProps {
   className?: string;

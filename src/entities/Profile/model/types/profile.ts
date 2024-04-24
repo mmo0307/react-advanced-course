@@ -1,4 +1,4 @@
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 
 export interface Profile {
@@ -12,7 +12,7 @@ export interface Profile {
 
   currency?: Currency;
 
-  country?: Country;
+  country?: Index;
 
   city?: string;
 

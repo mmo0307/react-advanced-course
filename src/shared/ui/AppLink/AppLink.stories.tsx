@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
-import { AppLink, AppLinkThemes } from './AppLink';
+import { AppLink } from './AppLink';
+import { AppLinkThemes } from './model/consts';
 
 const meta = {
   title: 'shared/AppLink',

@@ -1,8 +1,4 @@
-export enum UserRole {
-  ADMIN = 'ADMIN',
-  USER = 'USER',
-  MANAGER = 'MANAGER'
-}
+import { UserRole } from '../consts';
 
 interface User {
   id: string;
@@ -20,4 +16,4 @@ interface UserSchema {
   _inited: boolean;
 }
 
-export { User, UserSchema };
+export type { User, UserSchema };

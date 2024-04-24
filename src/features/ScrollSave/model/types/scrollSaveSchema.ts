@@ -4,4 +4,4 @@ interface ScrollObjSchema {
   scroll: ScrollSchema;
 }
 
-export { ScrollObjSchema, ScrollSchema };
+export type { ScrollObjSchema, ScrollSchema };

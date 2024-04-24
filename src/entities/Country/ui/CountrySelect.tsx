@@ -2,25 +2,25 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames/classNames';
 
-import { Country } from '../model/types/country';
+import { Index } from '../model/consts';
 import { ListBox } from 'shared/ui/ListBox/ListBox';
 
 interface CountrySelectProps {
   className?: string;
 
-  value?: Country;
+  value?: Index;
 
-  onChange?: (value: Country) => void;
+  onChange?: (value: Index) => void;
 
   readonly?: boolean;
 }
 
 const options = [
-  { value: Country.Armenia, content: Country.Armenia },
-  { value: Country.Russia, content: Country.Russia },
-  { value: Country.Belarus, content: Country.Belarus },
-  { value: Country.Kazakhstan, content: Country.Kazakhstan },
-  { value: Country.Ukraine, content: Country.Ukraine }
+  { value: Index.Armenia, content: Index.Armenia },
+  { value: Index.Russia, content: Index.Russia },
+  { value: Index.Belarus, content: Index.Belarus },
+  { value: Index.Kazakhstan, content: Index.Kazakhstan },
+  { value: Index.Ukraine, content: Index.Ukraine }
 ];
 
 export const CountrySelect = memo(
@@ -29,7 +29,7 @@ export const CountrySelect = memo(
 
     const onChangeHandler = useCallback(
       (value: string) => {
-        onChange?.(value as Country);
+        onChange?.(value as Index);
       },
       [onChange]
     );

@@ -1,14 +1,14 @@
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { Currency } from 'entities/Currency';
 import { TestAsyncThunk } from 'shared/lib/test/TestAsyncThunk/TestAsyncThunk';
 
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../consts';
 import { updateProfileData } from './updateProfileData';
 
 const data = {
   username: 'admin',
   age: 22,
-  country: Country.Ukraine,
+  country: Index.Ukraine,
   lastName: 'Blog tv',
   firstName: 'asd',
   city: 'asf',

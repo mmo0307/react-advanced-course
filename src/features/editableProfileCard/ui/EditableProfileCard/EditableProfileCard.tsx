@@ -10,11 +10,10 @@ import {
 } from '../../model/selectors';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { Index } from 'entities/Country';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { ValidateProfileError } from '../../model/types/editableProfileCardSchema';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { ProfileCard } from 'entities/Profile';
@@ -25,6 +24,8 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from 'shared/ui/Stack';
+import { ValidateProfileError } from '../../model/consts';
+import { TextTheme } from 'shared/ui/Text/model/consts';
 
 interface EditableProfileCardProps {
   className?: string;
@@ -112,7 +113,7 @@ export const EditableProfileCard = memo(
     );
 
     const onChangeCountry = useCallback(
-      (country: Country) => {
+      (country: Index) => {
         dispatch(profileActions.updateProfile({ country }));
       },
       [dispatch]

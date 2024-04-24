@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Text, TextAlign, TextSize, TextTheme } from './Text';
+import { Text } from './Text';
+import { TextAlign, TextSize, TextTheme } from './model/consts';
 
 const meta = {
   title: 'shared/Text',
