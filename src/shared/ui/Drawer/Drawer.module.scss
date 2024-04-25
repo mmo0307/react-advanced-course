@@ -3,7 +3,7 @@
 .Drawer {
   position: fixed;
 
-  z-index: var(--z-index-background);
+  z-index: var(--modal-z-index);
 
   top: 0;
 
@@ -16,76 +16,28 @@
   display: flex;
 
   align-items: flex-end;
-
-  opacity: 0;
-
-  pointer-events: none;
 }
 
-.content {
-  position: relative;
+.sheet {
+  position: fixed;
 
   z-index: var(--modal-z-index);
 
-  bottom: 0;
+  left: 2vw;
 
-  transform: translateY(100%);
+  transform: translateY(0%);
 
-  width: 100%;
+  width: 96vw;
 
-  height: 70%;
+  height: calc(100vh + 100px);
 
-  min-height: 100px;
-
-  padding: 20px;
-
-  overflow-x: hidden;
-
-  overflow-y: auto;
+  padding: 15px;
 
   background: var(--bg-color);
 
-  border-top-left-radius: 12px;
-
-  border-top-right-radius: 12px;
-
-  transition: 0.3s transform;
-}
-
-.content::before {
-  content: '';
-
-  position: relative;
-
-  bottom: 40px;
-
-  display: block;
-
-  width: 100px;
-
-  height: 10px;
-
-  margin: auto;
-
-  background: var(--bg-color);
-
-  border-radius: 12px;
-}
-
-.opened {
-  z-index: var(--modal-z-index);
+  border-radius: 12px 12px 0;
 
   opacity: 1;
 
-  pointer-events: auto;
-
-  .content {
-    transform: translateY(0%);
-  }
-}
-
-.isClosing {
-  .content {
-    transform: scale(0.2);
-  }
+  touch-action: none;
 }

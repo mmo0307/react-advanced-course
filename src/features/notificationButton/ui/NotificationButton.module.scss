@@ -2,9 +2,16 @@
 
 .notifications {
   width: 500px;
+
   min-height: 150px;
 
   max-height: 300px;
 
   overflow-y: auto;
+
+  @media (max-width: 768px) {
+    width: auto;
+
+    max-height: fit-content;
+  }
 }
