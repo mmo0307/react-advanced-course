@@ -1,11 +1,11 @@
 import React, { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import styles from './NotificationItem.module.scss';
-import { Text } from 'shared/ui/Text/Text';
-import { Card } from 'shared/ui/Card/Card';
-import { CardTheme } from 'shared/ui/Card/model/consts';
+import { Text } from '@/shared/ui/Text/Text';
+import { Card } from '@/shared/ui/Card/Card';
+import { CardTheme } from '@/shared/ui/Card/model/consts';
 import { Notification } from '../../model/types/notifications';
-import { View } from 'shared/ui/View/View';
+import { View } from '@/shared/ui/View/View';
 
 interface NotificationItemProps {
   className?: string;

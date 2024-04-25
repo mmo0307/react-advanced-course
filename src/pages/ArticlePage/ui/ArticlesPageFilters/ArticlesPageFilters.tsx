@@ -5,14 +5,14 @@ import {
   ArticleSortField,
   ArticleSortSelector,
   ArticleTypeTabs
-} from 'entities/Article';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce';
-import { OrderBy } from 'shared/types';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { TabItem } from 'shared/ui/Tabs/Tabs';
+} from '@/entities/Article';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce';
+import { OrderBy } from '@/shared/types';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { TabItem } from '@/shared/ui/Tabs/Tabs';
 
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';
@@ -23,9 +23,9 @@ import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchA
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
 import styles from './ArticlesPageFilters.module.scss';
-import { VStack } from 'shared/ui/Stack';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleType, ArticleView } from 'entities/Article/model/const';
+import { VStack } from '@/shared/ui/Stack';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleType, ArticleView } from '@/entities/Article/model/const';
 
 interface ArticlesPageFiltersProps {
   className?: string;

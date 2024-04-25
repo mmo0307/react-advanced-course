@@ -7,13 +7,13 @@ import React, {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { getScrollByPath, scrollActions } from 'features/ScrollSave';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { useThrottle } from 'shared/lib/hooks/useTrottle';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { getScrollByPath, scrollActions } from '@/features/ScrollSave';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { useThrottle } from '@/shared/lib/hooks/useTrottle';
 
 import styles from './Page.module.scss';
 

@@ -1,7 +1,7 @@
 import React, { FC, memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Page } from 'widgets/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Page } from '@/widgets/Page';
 
 import styles from './ArticleEditPage.module.scss';
 

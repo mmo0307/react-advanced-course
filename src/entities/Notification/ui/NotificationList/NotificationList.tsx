@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useGetNotificationsQuery } from '../../api/notificationApi';
-import { VStack } from 'shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { NotificationItem } from '../../ui/NotificationItem/NotificationItem';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { View } from 'shared/ui/View/View';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { View } from '@/shared/ui/View/View';
 
 interface NotificationListProps {
   className?: string;

@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import styles from './Text.module.scss';
 import { TextAlign, TextSize, TextTheme } from './model/consts';

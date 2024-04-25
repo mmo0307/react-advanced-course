@@ -1,16 +1,16 @@
 import React, { FC, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { HStack } from 'shared/ui/Stack';
-import { Text } from 'shared/ui/Text/Text';
-import { View } from 'shared/ui/View/View';
-import { Button } from 'shared/ui/Button/Button';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { HStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text/Text';
+import { View } from '@/shared/ui/View/View';
+import { Button } from '@/shared/ui/Button/Button';
 import { getProfileCanEdit, getProfileReadonly } from '../../model/selectors';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { ButtonThemes } from 'shared/ui/Button/model/consts';
+import { ButtonThemes } from '@/shared/ui/Button/model/consts';
 
 interface EditableProfileCardHeaderProps {
   className?: string;

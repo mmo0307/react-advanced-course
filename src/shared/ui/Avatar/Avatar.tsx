@@ -1,6 +1,6 @@
 import React, { CSSProperties, FC, useMemo } from 'react';
-import avatar from 'shared/assets/images/avatar.jpg';
-import { classNames } from 'shared/lib/classNames/classNames';
+import avatar from '@/shared/assets/images/avatar.jpg';
+import { classNames } from '@/shared/lib/classNames/classNames';
 
 import styles from './Avatar.module.scss';
 

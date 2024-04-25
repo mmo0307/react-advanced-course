@@ -1,10 +1,10 @@
 import React, { FC, memo } from 'react';
-import { Theme, useTheme } from 'app/providers/ThemeProvider';
-import MoonIcon from 'shared/assets/icons/moon.svg';
-import SunIcon from 'shared/assets/icons/sun.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
-import { ButtonThemes } from 'shared/ui/Button/model/consts';
+import { Theme, useTheme } from '@/app/providers/ThemeProvider';
+import MoonIcon from '@/shared/assets/icons/moon.svg';
+import SunIcon from '@/shared/assets/icons/sun.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button/Button';
+import { ButtonThemes } from '@/shared/ui/Button/model/consts';
 
 interface ThemeSwitcherProps {
   className?: string;

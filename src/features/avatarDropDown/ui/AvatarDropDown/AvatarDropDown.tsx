@@ -1,16 +1,16 @@
 import React, { FC, useCallback, useMemo } from 'react';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Dropdown } from 'shared/ui/Popups';
-import { RoutePath } from 'shared/config/routerConfig/routerConfig';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Dropdown } from '@/shared/ui/Popups';
+import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
   userActions
-} from 'entities/User';
+} from '@/entities/User';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTranslation } from 'react-i18next';
 
 interface AvatarDropDownProps {

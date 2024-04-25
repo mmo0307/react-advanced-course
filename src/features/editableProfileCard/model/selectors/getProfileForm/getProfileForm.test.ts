@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Index } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Index } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
 
 import { getProfileForm } from '../getProfileForm/getProfileForm';
 

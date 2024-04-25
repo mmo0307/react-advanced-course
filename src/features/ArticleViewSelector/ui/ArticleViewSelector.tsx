@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
-import GridIcon from 'shared/assets/icons/grid.svg';
-import ListIcon from 'shared/assets/icons/list.svg';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { Button } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
+import GridIcon from '@/shared/assets/icons/grid.svg';
+import ListIcon from '@/shared/assets/icons/list.svg';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
 
 import styles from './ArticleViewSelector.module.scss';
-import { ArticleView } from 'entities/Article/model/const';
-import { ButtonThemes } from 'shared/ui/Button/model/consts';
+import { ArticleView } from '@/entities/Article/model/const';
+import { ButtonThemes } from '@/shared/ui/Button/model/consts';
 
 interface ArticleViewSelectorProps {
   className?: string;

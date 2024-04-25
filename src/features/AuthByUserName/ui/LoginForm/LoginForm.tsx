@@ -2,15 +2,15 @@ import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { loginActions, loginReducer } from '../..';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button } from 'shared/ui/Button/Button';
-import { Input } from 'shared/ui/Input/Input';
-import { Text } from 'shared/ui/Text/Text';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
+import { Text } from '@/shared/ui/Text/Text';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -20,9 +20,9 @@ import { loginByUsername } from '../../model/services/loginByUserName/loginByUse
 
 import styles from './LoginForm.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routerConfig/routerConfig';
-import { TextTheme } from 'shared/ui/Text/model/consts';
-import { ButtonThemes } from 'shared/ui/Button/model/consts';
+import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
+import { TextTheme } from '@/shared/ui/Text/model/consts';
+import { ButtonThemes } from '@/shared/ui/Button/model/consts';
 
 interface LoginFormProps {
   className?: string;
