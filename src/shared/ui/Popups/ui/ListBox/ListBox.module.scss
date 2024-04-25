@@ -1,9 +1,5 @@
 @import 'app/styles';
 
-.ListBox {
-  position: relative;
-}
-
 .trigger {
   margin: 0;
 
@@ -32,36 +28,4 @@
 
 .item {
   padding: 10px 20px;
-}
-
-.active {
-  background-color: var(--inverted-primary-color);
-}
-
-.disabled {
-  opacity: 0.7;
-}
-
-.up-left {
-  bottom: 100%;
-
-  right: 0;
-}
-
-.up-right {
-  bottom: 100%;
-
-  left: 0;
-}
-
-.down-left {
-  top: 100%;
-
-  right: 0;
-}
-
-.down-right {
-  top: 100%;
-
-  left: 0;
 }

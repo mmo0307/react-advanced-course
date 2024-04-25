@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions';
 import React from 'react';
 
 const meta = {
-  title: 'shared/ListBox',
+  title: 'shared/Popups/ListBox',
   component: ListBox,
   decorators: [
     Story => (

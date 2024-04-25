@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Dropdown } from './Dropdown';
-import { Button } from '../Button/Button';
+import { Button } from '../../../Button/Button';
 import React from 'react';
 
 const meta = {
-  title: 'shared/Dropdown',
+  title: 'shared/Popups/Dropdown',
   component: Dropdown
 } satisfies Meta<typeof Dropdown>;
 

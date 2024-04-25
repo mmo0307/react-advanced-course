@@ -1,6 +1,5 @@
 import React, {
   FC,
-  MouseEvent,
   MutableRefObject,
   PropsWithChildren,
   useCallback,
@@ -14,6 +13,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { Portal } from '../Portal/Portal';
 
 import styles from './Modal.module.scss';
+import { Overlay } from '../Overlay/Overlay';
 
 interface ModalProps extends PropsWithChildren {
   className?: string;
@@ -70,10 +70,6 @@ const Modal: FC<ModalProps> = ({
     [closeHandler]
   );
 
-  const onContentClick = (e: MouseEvent) => {
-    e.stopPropagation();
-  };
-
   useEffect(() => {
     if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
@@ -99,11 +95,9 @@ const Modal: FC<ModalProps> = ({
           [className, theme, 'app_modal']
         )}
       >
-        <div className={styles.overlay}>
-          <div className={styles.content} onClick={onContentClick}>
-            {children}
-          </div>
-        </div>
+        <Overlay onClick={onClose} />
+
+        <div className={styles.content}>{children}</div>
       </div>
     </Portal>
   );

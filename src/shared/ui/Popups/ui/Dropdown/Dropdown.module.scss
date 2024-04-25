@@ -1,9 +1,5 @@
 @import 'app/styles';
 
-.Dropdown {
-  position: relative;
-}
-
 .button {
   margin: 0;
 
@@ -48,32 +44,4 @@
   cursor: pointer;
 
   outline: none;
-}
-
-.active {
-  background-color: var(--inverted-primary-color);
-}
-
-.up-left {
-  bottom: 100%;
-
-  right: 0;
-}
-
-.up-right {
-  bottom: 100%;
-
-  left: 0;
-}
-
-.down-left {
-  top: 100%;
-
-  right: 0;
-}
-
-.down-right {
-  top: 100%;
-
-  left: 0;
 }

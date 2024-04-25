@@ -7,8 +7,14 @@ interface IconProps {
   className?: string;
 
   Svg: VFC<SVGProps<SVGSVGElement>>;
+
+  inverted?: boolean;
 }
 
-export const Icon = memo(({ className, Svg }: IconProps) => (
-  <Svg className={classNames(styles.Icon, {}, [className])} />
+export const Icon = memo(({ className, Svg, inverted }: IconProps) => (
+  <Svg
+    className={classNames(styles.Icon, { [styles.inverted]: inverted }, [
+      className
+    ])}
+  />
 ));

@@ -1,0 +1,13 @@
+@import 'app/styles';
+
+.panel {
+  position: absolute;
+
+  z-index: var(--modal-z-index);
+
+  padding: 15px;
+
+  background: var(--card-bg);
+
+  border-radius: 8px;
+}

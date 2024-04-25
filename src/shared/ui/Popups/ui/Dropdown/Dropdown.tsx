@@ -1,10 +1,11 @@
-import React, { FC, Fragment, memo, ReactNode } from 'react';
+import React, { Fragment, memo, ReactNode } from 'react';
 import styles from './Dropdown.module.scss';
+import popupStyles from '../../styles/popup.module.scss';
 import { Menu } from '@headlessui/react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import { View } from '../View/View';
-import { AppLink } from '../AppLink/AppLink';
+import { View } from '../../../View/View';
+import { AppLink } from '../../../AppLink/AppLink';
 
 export interface DropdownItem {
   disabled?: boolean;
@@ -26,14 +27,20 @@ interface DropdownProps {
   items: DropdownItem[];
 }
 
-const Dropdown: FC<DropdownProps> = memo(
+const Dropdown = memo(
   ({ className, direction = 'down-right', trigger, items }: DropdownProps) => {
     return (
-      <Menu as={'div'} className={classNames(styles.Dropdown, {}, [className])}>
+      <Menu
+        as={'div'}
+        className={classNames(styles.Dropdown, {}, [
+          className,
+          popupStyles.popup
+        ])}
+      >
         <Menu.Button className={styles.button}>{trigger}</Menu.Button>
 
         <Menu.Items
-          className={classNames(styles.menu, {}, [styles[direction]])}
+          className={classNames(styles.menu, {}, [popupStyles[direction]])}
         >
           {items.map(item => (
             <>
@@ -51,7 +58,7 @@ const Dropdown: FC<DropdownProps> = memo(
                       onClick={item.onClick}
                       className={classNames(
                         styles.item,
-                        { [styles.active]: active },
+                        { [popupStyles.active]: active },
                         []
                       )}
                     >
@@ -74,7 +81,7 @@ const Dropdown: FC<DropdownProps> = memo(
                       onClick={item.onClick}
                       className={classNames(
                         styles.item,
-                        { [styles.active]: active },
+                        { [popupStyles.active]: active },
                         []
                       )}
                     >
