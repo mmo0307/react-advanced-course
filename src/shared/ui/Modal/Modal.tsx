@@ -1,12 +1,4 @@
-import React, {
-  FC,
-  MutableRefObject,
-  PropsWithChildren,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/classNames/classNames';
 
@@ -14,6 +6,8 @@ import { Portal } from '../Portal/Portal';
 
 import styles from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
+import { useModal } from 'shared/lib/hooks/useModal';
+import { ANIMATION_DELAY } from '../../const';
 
 interface ModalProps extends PropsWithChildren {
   className?: string;
@@ -25,8 +19,6 @@ interface ModalProps extends PropsWithChildren {
   lazy?: boolean;
 }
 
-const ANIMATION_DELAY = 300;
-
 const Modal: FC<ModalProps> = ({
   className,
   children,
@@ -34,53 +26,13 @@ const Modal: FC<ModalProps> = ({
   isOpen,
   onClose
 }) => {
-  const [isClosing, setIsClosing] = useState<boolean>(false);
-
-  const [isMounted, setIsMounted] = useState<boolean>(false);
-
-  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
-
   const { theme } = useTheme();
 
-  useEffect(() => {
-    if (isOpen) {
-      setIsMounted(true);
-    }
-  }, [isOpen]);
-
-  const closeHandler = useCallback(() => {
-    if (onClose) {
-      setIsClosing(true);
-
-      timerRef.current = setTimeout(() => {
-        onClose();
-
-        setIsClosing(false);
-      }, ANIMATION_DELAY);
-    }
-  }, [onClose]);
-
-  // Новые ссылки!!!
-  const onKeyDown = useCallback(
-    (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeHandler();
-      }
-    },
-    [closeHandler]
-  );
-
-  useEffect(() => {
-    if (isOpen) {
-      window.addEventListener('keydown', onKeyDown);
-    }
-
-    return () => {
-      clearTimeout(timerRef.current);
-
-      window.removeEventListener('keydown', onKeyDown);
-    };
-  }, [isOpen, onKeyDown]);
+  const { isClosing, isMounted, close } = useModal({
+    animationDelay: ANIMATION_DELAY,
+    isOpen,
+    onClose
+  });
 
   if (lazy && !isMounted) {
     return null;
@@ -95,7 +47,7 @@ const Modal: FC<ModalProps> = ({
           [className, theme, 'app_modal']
         )}
       >
-        <Overlay onClick={onClose} />
+        <Overlay onClick={close} />
 
         <div className={styles.content}>{children}</div>
       </div>

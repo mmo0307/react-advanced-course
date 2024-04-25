@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleSortField } from 'entities/Article';
-import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localstorage';
+import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const';
 import { OrderBy } from 'shared/types';
 
 import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
