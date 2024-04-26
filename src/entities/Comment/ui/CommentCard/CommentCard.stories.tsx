@@ -4,7 +4,7 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/Route
 import { CommentCard } from '../CommentCard/CommentCard';
 
 const meta = {
-  title: 'entities/CommentCard',
+  title: 'entities/Comment/CommentCard',
   component: CommentCard
 } satisfies Meta<typeof CommentCard>;
 

@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { CurrencySelect } from './CountrySelect';
 
 const meta = {
-  title: 'entities/CurrencySelect',
+  title: 'entities/Currency/CurrencySelect',
   component: CurrencySelect
 } satisfies Meta<typeof CurrencySelect>;
 

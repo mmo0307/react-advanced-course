@@ -6,7 +6,7 @@ import {
   ArticleSortSelector,
   ArticleTypeTabs
 } from '@/entities/Article';
-import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { ArticleViewSelector } from '@/features/Article/ArticleViewSelector';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { OrderBy } from '@/shared/types';

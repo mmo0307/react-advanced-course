@@ -16,6 +16,15 @@ const preview: Preview = {
         date: /Date$/i
       }
     },
+    layout: 'fullscreen',
+    themes: {
+      default: 'light',
+      list: [
+        { name: 'light', class: Theme.LIGHT, color: '#ffffff' },
+        { name: 'dark', class: Theme.DARK, color: '#000000' },
+        { name: 'green', class: Theme.GREEN, color: '#008000' }
+      ]
+    },
     decorators: [
       RouterDecorator,
       StoreDecorator,

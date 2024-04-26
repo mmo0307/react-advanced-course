@@ -1,9 +1,7 @@
 import React from 'react';
 import { RouteProps } from 'react-router-dom';
 import { AboutPage } from '@/pages/AboutPage';
-import { ArticleDetailsPage } from '@/pages/ArticleDetailsPage';
-import { ArticleEditPage } from '@/pages/ArticleEditPage';
-import { ArticlesPage } from '@/pages/ArticlePage';
+import { ArticleEditPage } from '@/pages/Article/ArticleEditPage';
 import { MainPage } from '@/pages/MainPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -11,6 +9,8 @@ import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { UserRole } from '@/entities/User';
 import { AppRoutes } from './model/consts/routerConfigConsts';
+import { ArticlesPage } from '@/pages/Article/ArticlePage';
+import { ArticleDetailsPage } from '@/pages/Article/ArticleDetailsPage';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;

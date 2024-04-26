@@ -93,7 +93,9 @@
                 "allowSingleExtends": true
             }
         ],
-        "plugin-checker/path-checker": "error"
+        "plugin-checker/path-checker": ["error", {
+            "alias": "@"
+        }]
     },
     "settings": {
         "import/resolver": {

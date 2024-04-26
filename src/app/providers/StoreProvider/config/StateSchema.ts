@@ -10,8 +10,8 @@ import { UserSchema } from '@/entities/User';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
 import { LoginSchema } from '@/features/AuthByUserName';
 import { ScrollObjSchema } from '@/features/ScrollSave';
-import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage/model/types';
-import { ArticlesPageSchema } from '@/pages/ArticlePage';
+import { ArticleDetailsPageSchema } from '@/pages/Article/ArticleDetailsPage/model/types';
+import { ArticlesPageSchema } from '@/pages/Article/ArticlePage';
 import { rtkApi } from '@/shared/api/rtlApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
 
