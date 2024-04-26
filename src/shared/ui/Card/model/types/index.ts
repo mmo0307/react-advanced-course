@@ -7,6 +7,8 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 
   theme?: CardTheme;
+
+  max?: boolean;
 }
 
 export type { CardProps };

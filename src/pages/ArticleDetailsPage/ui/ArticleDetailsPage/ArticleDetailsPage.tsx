@@ -17,6 +17,7 @@ import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { View } from '@/shared/ui/View/View';
+import ArticleRating from '@/features/articleRating/ui/ArticleRating';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -41,6 +42,8 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
             <ArticleDetailsPageHeader />
 
             <ArticleDetails id={id as string} />
+
+            <ArticleRating articleId={id as string} />
 
             <ArticleRecommendationsList />
 

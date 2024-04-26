@@ -12,6 +12,7 @@ const Button = memo(
     theme = ButtonThemes.OUTLINE,
     square,
     disabled,
+    fullWidth,
     size = ButtonSize.M,
     ...otherProps
   }: ButtonProps) => (
@@ -21,9 +22,10 @@ const Button = memo(
         styles.Button,
         {
           [styles[theme]]: true,
-          [styles.square]: square,
           [styles[size]]: true,
-          [styles.disabled]: disabled
+          [styles.square]: square,
+          [styles.disabled]: disabled,
+          [styles.fullWidth]: fullWidth
         },
         [className, styles[theme]]
       )}

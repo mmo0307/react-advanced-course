@@ -46,16 +46,14 @@ export const ArticleList = memo(
     const { t } = useTranslation();
 
     return (
-      <>
+      <div
+        className={classNames(styles.ArticleList, {}, [
+          className,
+          styles[view]
+        ])}
+      >
         <View.Condition if={Boolean(!isLoading && !articles.length)}>
-          <div
-            className={classNames(styles.ArticleList, {}, [
-              className,
-              styles[view]
-            ])}
-          >
-            <Text size={TextSize.L} title={t('Статьи не найдены')} />
-          </div>
+          <Text size={TextSize.L} title={t('Статьи не найдены')} />
         </View.Condition>
 
         <View.Condition if={Boolean(isLoading)}>
@@ -73,7 +71,7 @@ export const ArticleList = memo(
             />
           ))}
         </View.Condition>
-      </>
+      </div>
     );
   }
 );

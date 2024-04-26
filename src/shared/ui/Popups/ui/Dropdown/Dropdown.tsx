@@ -1,10 +1,9 @@
-import React, { Fragment, memo, ReactNode } from 'react';
+import React, { Fragment, memo, ReactNode, useId } from 'react';
 import styles from './Dropdown.module.scss';
 import popupStyles from '../../styles/popup.module.scss';
 import { Menu } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
-import { View } from '../../../View/View';
 import { AppLink } from '../../../AppLink/AppLink';
 
 export interface DropdownItem {
@@ -42,11 +41,11 @@ const Dropdown = memo(
         <Menu.Items
           className={classNames(styles.menu, {}, [popupStyles[direction]])}
         >
-          {items.map(item => (
-            <>
-              <View.Condition if={Boolean(item.href)}>
+          {items.map(item => {
+            if (item.href) {
+              return (
                 <Menu.Item
-                  key={Math.random()}
+                  key={useId()}
                   as={AppLink}
                   to={item.href as string}
                   disabled={item.disabled}
@@ -66,32 +65,28 @@ const Dropdown = memo(
                     </button>
                   )}
                 </Menu.Item>
-              </View.Condition>
+              );
+            }
 
-              <View.Condition if={!Boolean(item.href)}>
-                <Menu.Item
-                  key={Math.random()}
-                  as={Fragment}
-                  disabled={item.disabled}
-                >
-                  {({ active }) => (
-                    <button
-                      type={'button'}
-                      disabled={item.disabled}
-                      onClick={item.onClick}
-                      className={classNames(
-                        styles.item,
-                        { [popupStyles.active]: active },
-                        []
-                      )}
-                    >
-                      {item.content}
-                    </button>
-                  )}
-                </Menu.Item>
-              </View.Condition>
-            </>
-          ))}
+            return (
+              <Menu.Item key={useId()} as={Fragment} disabled={item.disabled}>
+                {({ active }) => (
+                  <button
+                    type={'button'}
+                    disabled={item.disabled}
+                    onClick={item.onClick}
+                    className={classNames(
+                      styles.item,
+                      { [popupStyles.active]: active },
+                      []
+                    )}
+                  >
+                    {item.content}
+                  </button>
+                )}
+              </Menu.Item>
+            );
+          })}
         </Menu.Items>
       </Menu>
     );

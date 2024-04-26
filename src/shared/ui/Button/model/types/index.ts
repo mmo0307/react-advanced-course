@@ -11,6 +11,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
 
   disabled?: boolean;
+
+  fullWidth?: boolean;
 }
 
 export type { ButtonProps };
