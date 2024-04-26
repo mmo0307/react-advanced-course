@@ -1,4 +1,4 @@
-@import 'app/styles';
+@import '@/app/styles';
 
 .sortWrapper {
   @include flex(space-between, center);

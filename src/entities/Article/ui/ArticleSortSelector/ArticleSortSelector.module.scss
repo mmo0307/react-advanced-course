@@ -1,4 +1,4 @@
-@import 'app/styles';
+@import '@/app/styles';
 
 .ArticleSortSelector {
   @include flex($alignItems: center);
