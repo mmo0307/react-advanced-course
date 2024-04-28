@@ -8,7 +8,7 @@ Social Blog is an app built with Vite (Webpack), React, TypeScript, Storybook, a
 - 👤 View your own profile, email, name, country, etc.
 - 🗨 Create articles, rate, comment
 - 📬 Users can send:
-    - 📝 Text
+    - 📝 Text (for comments)
 - 🔔 Get notified of unseen messages
 - 🌓 Toggle between light mode and dark mode
 
