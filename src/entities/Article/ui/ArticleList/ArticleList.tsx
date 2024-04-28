@@ -1,8 +1,8 @@
 import React, { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text/Text';
-import { View } from '@/shared/ui/View/View';
+import { Text } from '@/shared/ui/Text';
+import { View } from '@/shared/ui/View';
 
 import { Article } from '../../model/types/article';
 import { ArticleItem } from '../ArticleItem/ArticleItem';
@@ -10,7 +10,7 @@ import { ArticleSkeleton } from '../ArticleItem/ArticleSkeleton';
 
 import styles from './ArticleList.module.scss';
 import { ArticleView } from '../../model/const';
-import { TextSize } from '@/shared/ui/Text/model/consts';
+import { TextSize } from '@/shared/ui/Text';
 
 interface ArticleListProps {
   className?: string;

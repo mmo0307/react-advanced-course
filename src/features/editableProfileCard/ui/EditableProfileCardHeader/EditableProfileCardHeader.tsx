@@ -4,13 +4,13 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { HStack } from '@/shared/ui/Stack';
-import { Text } from '@/shared/ui/Text/Text';
-import { View } from '@/shared/ui/View/View';
-import { Button } from '@/shared/ui/Button/Button';
+import { Text } from '@/shared/ui/Text';
+import { View } from '@/shared/ui/View';
+import { Button } from '@/shared/ui/Button';
 import { getProfileCanEdit, getProfileReadonly } from '../../model/selectors';
 import { profileActions } from '../../model/slice/profileSlice';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
-import { ButtonThemes } from '@/shared/ui/Button/model/consts';
+import { ButtonThemes } from '@/shared/ui/Button';
 
 interface EditableProfileCardHeaderProps {
   className?: string;

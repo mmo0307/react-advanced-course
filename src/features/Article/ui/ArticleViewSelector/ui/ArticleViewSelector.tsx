@@ -2,12 +2,12 @@ import React, { memo } from 'react';
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 
 import styles from './ArticleViewSelector.module.scss';
 import { ArticleView } from '@/entities/Article';
-import { ButtonThemes } from '@/shared/ui/Button/model/consts';
+import { ButtonThemes } from '@/shared/ui/Button';
 
 interface ArticleViewSelectorProps {
   className?: string;

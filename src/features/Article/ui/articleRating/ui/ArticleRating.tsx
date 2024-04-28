@@ -2,13 +2,13 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import {
   useGetArticleRatingQuery,
   useRateArticleMutation
 } from '../api/articleRatingApi';
 import { RatingCard } from '@/entities/RatingCard';
-import { View } from '@/shared/ui/View/View';
+import { View } from '@/shared/ui/View';
 
 export interface ArticleRatingProps {
   className?: string;

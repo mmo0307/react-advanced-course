@@ -9,11 +9,11 @@ import {
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Icon } from '@/shared/ui/Icon/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
-import { Text } from '@/shared/ui/Text/Text';
-import { View } from '@/shared/ui/View/View';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { Text } from '@/shared/ui/Text';
+import { View } from '@/shared/ui/View';
 
 import {
   getArticleDetailsData,
@@ -30,7 +30,7 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import styles from './ArticleDetails.module.scss';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleBlockType } from '../../model/const';
-import { TextAlign, TextSize } from '@/shared/ui/Text/model/consts';
+import { TextAlign, TextSize } from '@/shared/ui/Text';
 
 interface ArticleDetailsProps {
   className?: string;

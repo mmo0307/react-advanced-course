@@ -4,13 +4,13 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getArticleDetailsData } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button/Button';
-import { View } from '@/shared/ui/View/View';
+import { Button } from '@/shared/ui/Button';
+import { View } from '@/shared/ui/View';
 
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCanEditArticle';
 
 import { HStack } from '@/shared/ui/Stack';
-import { ButtonThemes } from '@/shared/ui/Button/model/consts';
+import { ButtonThemes } from '@/shared/ui/Button';
 import { RoutePath } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {

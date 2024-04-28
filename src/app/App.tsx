@@ -4,7 +4,7 @@ import { AppRouter } from './providers/router';
 import { getUserInited, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { View } from '@/shared/ui/View/View';
+import { View } from '@/shared/ui/View';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/shared/lib/hooks/useTheme';

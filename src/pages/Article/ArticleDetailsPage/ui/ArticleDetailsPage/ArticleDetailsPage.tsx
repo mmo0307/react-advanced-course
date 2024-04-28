@@ -15,7 +15,7 @@ import { ArticleDetailsPageHeader } from '../ArticleDatailsPageHeader/ArticleDet
 import styles from './ArticleDetailsPage.module.scss';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { View } from '@/shared/ui/View/View';
+import { View } from '@/shared/ui/View';
 import { ArticleRating } from '@/features/Article';
 import { ArticleRecommendationsList } from '@/features/Article';
 

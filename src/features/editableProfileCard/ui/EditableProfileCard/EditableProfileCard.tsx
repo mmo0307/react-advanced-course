@@ -12,12 +12,12 @@ import { useSelector } from 'react-redux';
 import { Currency } from '@/entities/Currency';
 import { Index } from '@/entities/Country';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text } from '@/shared/ui/Text/Text';
+import { Text } from '@/shared/ui/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { ProfileCard } from '@/entities/Profile';
-import { View } from '@/shared/ui/View/View';
+import { View } from '@/shared/ui/View';
 import {
   DynamicModuleLoader,
   ReducersList
@@ -25,7 +25,7 @@ import {
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 import { VStack } from '@/shared/ui/Stack';
 import { ValidateProfileError } from '../../model/consts';
-import { TextTheme } from '@/shared/ui/Text/model/consts';
+import { TextTheme } from '@/shared/ui/Text';
 
 interface EditableProfileCardProps {
   className?: string;

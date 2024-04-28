@@ -3,8 +3,8 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Page } from '@/widgets/Page';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { useParams } from 'react-router-dom';
-import { View } from '@/shared/ui/View/View';
-import { Text } from '@/shared/ui/Text/Text';
+import { View } from '@/shared/ui/View';
+import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 
 interface ProfilePageProps {
