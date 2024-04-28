@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useMemo } from 'react';
+import React, { ChangeEvent } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import styles from './Select.module.scss';
@@ -37,16 +37,6 @@ export const Select = <T extends string>({
     }
   };
 
-  const optionsList = useMemo(
-    () =>
-      options?.map(opt => (
-        <option className={styles.option} value={opt.value} key={Math.random()}>
-          {opt.content}
-        </option>
-      )),
-    [options]
-  );
-
   return (
     <div className={classNames(styles.Wrapper, {}, [className])}>
       {label && <span className={styles.label}>{`${label}>`}</span>}
@@ -56,7 +46,15 @@ export const Select = <T extends string>({
         value={value}
         onChange={onChangeHandler}
       >
-        {optionsList}
+        {options?.map(opt => (
+          <option
+            className={styles.option}
+            value={opt.value}
+            key={Math.random()}
+          >
+            {opt.content}
+          </option>
+        ))}
       </select>
     </div>
   );
