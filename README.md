@@ -263,28 +263,45 @@ For asynchronous connection of reducers (so as not to pull them into a common bu
 
 #
 
-![Screenshot 2023-12-28 at 11 45 11](https://ibb.co/HHZ5yHZ)
+![Screenshot_1](https://github.com/mmo0307/react-advanced-course/assets/65620172/24c5f729-dda8-432d-ad6e-82f1f5d93d5f)
 
 #
 
-![Screenshot 2023-12-28 at 11 45 53](https://ibb.co/khgH760)
+![Screenshot_2](https://github.com/mmo0307/react-advanced-course/assets/65620172/565dcdb7-6edf-404b-9c6e-b18aaf5e1704)
 
 #
 
-![Screenshot 2023-12-28 at 11 48 12](https://ibb.co/K6SNqnz)
-
-
-#
-
-![Screenshot 2023-12-28 at 11 48 35](https://ibb.co/DVBbztv)
+![Screenshot_3](https://github.com/mmo0307/react-advanced-course/assets/65620172/1eba9d46-9240-4c45-8788-9a1c5cd1423b)
 
 #
 
-![Screenshot 2023-12-28 at 11 52 06](https://ibb.co/61Mfx23)
+![Screenshot_4](https://github.com/mmo0307/react-advanced-course/assets/65620172/29663f2d-afc9-419b-8882-f4c866ac207e)
 
 #
 
-![Screenshot 2023-12-28 at 11 52 15](https://ibb.co/5RmcFkh)
+![Screenshot_5](https://github.com/mmo0307/react-advanced-course/assets/65620172/a274a46c-bcbe-4d4f-95f1-3a6e1e6efdd2)
 
+#
 
+![Screenshot_6](https://github.com/mmo0307/react-advanced-course/assets/65620172/9d8482d7-9d5b-4623-b6f9-4a804c2db775)
+
+#
+
+![Screenshot_7](https://github.com/mmo0307/react-advanced-course/assets/65620172/4e877350-97ef-47a4-ac27-e962f69ba766)
+
+#
+
+![Screenshot_8](https://github.com/mmo0307/react-advanced-course/assets/65620172/23bfca6b-9727-470d-a7dc-3ef5f1f7c739)
+
+#
+
+![Screenshot_9](https://github.com/mmo0307/react-advanced-course/assets/65620172/d9f2d8f3-a875-4896-832a-f4b2e075f01f)
+
+#
+
+![Screenshot_10](https://github.com/mmo0307/react-advanced-course/assets/65620172/9f08a33a-ff5e-4153-b446-2402dde215a4)
+
+#
+
+![Screenshot_11](https://github.com/mmo0307/react-advanced-course/assets/65620172/57586b4e-7f0c-497e-8f69-9057ef64afaa)
 </details>

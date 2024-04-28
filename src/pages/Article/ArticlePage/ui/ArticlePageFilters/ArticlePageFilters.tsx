@@ -1,12 +1,12 @@
 import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { ArticleSortField } from '@/entities/Article';
 import {
-  ArticleSortField,
   ArticleSortSelector,
-  ArticleTypeTabs
-} from '@/entities/Article';
-import { ArticleViewSelector } from '@/features/Article';
+  ArticleTypeTabs,
+  ArticleViewSelector
+} from '@/features/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { OrderBy } from '@/shared/types';
