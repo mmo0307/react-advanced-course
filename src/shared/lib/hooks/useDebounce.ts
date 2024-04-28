@@ -1,5 +1,11 @@
 import { MutableRefObject, useCallback, useRef } from 'react';
 
+/**
+ * Hook that allows you to cancel a previous function call until the delay expires
+ * @param callback
+ * @param delay - delay in ms
+ */
+
 //eslint-disable-next-line
 export function useDebounce(callback: (...args: any[]) => void, delay: number) {
   //eslint-disable-next-line
