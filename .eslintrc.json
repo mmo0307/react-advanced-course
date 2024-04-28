@@ -96,10 +96,10 @@
         "plugin-checker/path-checker": ["error", {
             "alias": "@"
         }],
-//        "plugin-checker/layer-imports": ["error", {
-//            "alias": "@",
-//            "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
-//        }],
+        "plugin-checker/layer-imports": ["error", {
+            "alias": "@",
+            "ignoreImportPatterns": ["**/StoreProvider", "**/testing"]
+        }],
         "plugin-checker/public-api-imports": ["error", {
             "alias": "@",
             "testFilesPatterns": ["**/*.test.*", "**/*.story.*", "**/StoreDecorator.tsx"]

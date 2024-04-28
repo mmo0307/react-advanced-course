@@ -12,7 +12,7 @@ import { LoginSchema } from '@/features/AuthByUserName';
 import { ScrollObjSchema } from '@/features/ScrollSave';
 import { rtkApi } from '@/shared/api/rtlApi';
 import { ProfileSchema } from '@/features/editableProfileCard';
-import { ArticleDetailsPageSchema, ArticlesPageSchema } from '@/pages/Article';
+import { ArticlesPageSchema, ArticleDetailsPageSchema } from '@/pages/Article';
 
 export interface StateSchema {
   user: UserSchema;
