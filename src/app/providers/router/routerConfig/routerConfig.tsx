@@ -7,10 +7,10 @@ import { ProfilePage } from '@/pages/ProfilePage';
 import { AdminPanelPage } from '@/pages/AdminPanelPage';
 import { ForbiddenPage } from '@/pages/ForbiddenPage';
 import { UserRole } from '@/entities/User';
-import { AppRoutes, RoutePath } from '../../const/router';
 import { ArticlesPage } from '@/pages/Article';
 import { ArticleDetailsPage } from '@/pages/Article';
 import { ArticleEditPage } from '@/pages/Article';
+import { AppRoutes, RoutePath } from '@/shared/const/router';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
