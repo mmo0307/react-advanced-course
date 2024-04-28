@@ -14,6 +14,12 @@ interface UseModalProps {
   onClose?: () => void;
 }
 
+/**
+ * Reusable hook for modal components (drawer/modal)
+ * @param animationDelay
+ * @param isOpen
+ * @param onClose
+ */
 export function useModal({ animationDelay, isOpen, onClose }: UseModalProps) {
   const [isClosing, setIsClosing] = useState<boolean>(false);
 
