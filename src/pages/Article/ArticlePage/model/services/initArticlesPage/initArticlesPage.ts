@@ -6,7 +6,7 @@ import { OrderBy } from '@/shared/types';
 import { getArticlePageInited } from '../../selectors/getArticlePageInited/getArticlePageInited';
 import { fetchArticlesList } from '../../services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../slices/articlesPageSlice';
-import { ArticleType } from '@/entities/Article/model/const';
+import { ArticleType } from '@/entities/Article';
 
 export const initArticlesPage = createAsyncThunk<
   void,

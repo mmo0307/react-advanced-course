@@ -9,7 +9,7 @@ import { getArticlePageOrder } from '../../selectors/getArticlePageOrder/getArti
 import { getArticlePageSearch } from '../../selectors/getArticlePageSearch/getArticlePageSearch';
 import { getArticlePageSort } from '../../selectors/getArticlePageSort/getArticlePageSort';
 import { getArticlePageType } from '../../selectors/getArticlePageType/getArticlePageType';
-import { ArticleType } from '@/entities/Article/model/const';
+import { ArticleType } from '@/entities/Article';
 
 interface FetchArticlesListProps {
   replace?: boolean;

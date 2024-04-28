@@ -4,7 +4,7 @@ import React, { memo } from 'react';
 import { Text } from '@/shared/ui/Text/Text';
 import { ArticleList } from '@/entities/Article';
 import { VStack } from '@/shared/ui/Stack';
-import { useGetArticleRecommendationsListQuery } from '../../api/articleRecommendationsApi';
+import { useGetArticleRecommendationsListQuery } from '../api/articleRecommendationsApi';
 import { TextSize } from '@/shared/ui/Text/model/consts';
 
 interface ArticleRecommendationsListProps {

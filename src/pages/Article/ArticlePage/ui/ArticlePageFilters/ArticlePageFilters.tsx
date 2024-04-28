@@ -6,7 +6,7 @@ import {
   ArticleSortSelector,
   ArticleTypeTabs
 } from '@/entities/Article';
-import { ArticleViewSelector } from '@/features/Article/ArticleViewSelector';
+import { ArticleViewSelector } from '@/features/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { OrderBy } from '@/shared/types';
@@ -22,16 +22,16 @@ import { getArticlePageView } from '../../model/selectors/getArticlePageView/get
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 
-import styles from './ArticlesPageFilters.module.scss';
+import styles from './ArticlePageFilters.module.scss';
 import { VStack } from '@/shared/ui/Stack';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleType, ArticleView } from '@/entities/Article/model/const';
+import { ArticleType, ArticleView } from '@/entities/Article';
 
 interface ArticlesPageFiltersProps {
   className?: string;
 }
 
-const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
+const ArticlePageFilters: FC<ArticlesPageFiltersProps> = memo(
   ({ className }: ArticlesPageFiltersProps) => {
     const { t } = useTranslation();
 
@@ -134,4 +134,4 @@ const ArticlesPageFilters: FC<ArticlesPageFiltersProps> = memo(
   }
 );
 
-export { ArticlesPageFilters };
+export { ArticlePageFilters };

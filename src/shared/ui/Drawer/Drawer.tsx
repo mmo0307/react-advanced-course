@@ -1,6 +1,5 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import React, { memo, PropsWithChildren, useCallback, useEffect } from 'react';
-import { useTheme } from '@/app/providers/ThemeProvider';
 import styles from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
@@ -8,6 +7,7 @@ import {
   AnimationProvider,
   useAnimationLibs
 } from '../../lib/components/AnimationProvider/AnimationProvider';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
 
 interface DrawerProps extends PropsWithChildren {
   className?: string;

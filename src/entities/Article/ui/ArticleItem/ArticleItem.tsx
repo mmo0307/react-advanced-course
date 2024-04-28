@@ -2,7 +2,6 @@ import React, { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import EyeIcon from '@/shared/assets/icons/eye.svg';
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -18,6 +17,7 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import styles from './ArticleItem.module.scss';
 import { ArticleBlockType, ArticleView } from '../../model/const';
 import { ButtonThemes } from '@/shared/ui/Button/model/consts';
+import { RoutePath } from '@/shared/const/router';
 
 interface ArticleItemProps {
   className?: string;

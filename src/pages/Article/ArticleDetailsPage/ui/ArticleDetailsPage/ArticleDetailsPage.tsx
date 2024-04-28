@@ -7,17 +7,17 @@ import {
   DynamicModuleLoader,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from '@/widgets/Page/ui/Page';
+import { Page } from '@/widgets/Page';
 
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDatailsPageHeader/ArticleDetailsPageHeader';
 
 import styles from './ArticleDetailsPage.module.scss';
 import { VStack } from '@/shared/ui/Stack';
-import { ArticleRecommendationsList } from '@/features/Article/articleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { View } from '@/shared/ui/View/View';
-import ArticleRating from '@/features/Article/articleRating/ui/ArticleRating';
+import { ArticleRating } from '@/features/Article';
+import { ArticleRecommendationsList } from '@/features/Article';
 
 interface ArticleDetailsPageProps {
   className?: string;

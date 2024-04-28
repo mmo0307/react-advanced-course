@@ -1,7 +1,6 @@
 import React, { FC, useCallback, useMemo } from 'react';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import {
   getUserAuthData,
   isUserAdmin,
@@ -12,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTranslation } from 'react-i18next';
+import { RoutePath } from '@/shared/const/router';
 
 interface AvatarDropDownProps {
   className?: string;

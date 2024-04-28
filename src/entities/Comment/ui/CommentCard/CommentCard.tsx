@@ -1,5 +1,4 @@
 import React, { FC, memo } from 'react';
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
@@ -11,6 +10,7 @@ import { Comment } from '../../model/types/comment';
 
 import styles from './CommentCard.module.scss';
 import { VStack } from '@/shared/ui/Stack';
+import { RoutePath } from '@/shared/const/router';
 
 interface CommentCardProps {
   className?: string;

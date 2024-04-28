@@ -7,14 +7,14 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { Page } from '@/widgets/Page/ui/Page';
+import { Page } from '@/widgets/Page';
 
 import { fetchArticlesPage } from '../../model/services/fetchArticlesPage/fetchArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
-import styles from './ArticlesPage.module.scss';
+import styles from './ArticlePage.module.scss';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 
 interface ArticlePageProps {
@@ -25,7 +25,7 @@ const reducers: ReducersList = {
   articlesPage: articlesPageReducer
 };
 
-function ArticlesPage({ className }: ArticlePageProps) {
+function ArticlePage({ className }: ArticlePageProps) {
   const [searchParams] = useSearchParams();
 
   const dispatch = useAppDispatch();
@@ -48,7 +48,7 @@ function ArticlesPage({ className }: ArticlePageProps) {
         className={classNames(styles.ArticlesPage, {}, [className])}
         onScrollEnd={onLoadNextPart}
       >
-        <ArticlesPageFilters />
+        <ArticlePageFilters />
 
         <ArticleInfiniteList />
       </Page>
@@ -56,4 +56,4 @@ function ArticlesPage({ className }: ArticlePageProps) {
   );
 }
 
-export default ArticlesPage;
+export default ArticlePage;

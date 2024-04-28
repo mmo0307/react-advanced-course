@@ -20,9 +20,9 @@ import { loginByUsername } from '../../model/services/loginByUserName/loginByUse
 
 import styles from './LoginForm.module.scss';
 import { useNavigate } from 'react-router-dom';
-import { RoutePath } from '@/shared/config/routerConfig/routerConfig';
 import { TextTheme } from '@/shared/ui/Text/model/consts';
 import { ButtonThemes } from '@/shared/ui/Button/model/consts';
+import { RoutePath } from '@/shared/const/router';
 
 interface LoginFormProps {
   className?: string;

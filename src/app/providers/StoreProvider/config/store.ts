@@ -1,5 +1,5 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
+import { createReducerManager } from './reducerManager';
 import { userReducer } from '@/entities/User';
 import { scrollReducer } from '@/features/ScrollSave';
 import { $api } from '@/shared/api/api';

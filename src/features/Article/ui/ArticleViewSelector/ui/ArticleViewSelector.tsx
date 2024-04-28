@@ -6,7 +6,7 @@ import { Button } from '@/shared/ui/Button/Button';
 import { Icon } from '@/shared/ui/Icon/Icon';
 
 import styles from './ArticleViewSelector.module.scss';
-import { ArticleView } from '@/entities/Article/model/const';
+import { ArticleView } from '@/entities/Article';
 import { ButtonThemes } from '@/shared/ui/Button/model/consts';
 
 interface ArticleViewSelectorProps {

@@ -1,5 +1,4 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { Portal } from '../Portal/Portal';
@@ -7,7 +6,8 @@ import { Portal } from '../Portal/Portal';
 import styles from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
 import { useModal } from '@/shared/lib/hooks/useModal';
-import { ANIMATION_DELAY } from '../../const';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { ANIMATION_DELAY } from '@/shared/const/animation';
 
 interface ModalProps extends PropsWithChildren {
   className?: string;
