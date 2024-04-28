@@ -74,7 +74,8 @@
         "@typescript-eslint",
 //        "simple-import-sort",
         "i18next",
-        "plugin-checker"
+        "plugin-checker",
+        "unused-imports"
     ],
     "rules": {
         "no-extra-boolean-cast": 0,
@@ -103,7 +104,18 @@
         "plugin-checker/public-api-imports": ["error", {
             "alias": "@",
             "testFilesPatterns": ["**/*.test.*", "**/*.story.*", "**/StoreDecorator.tsx"]
-        }]
+        }],
+        "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ]
     },
     "settings": {
         "import/resolver": {
