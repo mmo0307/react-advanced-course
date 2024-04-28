@@ -11,7 +11,11 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from '@/shared/const/router';
+import {
+  getRouteAdmin,
+  getRouteMain,
+  getRouteProfile
+} from '@/shared/const/router';
 
 interface AvatarDropDownProps {
   className?: string;
@@ -35,14 +39,14 @@ const AvatarDropDown: FC<AvatarDropDownProps> = ({ className }) => {
   const onLogout = useCallback(() => {
     dispatch(userActions.logout());
 
-    navigate(RoutePath.main);
+    navigate(getRouteMain());
   }, [dispatch]);
 
   const dropDownItems = useMemo(() => {
     const items = [
       {
         content: t('Профиль'),
-        href: RoutePath.profile + `/${authData?.id}`
+        href: getRouteProfile(authData?.id as string)
       },
       {
         onClick: onLogout,
@@ -56,7 +60,7 @@ const AvatarDropDown: FC<AvatarDropDownProps> = ({ className }) => {
 
         {
           content: t('Админка'),
-          href: RoutePath.admin_panel
+          href: getRouteAdmin()
         },
 
         ...items.slice(1)

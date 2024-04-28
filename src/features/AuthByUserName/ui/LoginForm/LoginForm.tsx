@@ -22,7 +22,7 @@ import styles from './LoginForm.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { TextTheme } from '@/shared/ui/Text';
 import { ButtonThemes } from '@/shared/ui/Button';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteProfile } from '@/shared/const/router';
 
 interface LoginFormProps {
   className?: string;
@@ -74,7 +74,7 @@ const LoginForm: FC<LoginFormProps> = memo(
         // @ts-ignore
         const id = result.payload?.id;
 
-        navigate(`${RoutePath.profile}/${id}`);
+        navigate(getRouteProfile(id));
       }
     }, [onSuccess, dispatch, password, username]);
 

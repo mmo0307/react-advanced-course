@@ -17,7 +17,7 @@ import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 import styles from './ArticleItem.module.scss';
 import { ArticleBlockType, ArticleView } from '../../model/const';
 import { ButtonThemes } from '@/shared/ui/Button';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleItemProps {
   className?: string;
@@ -36,7 +36,7 @@ const ArticleItem: FC<ArticleItemProps> = memo(
     const navigate = useNavigate();
 
     const onOpenArticle = useCallback(() => {
-      navigate(`${RoutePath.article_details}/${article.id}`);
+      navigate(getRouteArticleDetails(article.id));
     }, [article.id, navigate]);
 
     const textBlock = article.blocks.find(
@@ -45,7 +45,7 @@ const ArticleItem: FC<ArticleItemProps> = memo(
 
     return (
       <AppLink
-        to={`${RoutePath.article_details}/${article.id}`}
+        to={getRouteArticleDetails(article.id)}
         className={classNames(styles.ArticleItem, {}, [
           className,
           styles[view]
