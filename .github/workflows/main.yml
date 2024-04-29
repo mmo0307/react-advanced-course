@@ -94,7 +94,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         if: always()
         with:
-          path: 'reports'
+          path: 'html-report'
       - name: Deploy to GitHub Pages
         id: deployment
         if: always()
