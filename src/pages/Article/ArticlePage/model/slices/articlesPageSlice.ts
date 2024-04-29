@@ -5,7 +5,7 @@ import {
 } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Article, ArticleSortField } from '@/entities/Article';
-import { OrderBy } from '@/shared/types';
+import { OrderBy } from '@/shared/types/sort';
 
 import { ArticlesPageSchema } from '../../model/types/articlesPageSchema';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';

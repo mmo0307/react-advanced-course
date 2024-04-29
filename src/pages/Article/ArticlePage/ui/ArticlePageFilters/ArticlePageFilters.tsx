@@ -9,7 +9,7 @@ import {
 } from '@/features/Article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce';
-import { OrderBy } from '@/shared/types';
+import { OrderBy } from '@/shared/types/sort';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
 import { TabItem } from '@/shared/ui/Tabs';
