@@ -18,6 +18,8 @@ import styles from './ArticleItem.module.scss';
 import { ArticleBlockType, ArticleView } from '../../model/const';
 import { ButtonThemes } from '@/shared/ui/Button';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleItemProps {
   className?: string;
@@ -55,7 +57,8 @@ const ArticleItem: FC<ArticleItemProps> = memo(
         <View.Condition if={view === ArticleView.GRID}>
           <Card className={styles.card}>
             <div className={styles.imageWrapper}>
-              <img
+              <AppImage
+                fallback={<Skeleton width={'100%'} height={250} />}
                 alt={article.title}
                 src={article.img}
                 className={styles.img}
@@ -92,7 +95,12 @@ const ArticleItem: FC<ArticleItemProps> = memo(
 
             <Text text={article.type.join(', ')} className={styles.types} />
 
-            <img src={article.img} className={styles.img} alt={article.title} />
+            <AppImage
+              src={article.img}
+              fallback={<Skeleton width={200} height={200} />}
+              className={styles.img}
+              alt={article.title}
+            />
 
             {textBlock && (
               <ArticleTextBlock
