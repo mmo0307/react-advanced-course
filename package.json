@@ -90,6 +90,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "jest-html-reporters": "^3.1.7",
     "json-server": "^0.17.0",
+    "lint-staged": "^15.2.2",
     "loki": "^0.33.1",
     "mini-css-extract-plugin": "^2.7.6",
     "prettier": "^3.1.0",
@@ -147,5 +148,8 @@
         "preset": "iPhone 7"
       }
     }
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": "eslint"
   }
 }
