@@ -115,7 +115,8 @@
                 "args": "after-used",
                 "argsIgnorePattern": "^_"
             }
-        ]
+        ],
+        "react/jsx-key": "warn"
     },
     "settings": {
         "import/resolver": {
