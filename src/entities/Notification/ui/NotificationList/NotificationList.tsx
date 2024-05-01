@@ -16,16 +16,34 @@ const NotificationList: FC<NotificationListProps> = ({ className }) => {
   });
 
   return (
-    <VStack gap='16' className={classNames('', {}, [className])}>
+    <VStack
+      gap='16'
+      className={classNames('', {}, [className])}
+    >
       <View.Condition if={isLoading}>
-        <Skeleton width='100%' height='80px' border='8px' />
-        <Skeleton width='100%' height='80px' border='8px' />
-        <Skeleton width='100%' height='80px' border='8px' />
+        <Skeleton
+          width='100%'
+          height='80px'
+          border='8px'
+        />
+        <Skeleton
+          width='100%'
+          height='80px'
+          border='8px'
+        />
+        <Skeleton
+          width='100%'
+          height='80px'
+          border='8px'
+        />
       </View.Condition>
 
       <View.Condition if={!isLoading}>
-        {notifications?.map(notification => (
-          <NotificationItem key={notification.id} notification={notification} />
+        {notifications?.map((notification) => (
+          <NotificationItem
+            key={notification.id}
+            notification={notification}
+          />
         ))}
       </View.Condition>
     </VStack>

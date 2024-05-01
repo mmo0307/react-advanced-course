@@ -27,12 +27,18 @@ const NotificationItem: FC<NotificationItemProps> = ({
         href={notification.href as string}
         className={classNames(styles.link, {}, [className])}
       >
-        <Text title={notification.title} text={notification.description} />
+        <Text
+          title={notification.title}
+          text={notification.description}
+        />
       </a>
     </View.Condition>
 
     <View.Condition if={!Boolean(notification.href)}>
-      <Text title={notification.title} text={notification.description} />
+      <Text
+        title={notification.title}
+        text={notification.description}
+      />
     </View.Condition>
   </Card>
 );

@@ -56,7 +56,10 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(
 
         <AddCommentForm onSendComment={onSendComment} />
 
-        <CommentList isLoading={commentsIsLoading} comments={comments} />
+        <CommentList
+          isLoading={commentsIsLoading}
+          comments={comments}
+        />
       </VStack>
     );
   }

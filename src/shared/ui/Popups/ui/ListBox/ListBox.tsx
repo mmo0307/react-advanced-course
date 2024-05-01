@@ -64,7 +64,7 @@ const ListBox = memo(
         <HListbox.Options
           className={classNames(styles.options, {}, [popupStyles[direction]])}
         >
-          {items?.map(item => (
+          {items?.map((item) => (
             <HListbox.Option
               as={Fragment}
               key={item.value}

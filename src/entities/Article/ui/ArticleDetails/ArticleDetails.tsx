@@ -89,7 +89,10 @@ const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
   }, [dispatch, id]);
 
   return (
-    <DynamicModuleLoader reducers={reducer} removeAfterUnmount>
+    <DynamicModuleLoader
+      reducers={reducer}
+      removeAfterUnmount
+    >
       <VStack
         gap='16'
         className={classNames(styles.ArticleDetails, {}, [className])}
@@ -103,13 +106,25 @@ const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
               border='50%'
             />
 
-            <Skeleton width={300} height={32} />
+            <Skeleton
+              width={300}
+              height={32}
+            />
 
-            <Skeleton width={600} height={24} />
+            <Skeleton
+              width={600}
+              height={24}
+            />
 
-            <Skeleton width='100%' height={200} />
+            <Skeleton
+              width='100%'
+              height={200}
+            />
 
-            <Skeleton width='100%' height={200} />
+            <Skeleton
+              width='100%'
+              height={200}
+            />
           </>
         </View.Condition>
 
@@ -122,11 +137,22 @@ const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
 
         <View.Condition if={Boolean(!isLoading && !error)}>
           <>
-            <HStack max justify='center'>
-              <Avatar size={200} src={article?.img} className={styles.avatar} />
+            <HStack
+              max
+              justify='center'
+            >
+              <Avatar
+                size={200}
+                src={article?.img}
+                className={styles.avatar}
+              />
             </HStack>
 
-            <VStack max gap='4' data-testid='ArticleDetails.Info'>
+            <VStack
+              max
+              gap='4'
+              data-testid='ArticleDetails.Info'
+            >
               <Text
                 title={article?.title}
                 text={article?.subtitle}

@@ -63,7 +63,10 @@ const ArticleRating = memo(({ className, articleId }: ArticleRatingProps) => {
   return (
     <>
       <View.Condition if={Boolean(isLoading)}>
-        <Skeleton width='100%' height={120} />
+        <Skeleton
+          width='100%'
+          height={120}
+        />
       </View.Condition>
 
       <View.Condition if={!Boolean(isLoading)}>

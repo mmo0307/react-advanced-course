@@ -55,7 +55,12 @@ const AppImage = memo(
         <View.Condition if={isErrorFallback}>{errorFallback}</View.Condition>
 
         <View.Condition if={Boolean(!isFallback && !isErrorFallback)}>
-          <img className={className} src={src} alt={alt} {...otherProps} />
+          <img
+            className={className}
+            src={src}
+            alt={alt}
+            {...otherProps}
+          />
         </View.Condition>
       </>
     );

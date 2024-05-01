@@ -80,7 +80,7 @@ const DrawerContent = memo(
       return null;
     }
 
-    const display = y.to(py => (py < height ? 'block' : 'none'));
+    const display = y.to((py) => (py < height ? 'block' : 'none'));
 
     return (
       <Portal>

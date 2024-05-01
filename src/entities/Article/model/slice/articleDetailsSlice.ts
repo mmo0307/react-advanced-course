@@ -19,10 +19,10 @@ export const articleDetailsSlice = createSlice({
 
   reducers: {},
 
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       //fetchArticleById
-      .addCase(fetchArticleById.pending, state => {
+      .addCase(fetchArticleById.pending, (state) => {
         state.error = undefined;
 
         state.isLoading = true;

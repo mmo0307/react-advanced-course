@@ -24,10 +24,19 @@ export const ArticleRecommendationsList = memo(
     if (isLoading || error || !articles) return null;
 
     return (
-      <VStack gap='8' className={classNames('', {}, [className])}>
-        <Text size={TextSize.L} title={t('Рекомендуем')} />
+      <VStack
+        gap='8'
+        className={classNames('', {}, [className])}
+      >
+        <Text
+          size={TextSize.L}
+          title={t('Рекомендуем')}
+        />
 
-        <ArticleList target={'_blank'} articles={articles} />
+        <ArticleList
+          target={'_blank'}
+          articles={articles}
+        />
       </VStack>
     );
   }

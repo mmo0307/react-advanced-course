@@ -45,7 +45,10 @@ const Text = memo(
         )}
 
         {text && (
-          <p className={styles.text} data-testid={`${dataTestId}.Paragraph`}>
+          <p
+            className={styles.text}
+            data-testid={`${dataTestId}.Paragraph`}
+          >
             {text}
           </p>
         )}

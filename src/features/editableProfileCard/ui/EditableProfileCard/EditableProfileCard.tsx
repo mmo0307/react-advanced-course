@@ -126,8 +126,15 @@ export const EditableProfileCard = memo(
     });
 
     return (
-      <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-        <VStack gap='16' max className={classNames('', {}, [className])}>
+      <DynamicModuleLoader
+        removeAfterUnmount
+        reducers={reducers}
+      >
+        <VStack
+          gap='16'
+          max
+          className={classNames('', {}, [className])}
+        >
           <EditableProfileCardHeader id={id as string} />
 
           <View.Condition if={Boolean(validateErrors?.length)}>

@@ -9,7 +9,7 @@ const meta = {
   title: 'shared/Popups/ListBox',
   component: ListBox,
   decorators: [
-    Story => (
+    (Story) => (
       <div style={{ padding: '100px' }}>
         <Story />
       </div>

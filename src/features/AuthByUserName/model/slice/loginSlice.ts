@@ -25,14 +25,14 @@ export const loginSlice = createSlice({
       state.isLoading = action.payload;
     }
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(loginByUsername.pending, state => {
+      .addCase(loginByUsername.pending, (state) => {
         state.error = undefined;
 
         state.isLoading = true;
       })
-      .addCase(loginByUsername.fulfilled, state => {
+      .addCase(loginByUsername.fulfilled, (state) => {
         state.isLoading = false;
       })
       .addCase(loginByUsername.rejected, (state, action) => {

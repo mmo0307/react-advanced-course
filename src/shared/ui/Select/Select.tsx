@@ -46,7 +46,7 @@ export const Select = <T extends string>({
         value={value}
         onChange={onChangeHandler}
       >
-        {options?.map(opt => (
+        {options?.map((opt) => (
           <option
             className={styles.option}
             value={opt.value}

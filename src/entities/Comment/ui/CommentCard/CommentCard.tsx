@@ -35,12 +35,24 @@ const CommentCard: FC<CommentCardProps> = memo(
           data-testid='CommentCard.Loading'
         >
           <div className={styles.header}>
-            <Skeleton width={30} height={30} border='50%' />
+            <Skeleton
+              width={30}
+              height={30}
+              border='50%'
+            />
 
-            <Skeleton height={16} width={100} className={styles.username} />
+            <Skeleton
+              height={16}
+              width={100}
+              className={styles.username}
+            />
           </div>
 
-          <Skeleton className={styles.text} width='100%' height={50} />
+          <Skeleton
+            className={styles.text}
+            width='100%'
+            height={50}
+          />
         </div>
       </View.Condition>
 
@@ -61,10 +73,16 @@ const CommentCard: FC<CommentCardProps> = memo(
               alt={comment?.user.username}
             />
 
-            <Text className={styles.username} title={comment?.user.username} />
+            <Text
+              className={styles.username}
+              title={comment?.user.username}
+            />
           </AppLink>
 
-          <Text className={styles.text} text={comment?.text} />
+          <Text
+            className={styles.text}
+            text={comment?.text}
+          />
         </VStack>
       </View.Condition>
     </>

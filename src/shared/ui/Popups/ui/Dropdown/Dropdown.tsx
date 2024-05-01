@@ -41,7 +41,7 @@ const Dropdown = memo(
         <Menu.Items
           className={classNames(styles.menu, {}, [popupStyles[direction]])}
         >
-          {items.map(item => {
+          {items.map((item) => {
             if (item.href) {
               return (
                 <Menu.Item
@@ -69,7 +69,11 @@ const Dropdown = memo(
             }
 
             return (
-              <Menu.Item key={useId()} as={Fragment} disabled={item.disabled}>
+              <Menu.Item
+                key={useId()}
+                as={Fragment}
+                disabled={item.disabled}
+              >
                 {({ active }) => (
                   <button
                     type={'button'}

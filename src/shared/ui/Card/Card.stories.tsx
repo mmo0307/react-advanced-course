@@ -16,6 +16,11 @@ export default meta;
 
 export const Main: Story = {
   args: {
-    children: <Text title='test' text='text text' />
+    children: (
+      <Text
+        title='test'
+        text='text text'
+      />
+    )
   }
 };

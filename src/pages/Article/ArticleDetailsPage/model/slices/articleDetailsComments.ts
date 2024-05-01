@@ -14,7 +14,7 @@ const commentsAdapter = createEntityAdapter<Comment, string>({
 });
 
 export const getArticleComments = commentsAdapter.getSelectors<StateSchema>(
-  state =>
+  (state) =>
     state.articleDetailsPage?.comments || commentsAdapter.getInitialState()
 );
 
@@ -33,9 +33,9 @@ const articleDetailsCommentsSlice = createSlice({
   name: 'articleDetailsCommentsSlice',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchCommentsByArticleId.pending, state => {
+      .addCase(fetchCommentsByArticleId.pending, (state) => {
         state.error = undefined;
 
         state.isLoading = true;

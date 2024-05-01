@@ -21,7 +21,11 @@ const CommentList: FC<CommentListProps> = memo(
     const { t } = useTranslation();
 
     return (
-      <VStack gap='16' max className={classNames('', {}, [className])}>
+      <VStack
+        gap='16'
+        max
+        className={classNames('', {}, [className])}
+      >
         <View.Condition if={Boolean(isLoading)}>
           <>
             <CommentCard isLoading />
@@ -34,7 +38,7 @@ const CommentList: FC<CommentListProps> = memo(
 
         <View.Condition if={Boolean(!isLoading)}>
           <View.Condition if={Boolean(comments?.length)}>
-            {comments?.map(comment => (
+            {comments?.map((comment) => (
               <CommentCard
                 key={Math.random()}
                 isLoading={isLoading}

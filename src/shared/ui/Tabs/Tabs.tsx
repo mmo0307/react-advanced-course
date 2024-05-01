@@ -33,7 +33,7 @@ export const Tabs = memo(
 
     return (
       <div className={classNames(styles.Tabs, {}, [className])}>
-        {tabs.map(tab => (
+        {tabs.map((tab) => (
           <Card
             theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
             className={styles.tab}

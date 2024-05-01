@@ -15,7 +15,7 @@ const recommendationsAdapter = createEntityAdapter<Article, string>({
 
 export const getArticleRecommendations =
   recommendationsAdapter.getSelectors<StateSchema>(
-    state =>
+    (state) =>
       state.articleDetailsPage?.recommendations ||
       recommendationsAdapter.getInitialState()
   );
@@ -35,9 +35,9 @@ const articleDetailsRecommendationsSlice = createSlice({
   name: 'articleDetailsRecommendationsSlice',
   initialState,
   reducers: {},
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
-      .addCase(fetchArticlesRecommendations.pending, state => {
+      .addCase(fetchArticlesRecommendations.pending, (state) => {
         state.error = undefined;
 
         state.isLoading = true;

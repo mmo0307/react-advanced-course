@@ -42,7 +42,7 @@ const ArticleItem: FC<ArticleItemProps> = memo(
     }, [article.id, navigate]);
 
     const textBlock = article.blocks.find(
-      block => block.type === ArticleBlockType.TEXT
+      (block) => block.type === ArticleBlockType.TEXT
     ) as ArticleTextBlockType;
 
     return (
@@ -59,46 +59,83 @@ const ArticleItem: FC<ArticleItemProps> = memo(
           <Card className={styles.card}>
             <div className={styles.imageWrapper}>
               <AppImage
-                fallback={<Skeleton width={'100%'} height={250} />}
+                fallback={
+                  <Skeleton
+                    width={'100%'}
+                    height={250}
+                  />
+                }
                 alt={article.title}
                 src={article.img}
                 className={styles.img}
               />
 
-              <Text text={article.createdAt} className={styles.date} />
+              <Text
+                text={article.createdAt}
+                className={styles.date}
+              />
             </div>
 
             <div className={styles.infoWrapper}>
-              <Text text={article.type.join(', ')} className={styles.types} />
+              <Text
+                text={article.type.join(', ')}
+                className={styles.types}
+              />
 
               <>
-                <Text text={String(article.views)} className={styles.views} />
+                <Text
+                  text={String(article.views)}
+                  className={styles.views}
+                />
 
                 <Icon Svg={EyeIcon} />
               </>
             </div>
 
-            <Text text={article.title} className={styles.title} />
+            <Text
+              text={article.title}
+              className={styles.title}
+            />
           </Card>
         </View.Condition>
 
         <View.Condition if={view === ArticleView.LIST}>
           <Card className={styles.card}>
             <div className={styles.header}>
-              <Avatar size={30} src={article.user?.avatar} />
+              <Avatar
+                size={30}
+                src={article.user?.avatar}
+              />
 
-              <Text text={article.user?.username} className={styles.username} />
+              <Text
+                text={article.user?.username}
+                className={styles.username}
+              />
 
-              <Text text={article.createdAt} className={styles.date} />
+              <Text
+                text={article.createdAt}
+                className={styles.date}
+              />
             </div>
 
-            <Text title={article.title} className={styles.title} />
+            <Text
+              title={article.title}
+              className={styles.title}
+            />
 
-            <Text text={article.type.join(', ')} className={styles.types} />
+            <Text
+              text={article.type.join(', ')}
+              className={styles.types}
+            />
 
             <AppImage
               src={article.img}
-              fallback={<Skeleton width={200} height={200} />}
+              fallback={
+                <Skeleton
+                  width={200}
+                  height={200}
+                />
+              }
               className={styles.img}
               alt={article.title}
             />
@@ -111,12 +148,18 @@ const ArticleItem: FC<ArticleItemProps> = memo(
             )}
 
             <div className={styles.footer}>
-              <Button onClick={onOpenArticle} theme={ButtonThemes.OUTLINE}>
+              <Button
+                onClick={onOpenArticle}
+                theme={ButtonThemes.OUTLINE}
+              >
                 {t('Читать далее...')}
               </Button>
 
               <>
-                <Text text={String(article.views)} className={styles.views} />
+                <Text
+                  text={String(article.views)}
+                  className={styles.views}
+                />
 
                 <Icon Svg={EyeIcon} />
               </>

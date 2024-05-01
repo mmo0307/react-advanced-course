@@ -25,7 +25,7 @@ export const profileSlice = createSlice({
       state.readonly = action.payload;
     },
 
-    cancelEdit: state => {
+    cancelEdit: (state) => {
       state.readonly = true;
 
       state.validateErrors = undefined;
@@ -42,10 +42,10 @@ export const profileSlice = createSlice({
     }
   },
 
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       //fetchProfileData
-      .addCase(fetchProfileData.pending, state => {
+      .addCase(fetchProfileData.pending, (state) => {
         state.error = undefined;
 
         state.isLoading = true;
@@ -69,7 +69,7 @@ export const profileSlice = createSlice({
       })
 
       //updateProfileData
-      .addCase(updateProfileData.pending, state => {
+      .addCase(updateProfileData.pending, (state) => {
         state.validateErrors = undefined;
 
         state.isLoading = true;

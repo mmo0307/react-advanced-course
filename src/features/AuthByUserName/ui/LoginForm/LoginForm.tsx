@@ -79,7 +79,10 @@ const LoginForm: FC<LoginFormProps> = memo(
     }, [onSuccess, dispatch, password, username]);
 
     return (
-      <DynamicModuleLoader removeAfterUnmount reducers={initialReducers}>
+      <DynamicModuleLoader
+        removeAfterUnmount
+        reducers={initialReducers}
+      >
         <div className={classNames(styles.LoginForm, {}, [className])}>
           <Text title={t('Форма авторизации')} />
 

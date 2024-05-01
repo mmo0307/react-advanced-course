@@ -36,7 +36,7 @@ export const ArticleViewSelector = memo(
 
     return (
       <div className={classNames(styles.ArticleViewSelector, {}, [className])}>
-        {viewTypes.map(viewType => (
+        {viewTypes.map((viewType) => (
           <Button
             key={Math.random()}
             theme={ButtonThemes.CLEAR}

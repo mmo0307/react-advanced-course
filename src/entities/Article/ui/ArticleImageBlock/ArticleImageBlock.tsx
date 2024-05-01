@@ -16,9 +16,18 @@ interface ArticleImageBlockProps {
 const ArticleImageBlock = memo(
   ({ className, block }: ArticleImageBlockProps) => (
     <div className={classNames(styles.ArticleImageBlock, {}, [className])}>
-      <img src={block.src} alt={block.title} className={styles.img} />
+      <img
+        src={block.src}
+        alt={block.title}
+        className={styles.img}
+      />
 
-      {block.title && <Text text={block.title} align={TextAlign.CENTER} />}
+      {block.title && (
+        <Text
+          text={block.title}
+          align={TextAlign.CENTER}
+        />
+      )}
     </div>
   )
 );

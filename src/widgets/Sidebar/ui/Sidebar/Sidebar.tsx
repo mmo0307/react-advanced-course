@@ -22,7 +22,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
   const sidebarItemsList = useSelector(getSidebarItems);
 
   const onToggleClick = () => {
-    setCollapsed(prev => !prev);
+    setCollapsed((prev) => !prev);
   };
 
   return (
@@ -32,9 +32,17 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
         className
       ])}
     >
-      <VStack role='navigation' gap='8' className={styles.items}>
-        {sidebarItemsList.map(item => (
-          <SidebarItem key={Math.random()} item={item} collapsed={collapsed} />
+      <VStack
+        role='navigation'
+        gap='8'
+        className={styles.items}
+      >
+        {sidebarItemsList.map((item) => (
+          <SidebarItem
+            key={Math.random()}
+            item={item}
+            collapsed={collapsed}
+          />
         ))}
       </VStack>
 
@@ -52,7 +60,10 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
       <div className={styles.switchers}>
         <ThemeSwitcher />
 
-        <LangSwitcher className={styles.lang} short={collapsed} />
+        <LangSwitcher
+          className={styles.lang}
+          short={collapsed}
+        />
       </div>
     </aside>
   );

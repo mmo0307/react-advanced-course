@@ -43,7 +43,10 @@ function ArticlePage({ className }: ArticlePageProps) {
   });
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount={false}
+    >
       <Page
         data-testid='ArticlePage'
         className={classNames(styles.ArticlesPage, {}, [className])}

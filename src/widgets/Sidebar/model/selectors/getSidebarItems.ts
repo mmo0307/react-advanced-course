@@ -13,7 +13,7 @@ import {
   getRouteProfile
 } from '@/shared/const/router';
 
-export const getSidebarItems = createSelector(getUserAuthData, userData => {
+export const getSidebarItems = createSelector(getUserAuthData, (userData) => {
   const sidebarItemsList: SidebarItemType[] = [
     {
       path: getRouteMain(),

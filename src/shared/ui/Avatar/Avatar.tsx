@@ -26,7 +26,13 @@ const Avatar: FC<AvatarProps> = ({ className, src, size = 100, alt }) => {
     [size]
   );
 
-  const fallback = <Skeleton width={size} height={size} border={'50%'} />;
+  const fallback = (
+    <Skeleton
+      width={size}
+      height={size}
+      border={'50%'}
+    />
+  );
 
   const errorFallback = <Icon Svg={AvatarIcon} />;
 

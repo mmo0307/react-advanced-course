@@ -75,7 +75,12 @@ const AvatarDropDown: FC<AvatarDropDownProps> = ({ className }) => {
       className={className}
       direction='down-left'
       items={dropDownItems}
-      trigger={<Avatar size={30} src={authData?.avatar} />}
+      trigger={
+        <Avatar
+          size={30}
+          src={authData?.avatar}
+        />
+      }
     />
   );
 };

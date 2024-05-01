@@ -15,7 +15,7 @@ project.addSourceFilesAtPaths('src/**/*.ts');
 project.addSourceFilesAtPaths('src/**/*.tsx');
 
 function isAbsolute(path: string) {
-  return PROJECT_LAYERS.some(layer => path.startsWith(layer));
+  return PROJECT_LAYERS.some((layer) => path.startsWith(layer));
 }
 
 const files = project.getSourceFiles();
@@ -27,7 +27,7 @@ const dest = project.getDirectory(
 );
 const directories = dest?.getDirectories();
 
-directories?.forEach(directory => {
+directories?.forEach((directory) => {
   const folderName = directory.getPath();
   const isIndexFileExist = directory.getSourceFile(
     `${folderName}/${indexFilename}`
@@ -42,7 +42,7 @@ directories?.forEach(directory => {
 
     let content = '';
 
-    filesInFolder?.forEach(component => {
+    filesInFolder?.forEach((component) => {
       const folderLen = folderName.length;
       const moduleName = component.getBaseNameWithoutExtension();
       const modulePath = `.${component.getFilePath().slice(folderLen, -4)}`;
@@ -60,9 +60,9 @@ directories?.forEach(directory => {
   }
 });
 
-files.forEach(source => {
+files.forEach((source) => {
   const declarations = source.getImportDeclarations();
-  declarations.forEach(declaration => {
+  declarations.forEach((declaration) => {
     let value = declaration.getModuleSpecifierValue();
     value = value.replace('@/', '');
     const segments = value.split('/');

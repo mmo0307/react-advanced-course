@@ -50,7 +50,10 @@ const Navbar = memo(({ className }: NavbarProps) => {
         {t('Создать статью')}
       </AppLink>
 
-      <HStack gap='16' className={styles.actions}>
+      <HStack
+        gap='16'
+        className={styles.actions}
+      >
         <View.Condition if={Boolean(authData)}>
           <NotificationButton />
 
@@ -67,7 +70,10 @@ const Navbar = memo(({ className }: NavbarProps) => {
           </Button>
 
           <View.Condition if={isAuthModal}>
-            <LoginModal isOpen={isAuthModal} onClose={onClose} />
+            <LoginModal
+              isOpen={isAuthModal}
+              onClose={onClose}
+            />
           </View.Condition>
         </View.Condition>
       </HStack>

@@ -14,10 +14,19 @@ interface ArticleTextBlockProps {
 
 const ArticleTextBlock = memo(({ className, block }: ArticleTextBlockProps) => (
   <div className={classNames(styles.ArticleTextBlock, {}, [className])}>
-    {block.title && <Text title={block.title} className={styles.title} />}
+    {block.title && (
+      <Text
+        title={block.title}
+        className={styles.title}
+      />
+    )}
 
-    {block.paragraphs.map(paragraph => (
-      <Text key={Math.random()} text={paragraph} className={styles.paragraph} />
+    {block.paragraphs.map((paragraph) => (
+      <Text
+        key={Math.random()}
+        text={paragraph}
+        className={styles.paragraph}
+      />
     ))}
   </div>
 ));

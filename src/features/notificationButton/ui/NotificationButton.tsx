@@ -26,8 +26,14 @@ const NotificationButton: FC<NotificationButtonProps> = memo(
     }, []);
 
     const trigger: JSX.Element = (
-      <Button onClick={onOpedDrawer} theme={ButtonThemes.CLEAR}>
-        <Icon Svg={Notification} inverted />
+      <Button
+        onClick={onOpedDrawer}
+        theme={ButtonThemes.CLEAR}
+      >
+        <Icon
+          Svg={Notification}
+          inverted
+        />
       </Button>
     );
 
@@ -36,7 +42,10 @@ const NotificationButton: FC<NotificationButtonProps> = memo(
         <MobileView>
           {trigger}
 
-          <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+          <Drawer
+            isOpen={isOpen}
+            onClose={onCloseDrawer}
+          >
             <NotificationList className={styles.notifications} />
           </Drawer>
         </MobileView>

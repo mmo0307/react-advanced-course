@@ -28,7 +28,7 @@ const files = project.getSourceFiles();
 function isToggleFunction(node: Node) {
   let isToggleFeatures = false;
 
-  node.forEachChild(child => {
+  node.forEachChild((child) => {
     if (
       child.isKind(SyntaxKind.Identifier) &&
       child.getText() === toggleFunctionName
@@ -87,7 +87,7 @@ const getAttributeNodeByName = (
   // eslint-disable-next-line no-param-reassign
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  return jsxAttributes.find(node => node.getNameNode() === name);
+  return jsxAttributes.find((node) => node.getNameNode() === name);
 };
 
 const getReplacedComponent = (attribute?: JsxAttribute) => {
@@ -129,8 +129,8 @@ const replaceComponent = (node: Node) => {
   }
 };
 
-files.forEach(sourceFile => {
-  sourceFile.forEachDescendant(node => {
+files.forEach((sourceFile) => {
+  sourceFile.forEachDescendant((node) => {
     if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
       return replaceToggleFunction(node);
     }

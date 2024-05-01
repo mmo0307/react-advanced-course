@@ -117,7 +117,10 @@ const ArticlePageFilters: FC<ArticlesPageFiltersProps> = memo(
             onSortChange={onChangeSort}
           />
 
-          <ArticleViewSelector view={view} onViewClick={onChangeView} />
+          <ArticleViewSelector
+            view={view}
+            onViewClick={onChangeView}
+          />
         </div>
 
         <Card>
@@ -128,7 +131,10 @@ const ArticlePageFilters: FC<ArticlesPageFiltersProps> = memo(
           />
         </Card>
 
-        <ArticleTypeTabs value={type} onTabClick={onChangeType} />
+        <ArticleTypeTabs
+          value={type}
+          onTabClick={onChangeType}
+        />
       </VStack>
     );
   }

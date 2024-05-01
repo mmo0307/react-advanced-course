@@ -70,8 +70,16 @@ const RatingCard: FC<RatingCardProps> = memo(
     }, [onCancel, starsCount]);
 
     return (
-      <Card className={className} max data-testid='RatingCard'>
-        <VStack align='center' gap='8' max>
+      <Card
+        className={className}
+        max
+        data-testid='RatingCard'
+      >
+        <VStack
+          align='center'
+          gap='8'
+          max
+        >
           <Text title={starsCount ? t('Спасибо за оценку!') : title} />
 
           <StarRating
@@ -82,8 +90,14 @@ const RatingCard: FC<RatingCardProps> = memo(
         </VStack>
 
         <BrowserView>
-          <Modal isOpen={isModalOpen} lazy>
-            <VStack max gap='32'>
+          <Modal
+            isOpen={isModalOpen}
+            lazy
+          >
+            <VStack
+              max
+              gap='32'
+            >
               <>
                 <Text title={feedbackTitle} />
 
@@ -95,7 +109,11 @@ const RatingCard: FC<RatingCardProps> = memo(
                 />
               </>
 
-              <HStack max gap='16' justify='flex-end'>
+              <HStack
+                max
+                gap='16'
+                justify='flex-end'
+              >
                 <Button
                   onClick={cancelHandle}
                   theme={ButtonThemes.OUTLINE_RED}
@@ -104,7 +122,10 @@ const RatingCard: FC<RatingCardProps> = memo(
                   {t('Закрыть')}
                 </Button>
 
-                <Button data-testid='RatingCard.Send' onClick={acceptHandle}>
+                <Button
+                  data-testid='RatingCard.Send'
+                  onClick={acceptHandle}
+                >
                   {t('Отправить')}
                 </Button>
               </HStack>
@@ -113,7 +134,11 @@ const RatingCard: FC<RatingCardProps> = memo(
         </BrowserView>
 
         <MobileView>
-          <Drawer isOpen={isModalOpen} lazy onClose={cancelHandle}>
+          <Drawer
+            isOpen={isModalOpen}
+            lazy
+            onClose={cancelHandle}
+          >
             <VStack gap='32'>
               <>
                 <Text title={feedbackTitle} />
@@ -125,7 +150,11 @@ const RatingCard: FC<RatingCardProps> = memo(
                 />
               </>
 
-              <Button fullWidth onClick={acceptHandle} size={ButtonSize.L}>
+              <Button
+                fullWidth
+                onClick={acceptHandle}
+                size={ButtonSize.L}
+              >
                 {t('Отправить')}
               </Button>
             </VStack>

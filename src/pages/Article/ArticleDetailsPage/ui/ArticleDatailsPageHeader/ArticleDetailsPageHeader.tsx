@@ -40,12 +40,18 @@ const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = memo(
         justify='space-between'
         className={classNames('', {}, [className])}
       >
-        <Button theme={ButtonThemes.OUTLINE} onClick={onBackToList}>
+        <Button
+          theme={ButtonThemes.OUTLINE}
+          onClick={onBackToList}
+        >
           {t('Назад к  списку')}
         </Button>
 
         <View.Condition if={canEdit}>
-          <Button theme={ButtonThemes.OUTLINE} onClick={onEditArticle}>
+          <Button
+            theme={ButtonThemes.OUTLINE}
+            onClick={onEditArticle}
+          >
             {t('Редактировать')}
           </Button>
         </View.Condition>

@@ -17,7 +17,7 @@ const articlesAdapter = createEntityAdapter<Article, string>({
 });
 
 export const getArticles = articlesAdapter.getSelectors<StateSchema>(
-  state => state.articlesPage || articlesAdapter.getInitialState()
+  (state) => state.articlesPage || articlesAdapter.getInitialState()
 );
 
 const initialState = articlesAdapter.getInitialState<ArticlesPageSchema>({
@@ -72,7 +72,7 @@ const articlesPageSlice = createSlice({
     setType: (state, action: PayloadAction<ArticleType>) => {
       state.type = action.payload;
     },
-    initState: state => {
+    initState: (state) => {
       const view = localStorage.getItem(
         ARTICLES_VIEW_LOCALSTORAGE_KEY
       ) as ArticleView;
@@ -84,7 +84,7 @@ const articlesPageSlice = createSlice({
       state._inited = true;
     }
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(fetchArticlesList.pending, (state, action) => {
         state.error = undefined;

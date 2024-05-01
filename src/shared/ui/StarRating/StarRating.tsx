@@ -49,7 +49,7 @@ const StarRating = memo(
 
     return (
       <div className={classNames('', {}, [className])}>
-        {stars.map(starNumber => (
+        {stars.map((starNumber) => (
           <Icon
             className={classNames(
               styles.starIcon,

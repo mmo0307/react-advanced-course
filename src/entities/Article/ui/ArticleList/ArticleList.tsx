@@ -25,15 +25,13 @@ interface ArticleListProps {
 }
 
 const getSkeletons = (view: ArticleView) =>
-  new Array(view === ArticleView.GRID ? 9 : 3)
-    .fill(0)
-    .map(() => (
-      <ArticleSkeleton
-        className={styles.card}
-        key={Math.random()}
-        view={view}
-      />
-    ));
+  new Array(view === ArticleView.GRID ? 9 : 3).fill(0).map(() => (
+    <ArticleSkeleton
+      className={styles.card}
+      key={Math.random()}
+      view={view}
+    />
+  ));
 
 export const ArticleList = memo(
   ({
@@ -54,7 +52,10 @@ export const ArticleList = memo(
         ])}
       >
         <View.Condition if={Boolean(!isLoading && !articles.length)}>
-          <Text size={TextSize.L} title={t('Статьи не найдены')} />
+          <Text
+            size={TextSize.L}
+            title={t('Статьи не найдены')}
+          />
         </View.Condition>
 
         <View.Condition if={Boolean(isLoading)}>
@@ -62,7 +63,7 @@ export const ArticleList = memo(
         </View.Condition>
 
         <View.Condition if={!Boolean(!isLoading && !articles.length)}>
-          {articles.map(article => (
+          {articles.map((article) => (
             <ArticleItem
               key={Math.random()}
               className={styles.card}

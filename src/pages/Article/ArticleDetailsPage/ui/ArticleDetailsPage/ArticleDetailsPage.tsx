@@ -33,12 +33,18 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
   const { id } = useParams<{ id: string }>();
 
   return (
-    <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+    <DynamicModuleLoader
+      reducers={reducers}
+      removeAfterUnmount
+    >
       <Page className={classNames(styles.ArticleDetailsPage, {}, [className])}>
         <View.Condition if={!id}>{t('Статья не найдена')}</View.Condition>
 
         <View.Condition if={Boolean(id)}>
-          <VStack max gap='16'>
+          <VStack
+            max
+            gap='16'
+          >
             <ArticleDetailsPageHeader />
 
             <ArticleDetails id={id as string} />

@@ -71,7 +71,10 @@ export const Page = memo(
         {children}
 
         {onScrollEnd ? (
-          <div className={styles.trigger} ref={triggerRef} />
+          <div
+            className={styles.trigger}
+            ref={triggerRef}
+          />
         ) : null}
       </main>
     );

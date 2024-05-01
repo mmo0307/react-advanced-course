@@ -19,7 +19,10 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
   return (
     <div className={classNames(styles.PageError, {}, [className])}>
       <p>{t('Произошла непредвиденная ошибка')}</p>
-      <Button className={styles.button} onClick={onReloadPage}>
+      <Button
+        className={styles.button}
+        onClick={onReloadPage}
+      >
         {t('Обновить страницу')}
       </Button>
     </div>
