@@ -116,7 +116,8 @@
                 "argsIgnorePattern": "^_"
             }
         ],
-        "react/jsx-key": "warn"
+        "react/jsx-key": "warn",
+        "@typescript-eslint/no-namespace": "off"
     },
     "settings": {
         "import/resolver": {

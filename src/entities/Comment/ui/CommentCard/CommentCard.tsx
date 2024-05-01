@@ -32,6 +32,7 @@ const CommentCard: FC<CommentCardProps> = memo(
             },
             [className]
           )}
+          data-testid='CommentCard.Loading'
         >
           <div className={styles.header}>
             <Skeleton width={30} height={30} border='50%' />
@@ -48,6 +49,7 @@ const CommentCard: FC<CommentCardProps> = memo(
           max
           gap='8'
           className={classNames(styles.CommentCard, {}, [className])}
+          data-testid='CommentCard.Content'
         >
           <AppLink
             to={getRouteProfile(comment?.user.id as string)}

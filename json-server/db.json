@@ -1631,6 +1631,15 @@
         "MANAGER"
       ],
       "avatar": "https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://popkult.org/wp-content/uploads/2016/08/56aaf6903d13f-1.jpeg"
     }
   ],
   "profile": [
@@ -1655,6 +1664,17 @@
       "avatar": "https://avatarfiles.alphacoders.com/371/371698.png",
       "currency": "USD",
       "country": "Ukraine"
+    },
+    {
+      "id": "4",
+      "firstName": "test",
+      "lastName": "user",
+      "age": 465,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Dnipro",
+      "username": "testuser",
+      "avatar": "https://openseauserdata.com/files/b261626a159edf64a8a92aa7306053b8.png"
     }
   ]
 }

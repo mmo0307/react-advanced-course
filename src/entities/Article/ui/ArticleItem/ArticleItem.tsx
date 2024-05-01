@@ -53,6 +53,7 @@ const ArticleItem: FC<ArticleItemProps> = memo(
           styles[view]
         ])}
         target={target}
+        data-testid='ArticleListItem'
       >
         <View.Condition if={view === ArticleView.GRID}>
           <Card className={styles.card}>

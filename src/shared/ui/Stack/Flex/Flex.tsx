@@ -73,7 +73,8 @@ const Flex: FC<FlexProps> = ({
   align = 'center',
   direction = 'row',
   gap,
-  max
+  max,
+  ...props
 }) => (
   <div
     className={classNames(
@@ -89,6 +90,7 @@ const Flex: FC<FlexProps> = ({
         gap && gapClasses[gap]
       ]
     )}
+    {...props}
   >
     {children}
   </div>

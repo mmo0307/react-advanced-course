@@ -42,7 +42,12 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(
     });
 
     return (
-      <VStack gap='16' max className={classNames('', {}, [className])}>
+      <VStack
+        data-testid='ArticleRecommendationsList'
+        gap='16'
+        max
+        className={classNames('', {}, [className])}
+      >
         <Text
           size={TextSize.L}
           className={styles.commentTitle}

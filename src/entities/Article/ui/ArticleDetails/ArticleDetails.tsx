@@ -126,7 +126,7 @@ const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
               <Avatar size={200} src={article?.img} className={styles.avatar} />
             </HStack>
 
-            <VStack max gap='4'>
+            <VStack max gap='4' data-testid='ArticleDetails.Info'>
               <Text
                 title={article?.title}
                 text={article?.subtitle}

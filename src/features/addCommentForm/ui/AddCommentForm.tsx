@@ -63,15 +63,21 @@ const AddCommentForm = memo(
             max
             justify='space-between'
             className={classNames(styles.AddCommentForm, {}, [className])}
+            data-testid='AddCommentForm'
           >
             <Input
               className={styles.input}
               placeholder={t('Введите текст комментария')}
               value={text}
               onChange={onCommentTextChange}
+              data-testid='AddCommentForm.Input'
             />
 
-            <Button theme={ButtonThemes.OUTLINE} onClick={onSendHandler}>
+            <Button
+              theme={ButtonThemes.OUTLINE}
+              onClick={onSendHandler}
+              data-testid='AddCommentForm.Button'
+            >
               {t('Отправить')}
             </Button>
           </HStack>

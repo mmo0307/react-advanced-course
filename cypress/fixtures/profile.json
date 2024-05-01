@@ -1,0 +1,11 @@
+{
+    "id": "1",
+    "firstName": "test",
+    "lastName": "user",
+    "age": 465,
+    "currency": "EUR",
+    "country": "Ukraine",
+    "city": "Dnipro",
+    "username": "testuser",
+    "avatar": "https://openseauserdata.com/files/b261626a159edf64a8a92aa7306053b8.png"
+}
