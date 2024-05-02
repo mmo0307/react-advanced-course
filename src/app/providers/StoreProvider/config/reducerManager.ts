@@ -29,8 +29,8 @@ export function createReducerManager(
 
         keysToRemove = [];
       }
+
       // TODO fix type
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return combinedReducer(state as any, action);
     },
 

@@ -148,7 +148,8 @@
       {
         "maximum": 3
       }
-    ]
+    ],
+    "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
     "import/resolver": {
