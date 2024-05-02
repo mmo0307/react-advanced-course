@@ -18,6 +18,7 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { View } from '@/shared/ui/View';
 import { ArticleRating } from '@/features/Article';
 import { ArticleRecommendationsList } from '@/features/Article';
+import { getFeatureFlags } from '@/shared/lib/features';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -31,6 +32,8 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
   const { t } = useTranslation('article-details');
 
   const { id } = useParams<{ id: string }>();
+
+  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
 
   return (
     <DynamicModuleLoader
@@ -49,7 +52,9 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
 
             <ArticleDetails id={id as string} />
 
-            <ArticleRating articleId={id as string} />
+            {isArticleRatingEnabled && (
+              <ArticleRating articleId={id as string} />
+            )}
 
             <ArticleRecommendationsList />
 

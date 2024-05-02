@@ -1570,6 +1570,9 @@
       "username": "admin",
       "password": "123",
       "roles": ["ADMIN"],
+      "features": {
+        "isArticleRatingEnabled": true
+      },
       "avatar": "https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg"
     },
     {
@@ -1577,6 +1580,9 @@
       "username": "user",
       "password": "123",
       "roles": ["USER"],
+      "features": {
+        "isArticleRatingEnabled": true
+      },
       "avatar": "https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg"
     },
     {
@@ -1584,6 +1590,9 @@
       "username": "manager",
       "password": "123",
       "roles": ["MANAGER"],
+      "features": {
+        "isArticleRatingEnabled": false
+      },
       "avatar": "https://marketplace.canva.com/EAFewoMXU-4/1/0/1600w/canva-purple-pink-gradient-man-3d-avatar-0o0qE2T_kr8.jpg"
     },
     {
@@ -1591,6 +1600,9 @@
       "username": "testuser",
       "password": "123",
       "roles": ["ADMIN"],
+      "features": {
+        "isArticleRatingEnabled": true
+      },
       "avatar": "https://popkult.org/wp-content/uploads/2016/08/56aaf6903d13f-1.jpeg"
     }
   ],
@@ -1613,6 +1625,17 @@
       "age": 55,
       "city": "Dnipro",
       "username": "petro228",
+      "avatar": "https://avatarfiles.alphacoders.com/371/371698.png",
+      "currency": "USD",
+      "country": "Ukraine"
+    },
+    {
+      "id": "3",
+      "firstName": "MANAGER",
+      "lastName": "MANAGER",
+      "age": 55,
+      "city": "Dnipro",
+      "username": "MANAGER228",
       "avatar": "https://avatarfiles.alphacoders.com/371/371698.png",
       "currency": "USD",
       "country": "Ukraine"

@@ -1,4 +1,5 @@
 import { UserRole } from '../consts';
+import { FeaturesFlag } from '@/shared/types/featuresFlag';
 
 interface User {
   id: string;
@@ -8,6 +9,8 @@ interface User {
   avatar?: string;
 
   roles?: UserRole[];
+
+  features?: FeaturesFlag;
 }
 
 interface UserSchema {
