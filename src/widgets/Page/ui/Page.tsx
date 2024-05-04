@@ -7,16 +7,18 @@ import React, {
 } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { getScrollByPath, scrollActions } from '@/features/ScrollSave';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeature } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/lib/hooks/useTrottle';
+import { TestProps } from '@/shared/types/tests';
 
 import styles from './Page.module.scss';
-import { TestProps } from '@/shared/types/tests';
 
 interface PageProps extends PropsWithChildren, TestProps {
   className?: string;
@@ -64,9 +66,17 @@ export const Page = memo(
       <main
         id={PAGE_ID}
         ref={wrapperRef}
-        className={classNames(styles.Page, {}, [className])}
+        className={classNames(
+          toggleFeature({
+            name: 'isAppRedesigned',
+            on: () => styles.pageRedesigned,
+            off: () => styles.page
+          }),
+          {},
+          [className]
+        )}
         onScroll={onScroll}
-        data-testid={props['data-testid']}
+        data-testid={props['data-testid'] ?? 'Page'}
       >
         {children}
 

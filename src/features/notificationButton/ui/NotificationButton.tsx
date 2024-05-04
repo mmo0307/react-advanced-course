@@ -1,13 +1,15 @@
 import React, { FC, memo, useCallback, useState } from 'react';
-import styles from './NotificationButton.module.scss';
-import { Button } from '@/shared/ui/Button';
-import { ButtonThemes } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import Notification from '@/shared/assets/icons/notification.svg';
-import { NotificationList } from '@/entities/Notification';
-import { Popover } from '@/shared/ui/Popups';
-import { Drawer } from '@/shared/ui/Drawer';
 import { BrowserView, MobileView } from 'react-device-detect';
+
+import { NotificationList } from '@/entities/Notification';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Popover } from '@/shared/ui/deprecated/Popups';
+
+import Notification from '@/shared/assets/icons/notification.svg';
+
+import styles from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
   className?: string;

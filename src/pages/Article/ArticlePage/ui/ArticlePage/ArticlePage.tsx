@@ -1,5 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
+
+import { ArticlePageGreeting } from '@/features/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
@@ -12,11 +14,10 @@ import { Page } from '@/widgets/Page';
 import { fetchArticlesPage } from '../../model/services/fetchArticlesPage/fetchArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
+import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
 import styles from './ArticlePage.module.scss';
-import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
-import { ArticlePageGreeting } from '@/features/Article';
 
 interface ArticlePageProps {
   className?: string;

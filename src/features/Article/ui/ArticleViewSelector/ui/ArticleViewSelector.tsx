@@ -1,13 +1,14 @@
 import React, { memo } from 'react';
+
+import { ArticleView } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
 
 import styles from './ArticleViewSelector.module.scss';
-import { ArticleView } from '@/entities/Article';
-import { ButtonThemes } from '@/shared/ui/Button';
 
 interface ArticleViewSelectorProps {
   className?: string;

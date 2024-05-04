@@ -2,6 +2,7 @@ import { Index } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 
 import { ValidateProfileError } from '../../consts';
+
 import { validateProfileData } from './validateProfileData';
 
 const data = {

@@ -3,6 +3,7 @@ import { Currency } from '@/entities/Currency';
 import { TestAsyncThunk } from '@/shared/lib/test/TestAsyncThunk/TestAsyncThunk';
 
 import { ValidateProfileError } from '../../consts';
+
 import { updateProfileData } from './updateProfileData';
 
 const data = {

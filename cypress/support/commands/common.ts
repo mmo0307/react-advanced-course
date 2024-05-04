@@ -1,5 +1,6 @@
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localeStorage';
 import { User } from '@/entities/User';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localeStorage';
+
 import { selectByTestId } from '../../helpers/selectByTestId';
 
 export function login(username: string = 'testuser', password: string = '123') {

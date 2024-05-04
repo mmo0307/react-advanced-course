@@ -9,7 +9,8 @@ export function buildResolvers(options: BuildOptions): ResolveOptions {
     modules: [options.paths.src, 'node_modules'],
     mainFiles: ['index'],
     alias: {
-      '@': options.paths.src
+      '@': options.paths.src,
+      '@styles': options.paths.rootStyles
     }
   };
 }

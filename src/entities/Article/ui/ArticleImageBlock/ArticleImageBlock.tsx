@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text, TextAlign } from '@/shared/ui/deprecated/Text';
 
 import { ArticleImageBlockType } from '../../model/types/article';
 
 import styles from './ArticleImageBlock.module.scss';
-import { TextAlign } from '@/shared/ui/Text';
 
 interface ArticleImageBlockProps {
   className?: string;

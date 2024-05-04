@@ -1571,10 +1571,11 @@
       "password": "123",
       "roles": ["ADMIN"],
       "features": {
-        "isArticleRatingEnabled": true
+        "isArticleRatingEnabled": true,
+        "isAppRedesigned": true
       },
       "jsonSettings": {
-        "theme": "app_green_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "isArticlesPageHasBeenOpen": true
       },

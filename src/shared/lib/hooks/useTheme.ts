@@ -1,6 +1,8 @@
 import { useContext } from 'react';
+
 import { Theme } from '../../const/theme';
 import { ThemeContext } from '../context/ThemeContext';
+import { toggleFeature } from '../features';
 
 interface UseThemeResult {
   theme: Theme;
@@ -15,16 +17,24 @@ function useTheme(): UseThemeResult {
     let newTheme: Theme;
 
     switch (theme) {
+      case Theme.DARK:
+        newTheme = Theme.LIGHT;
+        break;
+
       case Theme.LIGHT:
+        newTheme = toggleFeature({
+          name: 'isAppRedesigned',
+          off: () => Theme.BLUE,
+          on: () => Theme.ORANGE
+        });
+        break;
+
+      case Theme.BLUE:
         newTheme = Theme.DARK;
         break;
 
-      case Theme.DARK:
-        newTheme = Theme.GREEN;
-        break;
-
-      case Theme.GREEN:
-        newTheme = Theme.LIGHT;
+      case Theme.ORANGE:
+        newTheme = Theme.DARK;
         break;
 
       default:

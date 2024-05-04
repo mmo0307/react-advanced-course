@@ -1,16 +1,24 @@
 import React, { FC, memo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
+
 import { LangSwitcher } from '@/features/LangSwitcher';
 import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/features';
+import {
+  Button,
+  ButtonSize,
+  ButtonThemes
+} from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
+import ArrowDown from '@/shared/assets/icons/arrow-bottom.svg';
+
 import styles from './Sidebar.module.scss';
-import { VStack } from '@/shared/ui/Stack';
-import { ButtonSize, ButtonThemes } from '@/shared/ui/Button';
 
 interface SideBarProps {
   className?: string;
@@ -26,46 +34,100 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
   };
 
   return (
-    <aside
-      data-testid='sidebar'
-      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
-        className
-      ])}
-    >
-      <VStack
-        role='navigation'
-        gap='8'
-        className={styles.items}
-      >
-        {sidebarItemsList.map((item) => (
-          <SidebarItem
-            key={Math.random()}
-            item={item}
-            collapsed={collapsed}
+    <ToggleFeature
+      name='isAppRedesigned'
+      on={
+        <aside
+          data-testid='sidebar'
+          className={classNames(
+            styles.Sidebar,
+            { [styles.collapsed]: collapsed },
+            [className]
+          )}
+        >
+          {/*<AppLogo*/}
+          {/*  size={collapsed ? 30 : 50}*/}
+          {/*  className={styles.logoRedesigned}*/}
+          {/*/>*/}
+
+          <VStack
+            role='navigation'
+            align='start'
+            gap='8'
+            className={classNames(styles.itemsRedesigned)}
+          >
+            {sidebarItemsList.map((item) => (
+              <SidebarItem
+                key={Math.random()}
+                item={item}
+                collapsed={collapsed}
+              />
+            ))}
+          </VStack>
+
+          <Icon
+            data-testid='sidebar-toggle'
+            className={styles.toggleButtonRedesigned}
+            onClick={onToggleClick}
+            Svg={ArrowDown}
           />
-        ))}
-      </VStack>
 
-      <Button
-        data-testid='sidebar-toggle'
-        className={styles.collapseBtn}
-        theme={ButtonThemes.BACKGROUND_INVERTED}
-        onClick={onToggleClick}
-        size={ButtonSize.L}
-        square
-      >
-        {collapsed ? '>>' : '<<'}
-      </Button>
+          <HStack
+            max
+            justify='center'
+            className={styles.switchers}
+          >
+            <ThemeSwitcher />
 
-      <div className={styles.switchers}>
-        <ThemeSwitcher />
+            <LangSwitcher short={collapsed} />
+          </HStack>
+        </aside>
+      }
+      off={
+        <aside
+          data-testid='sidebar'
+          className={classNames(
+            styles.Sidebar,
+            { [styles.collapsed]: collapsed },
+            [className]
+          )}
+        >
+          <VStack
+            role='navigation'
+            gap='8'
+            className={styles.items}
+          >
+            {sidebarItemsList.map((item) => (
+              <SidebarItem
+                key={Math.random()}
+                item={item}
+                collapsed={collapsed}
+              />
+            ))}
+          </VStack>
 
-        <LangSwitcher
-          className={styles.lang}
-          short={collapsed}
-        />
-      </div>
-    </aside>
+          <Button
+            data-testid='sidebar-toggle'
+            className={styles.collapseBtn}
+            theme={ButtonThemes.BACKGROUND_INVERTED}
+            onClick={onToggleClick}
+            size={ButtonSize.L}
+            square
+          >
+            {collapsed ? '>>' : '<<'}
+          </Button>
+
+          <div className={styles.switchers}>
+            <ThemeSwitcher />
+
+            <LangSwitcher
+              className={styles.lang}
+              short={collapsed}
+            />
+          </div>
+        </aside>
+      }
+    />
   );
 });
 

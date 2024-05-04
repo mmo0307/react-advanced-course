@@ -1,13 +1,16 @@
+// eslint-disable-next-line plugin-checker/layer-imports
 import { ReactNode } from 'react';
-import { render } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import { ReducersMapObject } from '@reduxjs/toolkit';
-import { i18nForTest } from '@/shared/config/i18n/i18nForTests';
+import { render } from '@testing-library/react';
+
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { Theme } from '@/shared/const/theme';
 // eslint-disable-next-line plugin-checker/layer-imports
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { i18nForTest } from '@/shared/config/i18n/i18nForTests';
+import { Theme } from '@/shared/const/theme';
+
 // eslint-disable-next-line plugin-checker/layer-imports
 import '@/app/styles/index.scss';
 

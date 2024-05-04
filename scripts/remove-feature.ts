@@ -1,4 +1,4 @@
-import { Node, Project, SyntaxKind, JsxAttribute } from 'ts-morph';
+import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph';
 
 const removedFeatureName = process.argv[2];
 const featureState = process.argv[3];

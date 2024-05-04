@@ -1,8 +1,9 @@
 import { action } from '@storybook/addon-actions';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { ArticleViewSelector } from './ArticleViewSelector';
 import { ArticleView } from '@/entities/Article';
+
+import { ArticleViewSelector } from './ArticleViewSelector';
 
 const meta = {
   title: 'feature/Article/ArticleViewSelector',

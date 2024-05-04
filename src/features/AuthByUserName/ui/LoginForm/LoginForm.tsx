@@ -1,17 +1,20 @@
 import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { loginActions, loginReducer } from '../..';
+import { useNavigate } from 'react-router-dom';
+
+import { getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
-import { Text } from '@/shared/ui/Text';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
 
+import { loginActions, loginReducer } from '../..';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
@@ -19,10 +22,6 @@ import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLogi
 import { loginByUsername } from '../../model/services/loginByUserName/loginByUsername';
 
 import styles from './LoginForm.module.scss';
-import { useNavigate } from 'react-router-dom';
-import { TextTheme } from '@/shared/ui/Text';
-import { ButtonThemes } from '@/shared/ui/Button';
-import { getRouteProfile } from '@/shared/const/router';
 
 interface LoginFormProps {
   className?: string;

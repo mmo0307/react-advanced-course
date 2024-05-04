@@ -1,0 +1,47 @@
+@import '@styles';
+
+.button {
+  margin: 0;
+
+  padding: 0;
+
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  outline: none;
+}
+
+.menu {
+  position: absolute;
+
+  z-index: var(--z-index);
+
+  display: flex;
+
+  flex-direction: column;
+
+  background-color: var(--card-bg);
+
+  border: 1px solid var(--primary-color);
+
+  border-radius: 8px;
+}
+
+.item {
+  width: 100%;
+
+  padding: 10px 25px;
+
+  color: var(--primary-color);
+
+  background: none;
+
+  border: none;
+
+  cursor: pointer;
+
+  outline: none;
+}

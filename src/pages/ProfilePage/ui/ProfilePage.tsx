@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Page } from '@/widgets/Page';
-import { EditableProfileCard } from '@/features/editableProfileCard';
-import { useParams } from 'react-router-dom';
-import { View } from '@/shared/ui/View';
-import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+
+import { EditableProfileCard } from '@/features/editableProfileCard';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { View } from '@/shared/ui/deprecated/View';
+import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {
   className?: string;

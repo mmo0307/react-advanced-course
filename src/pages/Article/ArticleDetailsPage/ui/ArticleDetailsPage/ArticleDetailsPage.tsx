@@ -1,25 +1,25 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+
 import { ArticleDetails } from '@/entities/Article';
+import { ArticleRating, ArticleRecommendationsList } from '@/features/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ToggleFeature } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { View } from '@/shared/ui/deprecated/View';
 import { Page } from '@/widgets/Page';
 
 import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDatailsPageHeader/ArticleDetailsPageHeader';
+import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 
 import styles from './ArticleDetailsPage.module.scss';
-import { VStack } from '@/shared/ui/Stack';
-import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
-import { View } from '@/shared/ui/View';
-import { ArticleRating } from '@/features/Article';
-import { ArticleRecommendationsList } from '@/features/Article';
-import { Card } from '@/shared/ui/Card';
-import { ToggleFeature } from '@/shared/lib/features';
 
 interface ArticleDetailsPageProps {
   className?: string;

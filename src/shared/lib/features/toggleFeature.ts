@@ -1,4 +1,5 @@
 import { FeatureFlags } from '@/shared/types/featuresFlag';
+
 import { getFeatureFlags } from './setGetFeatures';
 
 interface ToggleFeature<T> {

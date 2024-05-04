@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { View } from '@/shared/ui/deprecated/View';
+
 import { useGetNotificationsQuery } from '../../api/notificationApi';
-import { VStack } from '@/shared/ui/Stack';
 import { NotificationItem } from '../../ui/NotificationItem/NotificationItem';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { View } from '@/shared/ui/View';
 
 interface NotificationListProps {
   className?: string;

@@ -1,13 +1,15 @@
 import React, { FC, memo } from 'react';
-import { ArticleList } from '@/entities/Article';
-import { useSelector } from 'react-redux';
-import { getArticles } from '../../model/slices/articlesPageSlice';
-import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';
-import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
-import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
-import { View } from '@/shared/ui/View';
-import { Text } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { ArticleList } from '@/entities/Article';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { View } from '@/shared/ui/deprecated/View';
+
+import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
+import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';
+import { getArticlePageView } from '../../model/selectors/getArticlePageView/getArticlePageView';
+import { getArticles } from '../../model/slices/articlesPageSlice';
 
 interface ArticleInfiniteListProps {
   className?: string;

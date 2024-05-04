@@ -1,11 +1,12 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { createReducerManager } from './reducerManager';
+
 import { userReducer } from '@/entities/User';
 import { scrollReducer } from '@/features/ScrollSave';
 import { $api } from '@/shared/api/api';
-
-import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { rtkApi } from '@/shared/api/rtlApi';
+
+import { createReducerManager } from './reducerManager';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 function createReduxStore(
   initialState?: StateSchema,

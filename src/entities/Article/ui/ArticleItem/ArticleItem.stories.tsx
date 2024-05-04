@@ -1,8 +1,7 @@
 import type { Meta } from '@storybook/react';
+
 // import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-
 // import { Article, ArticleView } from '../../model/types/article';
-
 import { ArticleItem } from './ArticleItem';
 
 // eslint-disable-next-line storybook/story-exports

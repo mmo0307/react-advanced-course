@@ -1,13 +1,14 @@
 import React, { FC, memo, useCallback } from 'react';
+
+import { saveJsonSettings } from '@/entities/User';
+import { Theme } from '@/shared/const/theme';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+
 import MoonIcon from '@/shared/assets/icons/moon.svg';
 import SunIcon from '@/shared/assets/icons/sun.svg';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
-import { ButtonThemes } from '@/shared/ui/Button';
-import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Theme } from '@/shared/const/theme';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { saveJsonSettings } from '@/entities/User';
 
 interface ThemeSwitcherProps {
   className?: string;

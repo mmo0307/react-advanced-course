@@ -43,36 +43,24 @@
               "gap"
             ]
           }
+        ],
+        "simple-import-sort/imports": [
+          "warn",
+          {
+            "groups": [
+              ["^\\u0000"],
+              ["^react(.*)$", "^next", "^[a-z]", "^@?\\w"],
+              //                               [
+              //                                  "^(@|components)(/.*|$)"
+              //                             ],
+              ["^"],
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+              ["^.+\\.(gif|png|svg|jpg)$"],
+              ["^.+\\.s?css$"]
+            ]
+          }
         ]
-        //                "simple-import-sort/imports": [
-        //                    "warn",
-        //                    {
-        //                        "groups": [
-        //                            [
-        //                                "^react",
-        //                                "^@?\\w"
-        //                            ],
-        //                            [
-        //                                "^(@|components)(/.*|$)"
-        //                            ],
-        //                            [
-        //                                "^\\u0000"
-        //                            ],
-        //                            [
-        //                                "^\\.\\.(?!/?$)",
-        //                                "^\\.\\./?$"
-        //                            ],
-        //                            [
-        //                                "^\\./(?=.*/)(?!/?$)",
-        //                                "^\\.(?!/?$)",
-        //                                "^\\./?$"
-        //                            ],
-        //                            [
-        //                                "^.+\\.?(css)$"
-        //                            ]
-        //                        ]
-        //                    }
-        //                ]
       }
     }
   ],
@@ -84,7 +72,7 @@
   "plugins": [
     "react",
     "@typescript-eslint",
-    //        "simple-import-sort",
+    "simple-import-sort",
     "i18next",
     "plugin-checker",
     "unused-imports"
@@ -98,8 +86,8 @@
         "markupOnly": true
       }
     ],
-    //        "simple-import-sort/exports": "warn",
-    //        "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "simple-import-sort/imports": "warn",
     "@typescript-eslint/no-empty-interface": [
       "error",
       {
@@ -149,7 +137,8 @@
         "maximum": 3
       }
     ],
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-duplicate-imports": ["error", { "includeExports": true }]
   },
   "settings": {
     "import/resolver": {

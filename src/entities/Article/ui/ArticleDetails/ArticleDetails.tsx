@@ -1,20 +1,21 @@
 import React, { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import CalendarIcon from '@/shared/assets/icons/calendar.svg';
-import EyeIcon from '@/shared/assets/icons/eye.svg';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
   DynamicModuleLoader,
   ReducersList
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Icon } from '@/shared/ui/Icon';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Text } from '@/shared/ui/Text';
-import { View } from '@/shared/ui/View';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextAlign, TextSize } from '@/shared/ui/deprecated/Text';
+import { View } from '@/shared/ui/deprecated/View';
 
+import { ArticleBlockType } from '../../model/const';
 import {
   getArticleDetailsData,
   getArticleDetailsError,
@@ -27,10 +28,10 @@ import { ArticleCodeBlock } from '../ArticleCodeBlock/ArticleCodeBlock';
 import { ArticleImageBlock } from '../ArticleImageBlock/ArticleImageBlock';
 import { ArticleTextBlock } from '../ArticleTextBlock/ArticleTextBlock';
 
+import CalendarIcon from '@/shared/assets/icons/calendar.svg';
+import EyeIcon from '@/shared/assets/icons/eye.svg';
+
 import styles from './ArticleDetails.module.scss';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { ArticleBlockType } from '../../model/const';
-import { TextAlign, TextSize } from '@/shared/ui/Text';
 
 interface ArticleDetailsProps {
   className?: string;

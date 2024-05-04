@@ -10,6 +10,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
     html: '',
     entry: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    rootStyles: path.resolve(__dirname, '..', '..', 'src', 'app', 'styles'),
     locales: '',
     buildLocales: ''
   };
@@ -20,7 +21,8 @@ export default ({ config }: { config: webpack.Configuration }) => {
 
   config!.resolve!.alias = {
     ...config!.resolve!.alias,
-    '@': paths.src
+    '@': paths.src,
+    '@styles': paths.rootStyles
   };
 
   // eslint-disable-next-line no-param-reassign

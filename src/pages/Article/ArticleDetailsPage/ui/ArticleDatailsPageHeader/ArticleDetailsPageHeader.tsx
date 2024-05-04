@@ -2,16 +2,15 @@ import React, { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
 import { getArticleDetailsData } from '@/entities/Article';
+import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button } from '@/shared/ui/Button';
-import { View } from '@/shared/ui/View';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { View } from '@/shared/ui/deprecated/View';
 
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle/getCanEditArticle';
-
-import { HStack } from '@/shared/ui/Stack';
-import { ButtonThemes } from '@/shared/ui/Button';
-import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 
 interface ArticleDetailsPageHeaderProps {
   className?: string;

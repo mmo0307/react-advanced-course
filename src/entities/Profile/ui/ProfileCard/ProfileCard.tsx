@@ -1,19 +1,19 @@
 import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Index, CountrySelect } from '@/entities/Country';
+
+import { CountrySelect, Index } from '@/entities/Country';
 import { Currency, CurrencySelect } from '@/entities/Currency';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Input } from '@/shared/ui/Input';
-import { Loader } from '@/shared/ui/Loader';
-import { Text } from '@/shared/ui/Text';
-import { View } from '@/shared/ui/View';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
+import { View } from '@/shared/ui/deprecated/View';
 
 import { Profile } from '../../model/types/profile';
 
 import styles from './ProfileCard.module.scss';
-import { VStack } from '@/shared/ui/Stack';
-import { TextAlign, TextTheme } from '@/shared/ui/Text';
 
 interface ProfileCardProps {
   className?: string;

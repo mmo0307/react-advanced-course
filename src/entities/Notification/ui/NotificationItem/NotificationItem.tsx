@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
-import styles from './NotificationItem.module.scss';
-import { Text } from '@/shared/ui/Text';
-import { Card, CardTheme } from '@/shared/ui/Card';
+import { Card, CardTheme } from '@/shared/ui/deprecated/Card';
+import { Text } from '@/shared/ui/deprecated/Text';
+import { View } from '@/shared/ui/deprecated/View';
+
 import { Notification } from '../../model/types/notifications';
-import { View } from '@/shared/ui/View';
+
+import styles from './NotificationItem.module.scss';
 
 interface NotificationItemProps {
   className?: string;

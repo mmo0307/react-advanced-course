@@ -9,6 +9,8 @@ export interface BuildPaths {
 
   src: string;
 
+  rootStyles: string;
+
   locales: string;
 
   buildLocales: string;

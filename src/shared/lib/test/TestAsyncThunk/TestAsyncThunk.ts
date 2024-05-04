@@ -1,6 +1,7 @@
-import { AsyncThunkAction } from '@reduxjs/toolkit';
-import { StateSchema } from '@/app/providers/StoreProvider';
 import axios, { AxiosStatic } from 'axios';
+import { AsyncThunkAction } from '@reduxjs/toolkit';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 type DispatchType<T> = jest.MockedFunction<(action: T) => void>;
 type NavigateType = jest.MockedFunction<(destination: string) => void>;

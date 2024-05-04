@@ -1,17 +1,20 @@
 import React, { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { AppRouter } from './providers/router';
-import { getUserInited } from '@/entities/User';
+
+import { getUserInited, initAuthData } from '@/entities/User';
+import { MainLayout } from '@/shared/layouts';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { View } from '@/shared/ui/View';
-import { Navbar } from '@/widgets/Navbar';
-import { Sidebar } from '@/widgets/Sidebar';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
+import { View } from '@/shared/ui/deprecated/View';
+import { Navbar } from '@/widgets/Navbar';
+import { PageLoader } from '@/widgets/PageLoader';
+import { Sidebar } from '@/widgets/Sidebar';
+
+import { AppRouter } from './providers/router';
 
 import './styles/index.scss';
-import { initAuthData } from '@/entities/User';
-import { PageLoader } from '@/widgets/PageLoader';
 
 function App() {
   const { theme } = useTheme();
@@ -31,19 +34,36 @@ function App() {
       </View.Condition>
 
       <View.Condition if={inited}>
-        <div className={classNames('app', {}, [theme])}>
-          <Suspense fallback=''>
-            <Navbar />
+        <ToggleFeature
+          name='isAppRedesigned'
+          off={
+            <div className={classNames('app', {}, [theme])}>
+              <Suspense fallback=''>
+                <Navbar />
 
-            <div className='content-page'>
-              <Sidebar />
+                <div className='content-page'>
+                  <Sidebar />
 
-              <View.Condition if={inited}>
-                <AppRouter />
-              </View.Condition>
+                  <View.Condition if={inited}>
+                    <AppRouter />
+                  </View.Condition>
+                </div>
+              </Suspense>
             </div>
-          </Suspense>
-        </div>
+          }
+          on={
+            <div className={classNames('app_redesigned', {}, [theme])}>
+              <Suspense fallback=''>
+                <MainLayout
+                  header={<Navbar />}
+                  content={<AppRouter />}
+                  sidebar={<Sidebar />}
+                  toolbar={<div>{'test-toolbar'}</div>}
+                />
+              </Suspense>
+            </div>
+          }
+        />
       </View.Condition>
     </>
   );

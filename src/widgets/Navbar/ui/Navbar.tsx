@@ -1,19 +1,20 @@
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
 import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUserName';
+import { AvatarDropDown } from '@/features/avatarDropDown';
+import { NotificationButton } from '@/features/notificationButton';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink, AppLinkThemes } from '@/shared/ui/AppLink';
-import { Button, ButtonThemes } from '@/shared/ui/Button';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { View } from '@/shared/ui/View';
+import { AppLink, AppLinkThemes } from '@/shared/ui/deprecated/AppLink';
+import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { View } from '@/shared/ui/deprecated/View';
 
 import styles from './Navbar.module.scss';
-import { HStack } from '@/shared/ui/Stack';
-import { NotificationButton } from '@/features/notificationButton';
-import { AvatarDropDown } from '@/features/avatarDropDown';
-import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavbarProps {
   className?: string;

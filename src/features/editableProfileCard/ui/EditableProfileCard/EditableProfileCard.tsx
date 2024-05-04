@@ -1,6 +1,22 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import React, { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { Index } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard } from '@/entities/Profile';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import {
+  DynamicModuleLoader,
+  ReducersList
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { View } from '@/shared/ui/deprecated/View';
+
+import { ValidateProfileError } from '../../model/consts';
 import {
   getProfileError,
   getProfileForm,
@@ -8,24 +24,9 @@ import {
   getProfileReadonly,
   getProfileValidateErrors
 } from '../../model/selectors';
-import { useSelector } from 'react-redux';
-import { Currency } from '@/entities/Currency';
-import { Index } from '@/entities/Country';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Text } from '@/shared/ui/Text';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
-import { ProfileCard } from '@/entities/Profile';
-import { View } from '@/shared/ui/View';
-import {
-  DynamicModuleLoader,
-  ReducersList
-} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { VStack } from '@/shared/ui/Stack';
-import { ValidateProfileError } from '../../model/consts';
-import { TextTheme } from '@/shared/ui/Text';
 
 interface EditableProfileCardProps {
   className?: string;

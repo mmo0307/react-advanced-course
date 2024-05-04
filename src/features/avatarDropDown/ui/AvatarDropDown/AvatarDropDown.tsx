@@ -1,21 +1,22 @@
 import React, { FC, useCallback, useMemo } from 'react';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Dropdown } from '@/shared/ui/Popups';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import {
   getUserAuthData,
   isUserAdmin,
   isUserManager,
   userActions
 } from '@/entities/User';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { useTranslation } from 'react-i18next';
 import {
   getRouteAdmin,
   getRouteMain,
   getRouteProfile
 } from '@/shared/const/router';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown } from '@/shared/ui/deprecated/Popups';
 
 interface AvatarDropDownProps {
   className?: string;
