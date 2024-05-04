@@ -1,50 +1,48 @@
-import { JsxAttribute, Node, Project, SyntaxKind } from 'ts-morph';
+import { Node, Project, SyntaxKind, JsxAttribute } from 'ts-morph';
 
-const removedFeatureName = process.argv[2]; // example isArticleEnabled
-const featureState = process.argv[3]; // example off\on
+const removedFeatureName = process.argv[2];
+const featureState = process.argv[3];
 
-const toggleFunctionName = 'toggleFeatures';
-const toggleComponentName = 'ToggleFeatures';
+const toggleFunctionName = 'toggleFeature';
+const toggleComponentName = 'ToggleFeature';
 
 if (!removedFeatureName) {
-  throw new Error('Укажите название фича-флага');
+  throw new Error('Specify the name of the feature flag');
 }
 
 if (!featureState) {
-  throw new Error('Укажите состояние фичи (on или off)');
+  throw new Error('Specify the status of the feature (on or off)');
 }
 
 if (featureState !== 'on' && featureState !== 'off') {
-  throw new Error('Некорректное значение состояния фичи (on или off)');
+  throw new Error('Incorrect fixture state value (on or off)');
 }
 
-const project = new Project({});
+const project = new Project();
 
-project.addSourceFilesAtPaths('src/**/*.ts');
-project.addSourceFilesAtPaths('src/**/*.tsx');
+project.addSourceFilesAtPaths(['src/**/*.ts', 'src/**/*.tsx']);
 
 const files = project.getSourceFiles();
 
-function isToggleFunction(node: Node) {
-  let isToggleFeatures = false;
+const isToggleFunction = (node: Node) => {
+  let isToggleFeature = false;
 
   node.forEachChild((child) => {
     if (
-      child.isKind(SyntaxKind.Identifier) &&
+      child.asKind(SyntaxKind.Identifier) &&
       child.getText() === toggleFunctionName
     ) {
-      isToggleFeatures = true;
+      isToggleFeature = true;
     }
   });
+  return isToggleFeature;
+};
 
-  return isToggleFeatures;
-}
-
-function isToggleComponent(node: Node) {
+const isToggleComponent = (node: Node) => {
   const identifier = node.getFirstDescendantByKind(SyntaxKind.Identifier);
 
   return identifier?.getText() === toggleComponentName;
-}
+};
 
 const replaceToggleFunction = (node: Node) => {
   const objectOptions = node.getFirstDescendantByKind(
@@ -53,21 +51,21 @@ const replaceToggleFunction = (node: Node) => {
 
   if (!objectOptions) return;
 
-  const offFunctionProperty = objectOptions.getProperty('off');
-  const onFunctionProperty = objectOptions.getProperty('on');
+  const nameProperty = objectOptions.getProperty('name');
 
-  const featureNameProperty = objectOptions.getProperty('name');
+  const onFuncProperty = objectOptions.getProperty('on');
+  const offFuncProperty = objectOptions.getProperty('off');
 
-  const onFunction = onFunctionProperty?.getFirstDescendantByKind(
-    SyntaxKind.ArrowFunction
-  );
-  const offFunction = offFunctionProperty?.getFirstDescendantByKind(
-    SyntaxKind.ArrowFunction
-  );
-  const featureName = featureNameProperty
+  const featureName = nameProperty
     ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
-    ?.getText()
-    .slice(1, -1);
+    ?.getLiteralValue();
+
+  const onFunction = onFuncProperty?.getFirstDescendantByKind(
+    SyntaxKind.ArrowFunction
+  );
+  const offFunction = offFuncProperty?.getFirstDescendantByKind(
+    SyntaxKind.ArrowFunction
+  );
 
   if (featureName !== removedFeatureName) return;
 
@@ -80,14 +78,10 @@ const replaceToggleFunction = (node: Node) => {
   }
 };
 
-const getAttributeNodeByName = (
-  jsxAttributes: JsxAttribute[],
-  name: string
-) => {
-  // eslint-disable-next-line no-param-reassign
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  return jsxAttributes.find((node) => node.getNameNode() === name);
+const getAttributeByName = (jsxAttributes: JsxAttribute[], name: string) => {
+  return jsxAttributes.find(
+    (attribute) => attribute.getNameNode().getText() === name
+  );
 };
 
 const getReplacedComponent = (attribute?: JsxAttribute) => {
@@ -103,43 +97,43 @@ const getReplacedComponent = (attribute?: JsxAttribute) => {
   return value;
 };
 
-const replaceComponent = (node: Node) => {
+const replaceToggleComponent = (node: Node) => {
   const attributes = node.getDescendantsOfKind(SyntaxKind.JsxAttribute);
 
-  const onAttribute = getAttributeNodeByName(attributes, 'on');
-  const offAttribute = getAttributeNodeByName(attributes, 'off');
+  const nameAttribute = getAttributeByName(attributes, 'name');
 
-  const featureNameAttribute = getAttributeNodeByName(attributes, 'feature');
-  const featureName = featureNameAttribute
+  const onComponentAttribute = getAttributeByName(attributes, 'on');
+  const offComponentAttribute = getAttributeByName(attributes, 'off');
+
+  const featureName = nameAttribute
     ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
-    ?.getText()
-    ?.slice(1, -1);
+    ?.getLiteralValue();
+
+  const onComponent = getReplacedComponent(onComponentAttribute);
+  const offComponent = getReplacedComponent(offComponentAttribute);
 
   if (featureName !== removedFeatureName) return;
 
-  const offValue = getReplacedComponent(offAttribute);
-  const onValue = getReplacedComponent(onAttribute);
-
-  if (featureState === 'on' && onValue) {
-    node.replaceWithText(onValue);
+  if (featureState === 'on' && onComponent) {
+    node.replaceWithText(onComponent);
   }
 
-  if (featureState === 'off' && offValue) {
-    node.replaceWithText(offValue);
+  if (featureState === 'off' && offComponent) {
+    node.replaceWithText(offComponent);
   }
 };
 
-files.forEach((sourceFile) => {
-  sourceFile.forEachDescendant((node) => {
-    if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
+files.forEach((SourceFile) => {
+  SourceFile.forEachDescendant((node) => {
+    if (node.asKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
       return replaceToggleFunction(node);
     }
 
     if (
-      node.isKind(SyntaxKind.JsxSelfClosingElement) &&
+      node.asKind(SyntaxKind.JsxSelfClosingElement) &&
       isToggleComponent(node)
     ) {
-      return replaceComponent(node);
+      return replaceToggleComponent(node);
     }
   });
 });

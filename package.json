@@ -27,6 +27,7 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
+    "remove:feature": "ts-node ./scripts/remove-feature.ts",
     "postinstall:WINDOW": "rmdir /s /q .\\node_modules\\.cache",
     "postinstall:MAC:LINUX": "rm -rf ./node_modules/.cache"
   },
