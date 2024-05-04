@@ -1,13 +1,13 @@
-import { FeaturesFlag } from '../../types/featuresFlag';
+import { FeatureFlags } from '../../types/featuresFlag';
 
-let featureFlags: FeaturesFlag;
+let featureFlags: FeatureFlags;
 
-const setFeatureFlags = (newFeatureFlags: FeaturesFlag) => {
+const setFeatureFlags = (newFeatureFlags: FeatureFlags) => {
   if (newFeatureFlags) {
     featureFlags = newFeatureFlags;
   }
 };
 
-const getFeatureFlags = (flag: keyof FeaturesFlag) => featureFlags[flag];
+const getFeatureFlags = (flag: keyof FeatureFlags) => featureFlags[flag];
 
 export { setFeatureFlags, getFeatureFlags };

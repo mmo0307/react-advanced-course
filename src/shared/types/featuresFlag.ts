@@ -1,3 +1,3 @@
-export interface FeaturesFlag {
+export interface FeatureFlags {
   isArticleRatingEnabled: boolean;
 }

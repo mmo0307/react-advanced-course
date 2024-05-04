@@ -18,7 +18,8 @@ import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetails
 import { View } from '@/shared/ui/View';
 import { ArticleRating } from '@/features/Article';
 import { ArticleRecommendationsList } from '@/features/Article';
-import { getFeatureFlags } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features/toggleFeatures';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -33,7 +34,11 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
 
   const { id } = useParams<{ id: string }>();
 
-  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id as string} />,
+    off: () => <Card>{t('Оценка статей скоро появиться!')}</Card>
+  });
 
   return (
     <DynamicModuleLoader
@@ -52,9 +57,7 @@ function ArticleDetailsPage({ className }: ArticleDetailsPageProps) {
 
             <ArticleDetails id={id as string} />
 
-            {isArticleRatingEnabled && (
-              <ArticleRating articleId={id as string} />
-            )}
+            {articleRatingCard}
 
             <ArticleRecommendationsList />
 
