@@ -3,3 +3,4 @@ export { ArticleRecommendationsList } from './ui/ArticleRecommendationsList';
 export { ArticleViewSelector } from './ui/ArticleViewSelector';
 export { ArticleSortSelector } from './ui/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs';
+export { ArticlePageGreeting } from './ui/articlePageGreeting';

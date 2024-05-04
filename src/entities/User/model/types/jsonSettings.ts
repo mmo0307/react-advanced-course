@@ -5,7 +5,7 @@ interface Settings {
 
   isFirstVisit: boolean;
 
-  settingPageHasBeenOpen: boolean;
+  isArticlesPageHasBeenOpen: boolean;
 }
 
 type JsonSettings = Partial<Settings>;

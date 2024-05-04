@@ -16,6 +16,7 @@ import { ArticlePageFilters } from '../ArticlePageFilters/ArticlePageFilters';
 
 import styles from './ArticlePage.module.scss';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
+import { ArticlePageGreeting } from '@/features/Article';
 
 interface ArticlePageProps {
   className?: string;
@@ -55,6 +56,8 @@ function ArticlePage({ className }: ArticlePageProps) {
         <ArticlePageFilters />
 
         <ArticleInfiniteList />
+
+        <ArticlePageGreeting />
       </Page>
     </DynamicModuleLoader>
   );
