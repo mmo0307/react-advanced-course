@@ -8,6 +8,7 @@ export {
 export { userActions, userReducer } from './model/slice/userSlice';
 export type { User, UserSchema } from './model/types/userSchema';
 export { UserRole } from './model/consts';
+export { initAuthData } from './model/service/initAuthData';
 
 export { useJsonSettings } from './model/selectors/getJsonSettings/getJsonSettings';
 

@@ -1616,7 +1616,7 @@
         "isArticleRatingEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_green_theme",
         "isFirstVisit": true,
         "settingPageHasBeenOpen": false
       },
@@ -1650,7 +1650,7 @@
         "isArticleRatingEnabled": false
       },
       "jsonSettings": {
-        "theme": "app_green_theme",
+        "theme": "app_dark_theme",
         "isFirstVisit": true,
         "settingPageHasBeenOpen": false
       },
