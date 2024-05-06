@@ -7,6 +7,10 @@ import { ButtonProps } from './model/types';
 
 import styles from './Button.module.scss';
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 const Button = memo(
   ({
     className,

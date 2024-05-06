@@ -4,8 +4,8 @@ import { Listbox as HListbox } from '@headlessui/react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
 
+import { HStack } from '../../../../redesigned/Stack';
 import { Button } from '../../../Button/Button';
-import { HStack } from '../../../Stack';
 
 import popupStyles from '../../styles/popup.module.scss';
 import styles from './ListBox.module.scss';
@@ -36,6 +36,10 @@ interface ListBoxProps extends PropsWithChildren {
   onChange?: <T extends string>(value: T) => void;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 const ListBox = memo(
   ({
     className,

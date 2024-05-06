@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 import { ArticleList } from '@/entities/Article';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { View } from '@/shared/ui/redesigned/View';
 
 import { getArticlePageError } from '../../model/selectors/getArticlePageError/getArticlePageError';
 import { getArticlePageIsLoading } from '../../model/selectors/getArticlePageIsLoading/getArticlePageIsLoading';

@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { View } from '@/shared/ui/deprecated/View';
+import { View } from '@/shared/ui/redesigned/View';
 
 import { ArticleView } from '../../model/const';
 

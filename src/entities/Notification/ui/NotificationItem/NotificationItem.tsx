@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Card, CardTheme } from '@/shared/ui/deprecated/Card';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { View } from '@/shared/ui/redesigned/View';
 
 import { Notification } from '../../model/types/notifications';
 

@@ -12,9 +12,9 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { View } from '@/shared/ui/redesigned/View';
 
 import { ValidateProfileError } from '../../model/consts';
 import {

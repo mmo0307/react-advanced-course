@@ -14,6 +14,10 @@ interface SkeletonProps {
   border?: string;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 export const Skeleton = memo(
   ({ className, height, width, border }: SkeletonProps) => {
     const inlineStyles: CSSProperties = {

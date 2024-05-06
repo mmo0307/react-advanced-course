@@ -7,9 +7,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Input } from '@/shared/ui/deprecated/Input';
 import { Loader } from '@/shared/ui/deprecated/Loader';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { View } from '@/shared/ui/redesigned/View';
 
 import { Profile } from '../../model/types/profile';
 

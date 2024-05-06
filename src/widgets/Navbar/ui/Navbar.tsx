@@ -8,11 +8,12 @@ import { AvatarDropDown } from '@/features/avatarDropDown';
 import { NotificationButton } from '@/features/notificationButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature, toggleFeature } from '@/shared/lib/features';
 import { AppLink, AppLinkThemes } from '@/shared/ui/deprecated/AppLink';
 import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { View } from '@/shared/ui/redesigned/View';
 
 import styles from './Navbar.module.scss';
 
@@ -35,40 +36,81 @@ const Navbar = memo(({ className }: NavbarProps) => {
     setIsAuthModal(true);
   }, []);
 
+  const mainClass = toggleFeature({
+    name: 'isAppRedesigned',
+    on: () => styles.NavbarRedesigned,
+    off: () => styles.Navbar
+  });
+
   return (
-    <header className={classNames(styles.Navbar, {}, [className])}>
-      <Text
-        className={styles.appName}
-        title={t('Blog App')}
-        theme={TextTheme.INVERTED}
-      />
+    <>
+      <View.Condition if={Boolean(authData)}>
+        <ToggleFeature
+          name='isAppRedesigned'
+          on={
+            <header className={classNames(mainClass, {}, [className])}>
+              <HStack
+                gap='16'
+                className={styles.actions}
+              >
+                <NotificationButton />
 
-      <AppLink
-        className={styles.createBtn}
-        to={getRouteArticleCreate()}
-        theme={AppLinkThemes.SECONDARY}
-      >
-        {t('Создать статью')}
-      </AppLink>
+                <AvatarDropDown />
+              </HStack>
+            </header>
+          }
+          off={
+            <header className={classNames(mainClass, {}, [className])}>
+              <Text
+                className={styles.appName}
+                title={t('Blog App')}
+                theme={TextTheme.INVERTED}
+              />
 
-      <HStack
-        gap='16'
-        className={styles.actions}
-      >
-        <View.Condition if={Boolean(authData)}>
-          <NotificationButton />
+              <AppLink
+                to={getRouteArticleCreate()}
+                theme={AppLinkThemes.SECONDARY}
+                className={styles.createBtn}
+              >
+                {t('Создать статью')}
+              </AppLink>
 
-          <AvatarDropDown />
-        </View.Condition>
+              <HStack
+                gap='16'
+                className={styles.actions}
+              >
+                <NotificationButton />
 
-        <View.Condition if={!authData}>
-          <Button
-            theme={ButtonThemes.CLEAR_INVERTED}
-            className={styles.links}
-            onClick={onShow}
-          >
-            {t('Войти')}
-          </Button>
+                <AvatarDropDown />
+              </HStack>
+            </header>
+          }
+        />
+      </View.Condition>
+
+      <View.Condition if={!Boolean(authData)}>
+        <header className={classNames(mainClass, {}, [className])}>
+          <ToggleFeature
+            name='isAppRedesigned'
+            on={
+              <Button
+                theme={ButtonThemes.CLEAR}
+                className={styles.links}
+                onClick={onShow}
+              >
+                {t('Войти')}
+              </Button>
+            }
+            off={
+              <Button
+                theme={ButtonThemes.CLEAR_INVERTED}
+                className={styles.links}
+                onClick={onShow}
+              >
+                {t('Войти')}
+              </Button>
+            }
+          />
 
           <View.Condition if={isAuthModal}>
             <LoginModal
@@ -76,9 +118,9 @@ const Navbar = memo(({ className }: NavbarProps) => {
               onClose={onClose}
             />
           </View.Condition>
-        </View.Condition>
-      </HStack>
-    </header>
+        </header>
+      </View.Condition>
+    </>
   );
 });
 

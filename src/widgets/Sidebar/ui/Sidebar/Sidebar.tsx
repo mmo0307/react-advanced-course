@@ -11,7 +11,8 @@ import {
   ButtonThemes
 } from '@/shared/ui/deprecated/Button';
 import { Icon } from '@/shared/ui/deprecated/Icon';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
+import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
@@ -45,10 +46,10 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
             [className]
           )}
         >
-          {/*<AppLogo*/}
-          {/*  size={collapsed ? 30 : 50}*/}
-          {/*  className={styles.logoRedesigned}*/}
-          {/*/>*/}
+          <AppLogo
+            size={collapsed ? 30 : 50}
+            className={styles.logoRedesigned}
+          />
 
           <VStack
             role='navigation'

@@ -5,9 +5,9 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/deprecated/AppLink';
 import { Avatar } from '@/shared/ui/deprecated/Avatar';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { View } from '@/shared/ui/redesigned/View';
 
 import { Comment } from '../../model/types/comment';
 

@@ -3,9 +3,9 @@ import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@/entities/Notification';
 import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
 import { Icon } from '@/shared/ui/deprecated/Icon';
 import { Popover } from '@/shared/ui/deprecated/Popups';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
 
 import Notification from '@/shared/assets/icons/notification.svg';
 

@@ -33,9 +33,15 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(
         onClick={onToggleTheme}
       >
         {theme === Theme.DARK ? (
-          <MoonIcon width={30} />
+          <MoonIcon
+            width={30}
+            height={30}
+          />
         ) : (
-          <SunIcon width={30} />
+          <SunIcon
+            width={30}
+            height={30}
+          />
         )}
       </Button>
     );

@@ -2,7 +2,7 @@ import React, { CSSProperties, FC, useMemo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { AppImage } from '../AppImage';
+import { AppImage } from '../../redesigned/AppImage';
 import { Icon } from '../Icon';
 import { Skeleton } from '../Skeleton';
 
@@ -20,6 +20,10 @@ interface AvatarProps {
   alt?: string;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 const Avatar: FC<AvatarProps> = ({ className, src, size = 100, alt }) => {
   const customStyle = useMemo<CSSProperties>(
     () => ({

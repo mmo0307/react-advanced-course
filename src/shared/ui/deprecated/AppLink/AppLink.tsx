@@ -8,6 +8,10 @@ import { AppLinkProps } from './model/types';
 
 import styles from './AppLink.module.scss';
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 const AppLink = memo(
   ({
     className,

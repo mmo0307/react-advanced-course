@@ -14,8 +14,8 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce';
 import { OrderBy } from '@/shared/types/sort';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { TabItem } from '@/shared/ui/deprecated/Tabs';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import { getArticlePageOrder } from '../../model/selectors/getArticlePageOrder/getArticlePageOrder';
 import { getArticlePageSearch } from '../../model/selectors/getArticlePageSearch/getArticlePageSearch';

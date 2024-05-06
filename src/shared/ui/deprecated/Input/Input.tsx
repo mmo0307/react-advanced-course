@@ -28,6 +28,10 @@ interface InputProps extends HTMLInputProps {
   readonly?: boolean;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 const Input = memo(
   ({
     className,

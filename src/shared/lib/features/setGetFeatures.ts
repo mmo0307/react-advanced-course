@@ -8,6 +8,6 @@ const setFeatureFlags = (newFeatureFlags: FeatureFlags) => {
   }
 };
 
-const getFeatureFlags = (flag: keyof FeatureFlags) => featureFlags[flag];
+const getFeatureFlags = (flag: keyof FeatureFlags) => featureFlags?.[flag];
 
 export { getFeatureFlags, setFeatureFlags };

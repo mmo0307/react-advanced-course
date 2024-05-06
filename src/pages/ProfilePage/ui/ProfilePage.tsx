@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { EditableProfileCard } from '@/features/editableProfileCard';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { View } from '@/shared/ui/redesigned/View';
 import { Page } from '@/widgets/Page';
 
 interface ProfilePageProps {

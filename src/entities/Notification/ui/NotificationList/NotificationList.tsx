@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
-import { View } from '@/shared/ui/deprecated/View';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { View } from '@/shared/ui/redesigned/View';
 
 import { useGetNotificationsQuery } from '../../api/notificationApi';
 import { NotificationItem } from '../../ui/NotificationItem/NotificationItem';

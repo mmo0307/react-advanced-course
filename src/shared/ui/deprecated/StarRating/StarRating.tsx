@@ -18,6 +18,10 @@ interface StarRatingProps {
   onSelect?: (starsCount: number) => void;
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 const StarRating = memo(
   ({ className, size = 30, selectedStars = 0, onSelect }: StarRatingProps) => {
     const stars: number[] = [1, 2, 3, 4, 5];

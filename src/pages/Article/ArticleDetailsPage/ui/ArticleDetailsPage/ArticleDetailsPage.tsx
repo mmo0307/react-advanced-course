@@ -11,8 +11,8 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeature } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
-import { VStack } from '@/shared/ui/deprecated/Stack';
-import { View } from '@/shared/ui/deprecated/View';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { View } from '@/shared/ui/redesigned/View';
 import { Page } from '@/widgets/Page';
 
 import { articleDetailsPageReducer } from '../../model/slices';

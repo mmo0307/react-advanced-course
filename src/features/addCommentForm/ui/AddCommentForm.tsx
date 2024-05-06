@@ -10,8 +10,8 @@ import {
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import { getAddCommentFormError } from '../model/selectors/getAddCommentFormError/getAddCommentFormError';
 import { getAddCommentFormText } from '../model/selectors/getAddCommentFormText/getAddCommentFormText';

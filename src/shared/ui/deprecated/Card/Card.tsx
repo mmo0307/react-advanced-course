@@ -7,6 +7,10 @@ import { CardProps } from './model/types';
 
 import styles from './Card.module.scss';
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 export const Card = memo(
   ({
     className,

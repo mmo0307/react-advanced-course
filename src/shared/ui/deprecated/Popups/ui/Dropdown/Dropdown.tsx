@@ -29,6 +29,10 @@ interface DropdownProps {
   items: DropdownItem[];
 }
 
+/**
+ * Устарел, используем новые компоненты из папки redesigned
+ * @deprecated
+ */
 const Dropdown = memo(
   ({ className, direction = 'down-right', trigger, items }: DropdownProps) => {
     return (

@@ -4,10 +4,10 @@ import { useTranslation } from 'react-i18next';
 import { saveJsonSettings, useJsonSettings } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useMobile } from '@/shared/lib/hooks/useModile';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
-import { Modal } from '@/shared/ui/deprecated/Modal';
 import { Text } from '@/shared/ui/deprecated/Text';
-import { View } from '@/shared/ui/deprecated/View';
+import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Modal } from '@/shared/ui/redesigned/Modal';
+import { View } from '@/shared/ui/redesigned/View';
 
 export const ArticlePageGreeting = memo(() => {
   const { t } = useTranslation();
