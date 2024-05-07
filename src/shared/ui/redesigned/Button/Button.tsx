@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { ButtonSize, ButtonThemes } from './model/consts';
 import { ButtonProps } from './model/types';
 
 import styles from './Button.module.scss';
@@ -11,30 +10,42 @@ const Button = memo(
   ({
     className,
     children,
-    theme = ButtonThemes.OUTLINE,
-    square,
+    variant = 'clear',
     disabled,
+    fontSize = 'small',
+    size = 'm',
+    weight = 'normal',
     fullWidth,
-    size = ButtonSize.M,
+    addonLeft,
+    addonRight,
     ...otherProps
   }: ButtonProps) => (
     <button
       type='button'
       className={classNames(
-        styles.Button,
+        styles.button,
         {
-          [styles[theme]]: true,
-          [styles[size]]: true,
-          [styles.square]: square,
           [styles.disabled]: disabled,
-          [styles.fullWidth]: fullWidth
+          [styles.fullWidth]: fullWidth,
+          [styles.withAddonLeft]: Boolean(addonLeft),
+          [styles.withAddonRight]: Boolean(addonRight)
         },
-        [className, styles[theme]]
+        [
+          className,
+          styles[variant],
+          styles[fontSize],
+          styles[size],
+          styles[weight]
+        ]
       )}
       disabled={disabled}
       {...otherProps}
     >
+      {addonLeft && <div className={styles.addonLeft}>{addonLeft}</div>}
+
       {children}
+
+      {addonRight && <div className={styles.addonRight}>{addonRight}</div>}
     </button>
   )
 );

@@ -1,14 +1,12 @@
-import { ReactNode } from 'react';
+import { PropsWithChildren } from 'react';
 import { LinkProps } from 'react-router-dom';
 
-import { AppLinkThemes } from '../../model/consts';
-
-interface AppLinkProps extends LinkProps {
+interface AppLinkProps extends LinkProps, PropsWithChildren {
   className?: string;
 
-  theme?: AppLinkThemes;
+  variant?: 'primary' | 'outlined' | 'red';
 
-  children?: ReactNode;
+  activeClassName?: string;
 }
 
 export type { AppLinkProps };

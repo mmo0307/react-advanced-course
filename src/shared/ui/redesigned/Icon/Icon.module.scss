@@ -1,9 +1,33 @@
 @import '@styles';
 
-.Icon {
-  fill: var(--primary-color);
+.icon {
+  fill: var(--icon-redesigned);
+
+  transition: all 0.2s;
+
+  &:hover {
+    fill: var(--accent-redesigned);
+  }
 }
 
-.inverted {
-  fill: var(--inverted-primary-color);
+.button {
+
+  margin: 0;
+
+  padding: 0;
+
+  background: none;
+
+  border: none;
+  cursor: pointer;
+
+  outline: none;
+
+  &:hover {
+    .icon {
+      fill: var(--dark-bg-redesigned);
+
+      transition: all 0.2s;
+    }
+  }
 }

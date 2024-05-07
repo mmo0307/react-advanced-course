@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { ButtonSize, ButtonThemes } from './model/consts';
 import { Button } from './Button';
 
 const meta = {
@@ -21,42 +20,21 @@ export const Template: Story = {
 export const Clear: Story = {
   args: {
     ...Template.args,
-    theme: ButtonThemes.CLEAR
-  }
-};
-
-export const ClearInverted: Story = {
-  args: {
-    ...Template.args,
-    theme: ButtonThemes.CLEAR_INVERTED
+    variant: 'clear'
   }
 };
 
 export const Outline: Story = {
   args: {
     ...Template.args,
-    theme: ButtonThemes.OUTLINE
+    variant: 'outlined'
   }
 };
 
-export const OutlineRed: Story = {
+export const OutlineSave: Story = {
   args: {
     ...Template.args,
-    theme: ButtonThemes.OUTLINE_RED
-  }
-};
-
-export const Background: Story = {
-  args: {
-    ...Template.args,
-    theme: ButtonThemes.BACKGROUND
-  }
-};
-
-export const BackgroundInverted: Story = {
-  args: {
-    ...Template.args,
-    theme: ButtonThemes.BACKGROUND_INVERTED
+    variant: 'outlinedSave'
   }
 };
 
@@ -64,7 +42,6 @@ export const Square: Story = {
   args: {
     ...Template.args,
     children: '>>',
-    theme: ButtonThemes.BACKGROUND,
     square: true
   }
 };
@@ -72,146 +49,62 @@ export const Square: Story = {
 export const ClearSizeM: Story = {
   args: {
     ...Clear.args,
-    size: ButtonSize.M
+    size: 'm'
   }
 };
 
 export const ClearSizeL: Story = {
   args: {
     ...Clear.args,
-    size: ButtonSize.L
+    size: 'l'
   }
 };
 
 export const ClearSizeXl: Story = {
   args: {
     ...Clear.args,
-    size: ButtonSize.XL
-  }
-};
-
-export const ClearInvertedSizeM: Story = {
-  args: {
-    ...ClearInverted.args,
-    size: ButtonSize.M
-  }
-};
-
-export const ClearInvertedSizeL: Story = {
-  args: {
-    ...ClearInverted.args,
-    size: ButtonSize.L
-  }
-};
-
-export const ClearInvertedSizeXl: Story = {
-  args: {
-    ...ClearInverted.args,
-    size: ButtonSize.XL
+    size: 'xl'
   }
 };
 
 export const OutlineSizeM: Story = {
   args: {
     ...Outline.args,
-    size: ButtonSize.M
+    size: 'm'
   }
 };
 
 export const OutlineSizeL: Story = {
   args: {
     ...Outline.args,
-    size: ButtonSize.L
+    size: 'l'
   }
 };
 
 export const OutlineSizeXl: Story = {
   args: {
     ...Outline.args,
-    size: ButtonSize.XL
+    size: 'xl'
   }
 };
 
-export const OutlineRedSizeM: Story = {
+export const OutlineSaveSizeM: Story = {
   args: {
-    ...OutlineRed.args,
-    size: ButtonSize.M
+    ...OutlineSave.args,
+    size: 'm'
   }
 };
 
-export const OutlineRedSizeL: Story = {
+export const OutlineSaveSizeL: Story = {
   args: {
-    ...OutlineRed.args,
-    size: ButtonSize.L
+    ...OutlineSave.args,
+    size: 'l'
   }
 };
 
-export const OutlineRedSizeXL: Story = {
+export const OutlineSaveSizeXL: Story = {
   args: {
-    ...OutlineRed.args,
-    size: ButtonSize.XL
-  }
-};
-
-export const BackgroundSizeM: Story = {
-  args: {
-    ...Background.args,
-    size: ButtonSize.M
-  }
-};
-
-export const BackgroundSizeL: Story = {
-  args: {
-    ...Background.args,
-    size: ButtonSize.L
-  }
-};
-
-export const BackgroundSizeXl: Story = {
-  args: {
-    ...Background.args,
-    size: ButtonSize.XL
-  }
-};
-
-export const BackgroundInvertedSizeM: Story = {
-  args: {
-    ...BackgroundInverted.args,
-    size: ButtonSize.M
-  }
-};
-
-export const BackgroundInvertedSizeL: Story = {
-  args: {
-    ...BackgroundInverted.args,
-    size: ButtonSize.L
-  }
-};
-
-export const BackgroundInvertedSizeXl: Story = {
-  args: {
-    ...BackgroundInverted.args,
-    size: ButtonSize.XL
-  }
-};
-
-export const SquareSizeM: Story = {
-  args: {
-    ...Square.args,
-    size: ButtonSize.M
-  }
-};
-
-export const SquareSizeL: Story = {
-  args: {
-    ...Square.args,
-    size: ButtonSize.L
-  }
-};
-
-export const SquareSizeXl: Story = {
-  args: {
-    ...Square.args,
-    size: ButtonSize.XL
+    ...OutlineSave.args,
+    size: 'xl'
   }
 };

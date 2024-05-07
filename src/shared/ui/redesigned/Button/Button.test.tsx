@@ -1,7 +1,5 @@
 import { render, screen } from '@testing-library/react';
 
-import { ButtonThemes } from '../Button/model/consts';
-
 import { Button } from './Button';
 
 describe('Button', () => {
@@ -14,7 +12,7 @@ describe('Button', () => {
   });
 
   test('Test clear theme', () => {
-    render(<Button theme={ButtonThemes.CLEAR}>{'RENDER BUTTON'}</Button>);
+    render(<Button variant='clear'>{'RENDER BUTTON'}</Button>);
 
     const text = screen.getByText('RENDER BUTTON');
 

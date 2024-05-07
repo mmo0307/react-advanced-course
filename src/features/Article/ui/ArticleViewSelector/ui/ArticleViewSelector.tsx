@@ -3,7 +3,7 @@ import React, { memo } from 'react';
 import { ArticleView } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import GridIcon from '@/shared/assets/icons/grid.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
@@ -44,6 +44,8 @@ export const ArticleViewSelector = memo(
             onClick={onClick(viewType.view)}
           >
             <Icon
+              width={30}
+              height={30}
               Svg={viewType.icon}
               className={classNames('', {
                 [styles.notSelected]: viewType.view !== view

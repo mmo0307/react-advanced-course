@@ -4,21 +4,58 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import styles from './Icon.module.scss';
 
-interface IconProps extends SVGProps<SVGSVGElement> {
+interface IconBaseProps extends SVGProps<SVGSVGElement> {
   className?: string;
 
   Svg: VFC<SVGProps<SVGSVGElement>>;
-
-  inverted?: boolean;
 }
 
+interface NonIconProps extends IconBaseProps {
+  clickable?: false;
+}
+
+interface ClickableIconProps extends IconBaseProps {
+  clickable: true;
+
+  onClick: () => void;
+}
+
+type IconProps = NonIconProps | ClickableIconProps;
+
 export const Icon = memo(
-  ({ className, Svg, inverted, ...otherProps }: IconProps) => (
-    <Svg
-      className={classNames(styles.Icon, { [styles.inverted]: inverted }, [
-        className
-      ])}
-      {...otherProps}
-    />
-  )
+  ({
+    className,
+    Svg,
+    width = 32,
+    height = 32,
+    clickable,
+    onClick,
+    ...otherProps
+  }: IconProps) => {
+    if (clickable) {
+      return (
+        <button
+          className={styles.button}
+          onClick={onClick}
+          style={{ width, height }}
+        >
+          <Svg
+            width={width}
+            height={height}
+            className={classNames(styles.icon, {}, [className])}
+            {...otherProps}
+          />
+        </button>
+      );
+    }
+
+    return (
+      <Svg
+        width={width}
+        height={height}
+        className={classNames(styles.icon, {}, [className])}
+        {...otherProps}
+      />
+    );
+  }
 );

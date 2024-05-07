@@ -64,7 +64,7 @@
 
 // redesigned
 
-.sidebar_redesigned {
+.sidebar-redesigned {
   position: relative;
 
   width: 220px;
@@ -82,15 +82,15 @@
   }
 }
 
-.logo_redesigned {
+.logo-redesigned {
   padding-top: 20px;
 }
 
-.items_redesigned {
-  margin: 40px 16px 0;
+.items-redesigned {
+  margin-top: 40px;
 }
 
-.toggle-button_redesigned {
+.toggle-button-redesigned {
   position: absolute;
 
   top: 50%;
@@ -98,20 +98,28 @@
   right: 0;
 
   transform: rotate(90deg);
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  &:hover {
+    background: var(--accent-redesigned);
+  }
 }
 
-.collapsed_redesigned {
+.collapsed-redesigned {
   width: 50px;
 
-  .items_redesigned {
-    margin: 60px 0 0 9px;
+  .items-redesigned {
+    margin-top: 60px;
   }
 
   .switchers {
     flex-direction: column;
   }
 
-  .toggle-button_redesigned {
+  .toggle-button-redesigned {
     transform: rotate(-90deg);
   }
 }

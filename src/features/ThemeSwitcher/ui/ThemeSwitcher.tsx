@@ -3,13 +3,18 @@ import React, { FC, memo, useCallback } from 'react';
 import { saveJsonSettings } from '@/entities/User';
 import { Theme } from '@/shared/const/theme';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
-import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
+import {
+  Button as ButtonDeprecated,
+  ButtonThemes
+} from '@/shared/ui/deprecated/Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import MoonIcon from '@/shared/assets/icons/moon.svg';
 import SunIcon from '@/shared/assets/icons/sun.svg';
-
+import ThemeIconRedesigned from '@/shared/assets/icons/theme.svg';
 interface ThemeSwitcherProps {
   className?: string;
 }
@@ -27,23 +32,37 @@ const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(
     }, [toggleTheme]);
 
     return (
-      <Button
-        theme={ButtonThemes.CLEAR}
-        className={classNames('', {}, [className])}
-        onClick={onToggleTheme}
-      >
-        {theme === Theme.DARK ? (
-          <MoonIcon
-            width={30}
-            height={30}
+      <ToggleFeature
+        name={'isAppRedesigned'}
+        on={
+          <Icon
+            clickable
+            width={40}
+            height={40}
+            Svg={ThemeIconRedesigned}
+            onClick={onToggleTheme}
           />
-        ) : (
-          <SunIcon
-            width={30}
-            height={30}
-          />
-        )}
-      </Button>
+        }
+        off={
+          <ButtonDeprecated
+            theme={ButtonThemes.CLEAR}
+            className={classNames('', {}, [className])}
+            onClick={onToggleTheme}
+          >
+            {theme === Theme.DARK ? (
+              <MoonIcon
+                width={40}
+                height={40}
+              />
+            ) : (
+              <SunIcon
+                width={40}
+                height={40}
+              />
+            )}
+          </ButtonDeprecated>
+        }
+      />
     );
   }
 );

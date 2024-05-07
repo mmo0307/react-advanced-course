@@ -6,12 +6,12 @@ import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature } from '@/shared/lib/features';
 import {
-  Button,
+  Button as ButtonDeprecated,
   ButtonSize,
   ButtonThemes
 } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon';
 import { AppLogo } from '@/shared/ui/redesigned/AppLogo';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -41,8 +41,8 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
         <aside
           data-testid='sidebar'
           className={classNames(
-            styles.Sidebar,
-            { [styles.collapsed]: collapsed },
+            styles.sidebarRedesigned,
+            { [styles.collapsedRedesigned]: collapsed },
             [className]
           )}
         >
@@ -67,6 +67,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
           </VStack>
 
           <Icon
+            clickable
             data-testid='sidebar-toggle'
             className={styles.toggleButtonRedesigned}
             onClick={onToggleClick}
@@ -107,7 +108,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
             ))}
           </VStack>
 
-          <Button
+          <ButtonDeprecated
             data-testid='sidebar-toggle'
             className={styles.collapseBtn}
             theme={ButtonThemes.BACKGROUND_INVERTED}
@@ -116,7 +117,7 @@ const Sidebar: FC<SideBarProps> = memo(({ className }: SideBarProps) => {
             square
           >
             {collapsed ? '>>' : '<<'}
-          </Button>
+          </ButtonDeprecated>
 
           <div className={styles.switchers}>
             <ThemeSwitcher />

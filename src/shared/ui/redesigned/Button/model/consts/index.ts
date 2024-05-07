@@ -1,14 +1,14 @@
-export enum ButtonThemes {
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
-  OUTLINE = 'outline',
-  OUTLINE_RED = 'outline_red',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted'
-}
+export type ButtonVariant =
+  | 'clear'
+  | 'outlined'
+  | 'outlinedSave'
+  | 'outlinedCancel'
+  | 'clearIcon'
+  | 'filled'
+  | 'light';
 
-export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl'
-}
+export type ButtonSize = 'm' | 'l' | 'xl';
+
+export type WeightVariant = 'normal' | 'bold';
+
+export type ButtonFontSize = 'small' | 'large' | 'extraLarge';

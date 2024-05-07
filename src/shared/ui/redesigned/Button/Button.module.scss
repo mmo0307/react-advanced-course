@@ -1,22 +1,52 @@
-@import '@styles';
+.button {
 
-.Button {
-  padding: 6px 15px;
+  display: flex;
 
-  color: var(--primary-color);
+  align-items: center;
 
+  padding: 8px 16px;
+
+  color: var(--text-redesigned);
+
+  transition: all 0.2s;
   cursor: pointer;
 
   &:hover {
-    stroke-opacity: 0.8;
+    color: var(--accent-redesigned);
+    transition: all 0.2s;
 
-    fill-opacity: 0.8;
-
-    opacity: 0.8;
+    .addon-left svg,
+    .addon-right svg {
+      color: var(--accent-redesigned);
+    }
   }
 }
 
-.clear {
+.with-addon-left {
+  padding-left: 8px;
+}
+
+.with-addon-right {
+  padding-right: 8px;
+}
+
+.addon-left,
+.addon-right {
+  display: flex;
+}
+
+.addon-right {
+  padding-left: 8px;
+}
+
+.addon-left {
+  padding-right: 8px;
+}
+
+.clear,
+.clear-icon {
+  margin: 0;
+
   padding: 0;
 
   background: none;
@@ -26,82 +56,79 @@
   outline: none;
 }
 
-.clearInverted {
-  padding: 0;
+.clear-icon {
+  color: var(--icon-redesigned);
+}
 
-  color: var(--inverted-primary-color);
-
+.outlined,
+.outlined_save,
+.outlined_cancel {
   background: none;
+
+  border: 1px solid var(--icon-redesigned);
+
+  border-radius: 16px;
+}
+
+.outlined_save {
+  border: 1px solid var(--save-redesigned);
+}
+
+.outlined_cancel {
+  border: 1px solid var(--cancel-redesigned);
+}
+
+.filled,
+.light {
+  background: var(--bg-redesigned);
 
   border: none;
 
-  outline: none;
+  border-radius: 34px;
 }
 
-.outline {
-  color: var(--primary-color);
-
-  background: none;
-
-  border: 1px solid var(--primary-color);
+.light {
+  background: var(--light-bg-redesigned);
 }
 
-.outline_red {
-  color: var(--red-light);
-
-  background: none;
-
-  border: 1px solid var(--red-light);
+.small {
+  font: var(--font-m-redesigned);
 }
 
-.background {
-  color: var(--primary-color);
-
-  background: var(--bg-color);
-
-  border: none;
+.large {
+  font: var(--font-l-redesigned);
 }
 
-.backgroundInverted {
-  color: var(--inverted-primary-color);
-
-  background: var(--inverted-bg-color);
-
-  border: none;
+.extra-large {
+  font: var(--font-xl-redesigned);
 }
 
-.square {
-  padding: 0;
+.s {
+  height: 32px;
 }
 
-.square.size_m {
-  @include size(var(--font-line-m));
+.m {
+  height: 38px;
 }
 
-.square.size_l {
-  @include size(var(--font-line-l));
+.l {
+  height: 44px;
 }
 
-.square.size_xl {
-  @include size(var(--font-line-xl));
+.normal {
+  font-weight: 400;
 }
 
-.size_m {
-  font: var(--font-m);
-}
-
-.size_l {
-  font: var(--font-l);
-}
-
-.size_xl {
-  font: var(--font-xl);
+.bold {
+  font-weight: 700;
 }
 
 .disabled {
+  pointer-events: none;
+
   opacity: 0.5;
 }
 
-.fullWidth {
+.full-width {
   width: 100%;
 }

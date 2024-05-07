@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 
-import { AppLinkThemes } from './model/consts';
 import { AppLink } from './AppLink';
 
 const meta = {
@@ -17,16 +16,24 @@ export default meta;
 export const Template: Story = {
   args: {
     children: 'Text',
-    theme: AppLinkThemes.PRIMARY,
+    variant: 'primary',
     to: '/about'
   },
   decorators: [RouterDecorator]
 };
 
-export const SECONDARY: Story = {
+export const Outlined: Story = {
   ...Template,
   args: {
     ...Template.args,
-    theme: AppLinkThemes.SECONDARY
+    variant: 'outlined'
+  }
+};
+
+export const Red: Story = {
+  ...Template,
+  args: {
+    ...Template.args,
+    variant: 'red'
   }
 };

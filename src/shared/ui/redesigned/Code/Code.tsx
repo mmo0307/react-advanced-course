@@ -2,7 +2,7 @@ import React, { memo, useCallback } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Button, ButtonThemes } from '../../redesigned/Button';
+import { Button, ButtonThemes } from '../../deprecated/Button';
 
 import CopyIcon from '@/shared/assets/icons/copy.svg';
 

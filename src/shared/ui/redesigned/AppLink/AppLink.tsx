@@ -1,9 +1,8 @@
 import React, { memo } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { AppLinkThemes } from './model/consts';
 import { AppLinkProps } from './model/types';
 
 import styles from './AppLink.module.scss';
@@ -13,16 +12,22 @@ const AppLink = memo(
     className,
     children,
     to,
-    theme = AppLinkThemes.PRIMARY,
+    variant = 'primary',
+    activeClassName = '',
     ...otherProps
   }: AppLinkProps) => (
-    <Link
+    <NavLink
       to={to}
-      className={classNames(styles.AppLink, {}, [className, styles[theme]])}
+      className={({ isActive }) =>
+        classNames(styles.appLink, { [activeClassName]: isActive }, [
+          className,
+          styles[variant]
+        ])
+      }
       {...otherProps}
     >
       {children}
-    </Link>
+    </NavLink>
   )
 );
 
