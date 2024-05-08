@@ -1,8 +1,12 @@
 import React, { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/features';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { View } from '@/shared/ui/redesigned/View';
 
 import { useGetNotificationsQuery } from '../../api/notificationApi';
@@ -13,9 +17,15 @@ interface NotificationListProps {
 }
 
 const NotificationList: FC<NotificationListProps> = ({ className }) => {
-  const { data: notifications, isLoading } = useGetNotificationsQuery(null, {
+  const {
+    data: notifications,
+    isLoading,
+    isError
+  } = useGetNotificationsQuery(null, {
     pollingInterval: 10000
   });
+
+  const { t } = useTranslation();
 
   return (
     <VStack
@@ -40,7 +50,25 @@ const NotificationList: FC<NotificationListProps> = ({ className }) => {
         />
       </View.Condition>
 
-      <View.Condition if={!isLoading}>
+      <View.Condition if={isError}>
+        <ToggleFeature
+          name='isAppRedesigned'
+          off={
+            <TextDeprecated
+              text={t('error')}
+              className={classNames('', {}, [className])}
+            />
+          }
+          on={
+            <Text
+              text={t('error')}
+              className={classNames('', {}, [className])}
+            />
+          }
+        />
+      </View.Condition>
+
+      <View.Condition if={Boolean(!isLoading && !isError)}>
         {notifications?.map((notification) => (
           <NotificationItem
             key={notification.id}

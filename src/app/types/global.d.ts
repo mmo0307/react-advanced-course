@@ -25,3 +25,13 @@ type DeepPartial<T> = T extends object
 type OptionalRecord<K extends keyof any, T> = {
   [P in K]?: T;
 };
+
+type ValueOf<T> = T[keyof T];
+
+interface ImportMetaEnv {
+  readonly VITE_LOCAL_DOMAIN_NAME: string;
+}
+
+interface ImportMeta {
+  readonly env: ImportMetaEnv;
+}

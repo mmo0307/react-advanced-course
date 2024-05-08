@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { TextAlign, TextSize, TextTheme } from './model/consts';
 import { Text } from './Text';
 
 const meta = {
@@ -27,98 +26,98 @@ export const Texts: Story = {
 export const TitleSizeM: Story = {
   args: {
     title: 'Title',
-    size: TextSize.M
+    size: 'size_m'
   }
 };
 
 export const TextsSizeM: Story = {
   args: {
     text: 'Texts',
-    size: TextSize.M
+    size: 'size_m'
   }
 };
 
 export const TitleSizeL: Story = {
   args: {
     title: 'Title',
-    size: TextSize.L
+    size: 'size_l'
   }
 };
 
 export const TextsSizeL: Story = {
   args: {
     text: 'Texts',
-    size: TextSize.L
+    size: 'size_l'
   }
 };
 
 export const TitleError: Story = {
   args: {
     ...Title.args,
-    theme: TextTheme.ERROR
+    theme: 'error'
   }
 };
 
 export const TextsError: Story = {
   args: {
     ...Texts.args,
-    theme: TextTheme.ERROR
+    theme: 'error'
   }
 };
 
 export const TitlePrimary: Story = {
   args: {
     ...Title.args,
-    theme: TextTheme.PRIMARY
+    theme: 'primary'
   }
 };
 
 export const TextsPrimary: Story = {
   args: {
     ...Texts.args,
-    theme: TextTheme.PRIMARY
+    theme: 'primary'
   }
 };
 
 export const TitleAlignLeft: Story = {
   args: {
     ...Title.args,
-    align: TextAlign.LEFT
+    align: 'left'
   }
 };
 
 export const TitleAlignCenter: Story = {
   args: {
     ...Title.args,
-    align: TextAlign.CENTER
+    align: 'center'
   }
 };
 
 export const TitleAlignRight: Story = {
   args: {
     ...Title.args,
-    align: TextAlign.RIGHT
+    align: 'right'
   }
 };
 
 export const TextAlignLeft: Story = {
   args: {
     ...Texts.args,
-    align: TextAlign.LEFT
+    align: 'left'
   }
 };
 
 export const TextAlignCenter: Story = {
   args: {
     ...Texts.args,
-    align: TextAlign.CENTER
+    align: 'center'
   }
 };
 
 export const TextAlignRight: Story = {
   args: {
     ...Texts.args,
-    align: TextAlign.RIGHT
+    align: 'right'
   }
 };
 
@@ -126,7 +125,7 @@ export const SizeL: Story = {
   args: {
     title: 'Title L',
     text: 'Texts L',
-    size: TextSize.L
+    size: 'size_l'
   }
 };
 
@@ -134,7 +133,7 @@ export const SizeM: Story = {
   args: {
     title: 'Title M',
     text: 'Texts M',
-    size: TextSize.M
+    size: 'size_m'
   }
 };
 
@@ -142,6 +141,6 @@ export const SizeS: Story = {
   args: {
     title: 'Title S',
     text: 'Texts S',
-    size: TextSize.S
+    size: 'size_s'
   }
 };

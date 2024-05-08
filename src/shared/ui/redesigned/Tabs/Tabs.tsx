@@ -2,7 +2,7 @@ import React, { memo, ReactNode, useCallback } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { Card, CardTheme } from '../Card';
+import { Card as CardDeprecated, CardTheme } from '../../deprecated/Card';
 
 import styles from './Tabs.module.scss';
 
@@ -34,14 +34,14 @@ export const Tabs = memo(
     return (
       <div className={classNames(styles.Tabs, {}, [className])}>
         {tabs.map((tab) => (
-          <Card
+          <CardDeprecated
             theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
             className={styles.tab}
             key={tab.value}
             onClick={onClick(tab)}
           >
             {tab.content}
-          </Card>
+          </CardDeprecated>
         ))}
       </div>
     );

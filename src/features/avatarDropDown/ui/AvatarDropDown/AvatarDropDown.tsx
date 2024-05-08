@@ -14,9 +14,13 @@ import {
   getRouteMain,
   getRouteProfile
 } from '@/shared/const/router';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeature } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Dropdown } from '@/shared/ui/deprecated/Popups';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Dropdown as DropdownDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Avatar } from '@/shared/ui/redesigned/Avatar';
+import { Dropdown } from '@/shared/ui/redesigned/Popups';
 
 interface AvatarDropDownProps {
   className?: string;
@@ -72,14 +76,32 @@ const AvatarDropDown: FC<AvatarDropDownProps> = ({ className }) => {
   }, [isAdminPanelAvailable, authData]);
 
   return (
-    <Dropdown
-      className={className}
-      direction='down-left'
-      items={dropDownItems}
-      trigger={
-        <Avatar
-          size={30}
-          src={authData?.avatar}
+    <ToggleFeature
+      name={'isAppRedesigned'}
+      on={
+        <Dropdown
+          direction='bottom left'
+          className={classNames('', {}, [className])}
+          items={dropDownItems}
+          trigger={
+            <Avatar
+              size={48}
+              src={authData?.avatar}
+            />
+          }
+        />
+      }
+      off={
+        <DropdownDeprecated
+          className={className}
+          direction='down-left'
+          items={dropDownItems}
+          trigger={
+            <AvatarDeprecated
+              size={30}
+              src={authData?.avatar}
+            />
+          }
         />
       }
     />

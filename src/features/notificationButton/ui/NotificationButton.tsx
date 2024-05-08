@@ -2,10 +2,16 @@ import React, { FC, memo, useCallback, useState } from 'react';
 import { BrowserView, MobileView } from 'react-device-detect';
 
 import { NotificationList } from '@/entities/Notification';
-import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { Icon } from '@/shared/ui/deprecated/Icon';
-import { Popover } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeature } from '@/shared/lib/features';
+import {
+  Button as ButtonDeprecated,
+  ButtonThemes
+} from '@/shared/ui/deprecated/Button';
+import { Icon as IconDeprecated } from '@/shared/ui/deprecated/Icon';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Drawer } from '@/shared/ui/redesigned/Drawer';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Popover } from '@/shared/ui/redesigned/Popups';
 
 import Notification from '@/shared/assets/icons/notification.svg';
 
@@ -28,39 +34,85 @@ const NotificationButton: FC<NotificationButtonProps> = memo(
     }, []);
 
     const trigger: JSX.Element = (
-      <Button
-        onClick={onOpedDrawer}
-        theme={ButtonThemes.CLEAR}
-      >
-        <Icon
-          Svg={Notification}
-          inverted
-        />
-      </Button>
+      <ToggleFeature
+        name={'isAppRedesigned'}
+        on={
+          <Icon
+            Svg={Notification}
+            width={20}
+            height={20}
+            clickable
+            onClick={onOpedDrawer}
+          />
+        }
+        off={
+          <ButtonDeprecated
+            onClick={onOpedDrawer}
+            theme={ButtonThemes.CLEAR}
+          >
+            <IconDeprecated
+              Svg={Notification}
+              width={20}
+              height={20}
+            />
+          </ButtonDeprecated>
+        }
+      />
     );
 
     return (
       <div>
-        <MobileView>
-          {trigger}
+        <ToggleFeature
+          name={'isAppRedesigned'}
+          on={
+            <>
+              <MobileView>
+                {trigger}
 
-          <Drawer
-            isOpen={isOpen}
-            onClose={onCloseDrawer}
-          >
-            <NotificationList className={styles.notifications} />
-          </Drawer>
-        </MobileView>
+                <Drawer
+                  isOpen={isOpen}
+                  onClose={onCloseDrawer}
+                >
+                  <NotificationList className={styles.notifications} />
+                </Drawer>
+              </MobileView>
 
-        <BrowserView>
-          <Popover
-            className={className}
-            direction='down-left'
-            trigger={trigger}
-          >
-            <NotificationList className={styles.notifications} />
-          </Popover>
-        </BrowserView>
+              <BrowserView>
+                <Popover
+                  className={className}
+                  direction='bottom left'
+                  trigger={trigger}
+                >
+                  <NotificationList className={styles.notifications} />
+                </Popover>
+              </BrowserView>
+            </>
+          }
+          off={
+            <>
+              <MobileView>
+                {trigger}
+
+                <Drawer
+                  isOpen={isOpen}
+                  onClose={onCloseDrawer}
+                >
+                  <NotificationList className={styles.notifications} />
+                </Drawer>
+              </MobileView>
+
+              <BrowserView>
+                <PopoverDeprecated
+                  className={className}
+                  direction='down-left'
+                  trigger={trigger}
+                >
+                  <NotificationList className={styles.notifications} />
+                </PopoverDeprecated>
+              </BrowserView>
+            </>
+          }
+        />
       </div>
     );
   }

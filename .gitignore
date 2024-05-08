@@ -5,3 +5,4 @@ node_modules
 /html-report/report.html
 .loki/report.html
 .loki/report.json
+.env

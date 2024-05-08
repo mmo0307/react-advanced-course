@@ -1,96 +1,87 @@
-import React, { Fragment, memo, ReactNode, useId } from 'react';
+import React, { Fragment, memo, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DropdownDirection } from '@/shared/types/ui';
 
 import { AppLink } from '../../../AppLink/AppLink';
+import { mapDirectionClasses } from '../../styles/const';
+import { DirectionType } from '../../types';
 
 import popupStyles from '../../styles/popup.module.scss';
 import styles from './Dropdown.module.scss';
 
-export interface DropdownItem {
-  disabled?: boolean;
+interface DropdownItem {
+  content: string;
 
-  content?: ReactNode;
+  onClick?: () => void;
 
   href?: string;
 
-  onClick?: () => void;
+  disabled?: boolean;
 }
 
 interface DropdownProps {
   className?: string;
 
-  direction?: DropdownDirection;
+  items: DropdownItem[];
 
   trigger: ReactNode;
 
-  items: DropdownItem[];
+  direction?: DirectionType;
 }
 
 const Dropdown = memo(
-  ({ className, direction = 'down-right', trigger, items }: DropdownProps) => {
+  ({
+    className,
+    direction = 'bottom right',
+    trigger,
+    items
+  }: DropdownProps) => {
+    const itemsClasses = [mapDirectionClasses[direction], popupStyles.items];
+
     return (
       <Menu
-        as={'div'}
-        className={classNames(styles.Dropdown, {}, [
-          className,
-          popupStyles.popup
-        ])}
+        as='div'
+        className={classNames(popupStyles.wrapper, {}, [className])}
       >
-        <Menu.Button className={styles.button}>{trigger}</Menu.Button>
+        <Menu.Button className={popupStyles.trigger}>{trigger}</Menu.Button>
+        <Menu.Items className={classNames(styles.menu, {}, itemsClasses)}>
+          {items.map((item, index) => {
+            const content = ({ active }: { active: boolean }) => (
+              <button
+                disabled={item.disabled}
+                onClick={item.onClick}
+                className={classNames(
+                  styles.item,
+                  { [popupStyles.active]: active },
+                  []
+                )}
+              >
+                {item.content}
+              </button>
+            );
 
-        <Menu.Items
-          className={classNames(styles.menu, {}, [popupStyles[direction]])}
-        >
-          {items.map((item) => {
             if (item.href) {
               return (
                 <Menu.Item
-                  key={useId()}
                   as={AppLink}
-                  to={item.href as string}
+                  refName='href'
+                  to={item.href}
+                  key={`dropdown-key-${index}`}
                   disabled={item.disabled}
                 >
-                  {({ active }) => (
-                    <button
-                      type={'button'}
-                      disabled={item.disabled}
-                      onClick={item.onClick}
-                      className={classNames(
-                        styles.item,
-                        { [popupStyles.active]: active },
-                        []
-                      )}
-                    >
-                      {item.content}
-                    </button>
-                  )}
+                  {content}
                 </Menu.Item>
               );
             }
 
             return (
               <Menu.Item
-                key={useId()}
                 as={Fragment}
+                key={`dropdown-key-${index}`}
                 disabled={item.disabled}
               >
-                {({ active }) => (
-                  <button
-                    type={'button'}
-                    disabled={item.disabled}
-                    onClick={item.onClick}
-                    className={classNames(
-                      styles.item,
-                      { [popupStyles.active]: active },
-                      []
-                    )}
-                  >
-                    {item.content}
-                  </button>
-                )}
+                {content}
               </Menu.Item>
             );
           })}

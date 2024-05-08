@@ -7,7 +7,7 @@ export type ButtonVariant =
   | 'filled'
   | 'light';
 
-export type ButtonSize = 'm' | 'l' | 'xl';
+export type ButtonSize = 's' | 'm' | 'l';
 
 export type WeightVariant = 'normal' | 'bold';
 

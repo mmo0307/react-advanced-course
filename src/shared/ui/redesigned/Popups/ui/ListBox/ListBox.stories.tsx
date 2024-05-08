@@ -60,27 +60,27 @@ export const ORANGE: Story = {
 export const DirectionUpLeft: Story = {
   args: {
     ...Normal.args,
-    direction: 'up-left'
+    direction: 'top left'
   }
 };
 
 export const DirectionUpRight: Story = {
   args: {
     ...Normal.args,
-    direction: 'up-right'
+    direction: 'top right'
   }
 };
 
 export const DirectionDownLeft: Story = {
   args: {
     ...Normal.args,
-    direction: 'down-left'
+    direction: 'bottom left'
   }
 };
 
 export const DirectionDownRight: Story = {
   args: {
     ...Normal.args,
-    direction: 'down-right'
+    direction: 'bottom right'
   }
 };

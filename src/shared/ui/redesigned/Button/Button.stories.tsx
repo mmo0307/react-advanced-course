@@ -60,13 +60,6 @@ export const ClearSizeL: Story = {
   }
 };
 
-export const ClearSizeXl: Story = {
-  args: {
-    ...Clear.args,
-    size: 'xl'
-  }
-};
-
 export const OutlineSizeM: Story = {
   args: {
     ...Outline.args,
@@ -81,13 +74,6 @@ export const OutlineSizeL: Story = {
   }
 };
 
-export const OutlineSizeXl: Story = {
-  args: {
-    ...Outline.args,
-    size: 'xl'
-  }
-};
-
 export const OutlineSaveSizeM: Story = {
   args: {
     ...OutlineSave.args,
@@ -99,12 +85,5 @@ export const OutlineSaveSizeL: Story = {
   args: {
     ...OutlineSave.args,
     size: 'l'
-  }
-};
-
-export const OutlineSaveSizeXL: Story = {
-  args: {
-    ...OutlineSave.args,
-    size: 'xl'
   }
 };

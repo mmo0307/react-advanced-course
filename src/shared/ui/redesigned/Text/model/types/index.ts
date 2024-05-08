@@ -1,4 +1,4 @@
-import { TextAlign, TextSize, TextTheme } from '../consts';
+import { HeaderTagType, Size, TextAlign, TextVariant } from '../consts';
 
 interface TextProps {
   className?: string;
@@ -7,15 +7,17 @@ interface TextProps {
 
   text?: string;
 
-  theme?: TextTheme;
+  theme?: TextVariant;
 
   align?: TextAlign;
 
-  size?: TextSize;
+  size?: Size;
+
+  tagname?: HeaderTagType;
 
   'data-testid'?: string;
+
+  bold?: boolean;
 }
 
-type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-
-export type { HeaderTagType, TextProps };
+export type { TextProps };

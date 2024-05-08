@@ -1,28 +1,37 @@
-import React, { memo } from 'react';
+import React from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
-import { CardTheme } from './model/consts';
+import { mapPaddingToClass } from './model/consts';
 import { CardProps } from './model/types';
 
 import styles from './Card.module.scss';
 
-export const Card = memo(
-  ({
+export const Card = ({
+  className,
+  children,
+  max,
+  variant = 'normal',
+  padding = '24',
+  border = 'round',
+  tagname: Tag = 'div',
+  ...otherProps
+}: CardProps) => {
+  const paddingClass = mapPaddingToClass[padding];
+
+  const additional = [
     className,
-    children,
-    max,
-    theme = CardTheme.NORMAL,
-    ...otherProps
-  }: CardProps) => (
-    <div
-      className={classNames(styles.Card, { [styles.max]: max }, [
-        className,
-        styles[theme]
-      ])}
+    styles[variant],
+    styles[paddingClass],
+    styles[border]
+  ];
+
+  return (
+    <Tag
+      className={classNames('', { [styles.max]: max }, additional)}
       {...otherProps}
     >
       {children}
-    </div>
-  )
-);
+    </Tag>
+  );
+};

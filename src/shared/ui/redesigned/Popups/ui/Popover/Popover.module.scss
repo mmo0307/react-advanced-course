@@ -1,13 +1,21 @@
 @import '@styles';
 
-.panel {
+.popover {
+  padding: 16px;
+
+  border-radius: 19px;
+}
+
+.menu {
   position: absolute;
 
-  z-index: var(--modal-z-index);
+  z-index: var(--dropdown-z-index);
 
-  padding: 15px;
+  display: flex;
 
-  background: var(--card-bg);
+  flex-direction: column;
 
-  border-radius: 8px;
+  gap: 8px;
+
+  background: var(--bg-redesigned);
 }

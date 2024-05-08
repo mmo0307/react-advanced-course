@@ -1,47 +1,37 @@
 @import '@styles';
 
-.button {
-  margin: 0;
-
-  padding: 0;
-
-  background: none;
-
-  border: none;
-
-  cursor: pointer;
-
-  outline: none;
-}
-
 .menu {
   position: absolute;
 
-  z-index: var(--z-index);
+  z-index: var(--dropdown-z-index);
 
   display: flex;
 
   flex-direction: column;
 
-  background-color: var(--card-bg);
-
-  border: 1px solid var(--primary-color);
-
-  border-radius: 8px;
+  background: var(--bg-redesigned);
 }
 
 .item {
+
   width: 100%;
 
-  padding: 10px 25px;
+  padding: 4px 16px;
 
-  color: var(--primary-color);
+  color: var(--text-redesigned);
 
   background: none;
 
   border: none;
-
   cursor: pointer;
 
   outline: none;
+
+  &:first-child {
+    padding-top: 8px;
+  }
+
+  &:last-child {
+    padding-bottom: 8px;
+  }
 }

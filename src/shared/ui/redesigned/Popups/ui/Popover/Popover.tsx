@@ -1,8 +1,10 @@
-import React, { memo, ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { DropdownDirection } from '@/shared/types/ui';
+
+import { mapDirectionClasses } from '../../styles/const';
+import { DirectionType } from '../../types';
 
 import popupCls from '../../styles/popup.module.scss';
 import styles from './Popover.module.scss';
@@ -10,37 +12,45 @@ import styles from './Popover.module.scss';
 interface PopoverProps {
   className?: string;
 
-  direction?: DropdownDirection;
+  children: ReactNode;
 
   trigger: ReactNode;
 
-  children: ReactNode;
+  direction?: DirectionType;
+
+  unmount?: boolean;
 }
 
-const Popover = memo(
+export const Popover = memo(
   ({
     className,
+    children,
     trigger,
-    direction = 'down-right',
-    children
-  }: PopoverProps) => (
-    <HPopover
-      className={classNames(styles.Popover, {}, [className, popupCls.popup])}
-    >
-      <HPopover.Button
-        as='div'
-        className={popupCls.trigger}
-      >
-        {trigger}
-      </HPopover.Button>
+    direction = 'bottom left',
+    unmount = true
+  }: PopoverProps) => {
+    const popoverItems = [
+      mapDirectionClasses[direction],
+      popupCls.items,
+      styles.popover
+    ];
 
-      <HPopover.Panel
-        className={classNames(styles.panel, {}, [popupCls[direction]])}
-      >
-        {children}
-      </HPopover.Panel>
-    </HPopover>
-  )
+    return (
+      <HPopover className={classNames(popupCls.wrapper, {}, [className])}>
+        <HPopover.Button
+          as='div'
+          className={popupCls.trigger}
+        >
+          {trigger}
+        </HPopover.Button>
+
+        <HPopover.Panel
+          unmount={unmount}
+          className={classNames(styles.menu, {}, popoverItems)}
+        >
+          {children}
+        </HPopover.Panel>
+      </HPopover>
+    );
+  }
 );
-
-export { Popover };

@@ -1,17 +1,9 @@
-export enum TextTheme {
-  PRIMARY = 'primary',
-  INVERTED = 'inverted',
-  ERROR = 'error'
-}
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
-export enum TextAlign {
-  LEFT = 'left',
-  CENTER = 'center',
-  RIGHT = 'right'
-}
+type TextVariant = 'primary' | 'error';
 
-export enum TextSize {
-  S = 'size_s',
-  M = 'size_m',
-  L = 'size_l'
-}
+type TextAlign = 'left' | 'right' | 'center';
+
+type Size = 'size_s' | 'size_m' | 'size_l';
+
+export type { HeaderTagType, Size, TextAlign, TextVariant };
