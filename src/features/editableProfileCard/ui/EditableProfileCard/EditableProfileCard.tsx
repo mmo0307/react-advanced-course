@@ -87,7 +87,7 @@ export const EditableProfileCard = memo(
 
     const onChangeAge = useCallback(
       (value?: string) => {
-        dispatch(profileActions.updateProfile({ age: Number(value || 0) }));
+        dispatch(profileActions.updateProfile({ age: value || '' }));
       },
       [dispatch]
     );
@@ -136,8 +136,6 @@ export const EditableProfileCard = memo(
           max
           className={classNames('', {}, [className])}
         >
-          <EditableProfileCardHeader id={id as string} />
-
           <View.Condition if={Boolean(validateErrors?.length)}>
             {validateErrors?.map((err: ValidateProfileError) => (
               <Text
@@ -148,6 +146,8 @@ export const EditableProfileCard = memo(
               />
             ))}
           </View.Condition>
+
+          <EditableProfileCardHeader id={id as string} />
 
           <ProfileCard
             data={formData}

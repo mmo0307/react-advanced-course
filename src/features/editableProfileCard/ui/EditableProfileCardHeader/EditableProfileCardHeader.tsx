@@ -4,8 +4,11 @@ import { useSelector } from 'react-redux';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
-import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { Text } from '@/shared/ui/deprecated/Text';
+import {
+  Button as ButtonDeprecated,
+  ButtonThemes
+} from '@/shared/ui/deprecated/Button';
+import { Text as TextDeprecated } from '@/shared/ui/deprecated/Text';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { View } from '@/shared/ui/redesigned/View';
 
@@ -25,7 +28,7 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  const canEdit = useSelector(getProfileCanEdit);
+  const isCanEdit = useSelector(getProfileCanEdit);
 
   const readonly = useSelector(getProfileReadonly);
 
@@ -48,40 +51,41 @@ const EditableProfileCardHeader: FC<EditableProfileCardHeaderProps> = ({
   return (
     <HStack
       max
+      tagname='header'
       justify='space-between'
       className={classNames('', {}, [className])}
     >
-      <Text title={t('Профиль')} />
+      <TextDeprecated title={t('Профиль')} />
 
-      <View.Condition if={Boolean(canEdit)}>
+      <View.Condition if={isCanEdit}>
         <>
           <View.Condition if={Boolean(readonly)}>
-            <Button
+            <ButtonDeprecated
               theme={ButtonThemes.OUTLINE}
               onClick={onEdit}
               data-testid='EditableProfileCardHeader.EditButton'
             >
               {t('Редактировать')}
-            </Button>
+            </ButtonDeprecated>
           </View.Condition>
 
           <View.Condition if={!Boolean(readonly)}>
             <HStack gap='4'>
-              <Button
+              <ButtonDeprecated
                 theme={ButtonThemes.OUTLINE_RED}
                 onClick={onCancelEdit}
                 data-testid='EditableProfileCardHeader.CancelButton'
               >
                 {t('Отменить')}
-              </Button>
+              </ButtonDeprecated>
 
-              <Button
+              <ButtonDeprecated
                 theme={ButtonThemes.OUTLINE}
                 onClick={onSave}
                 data-testid='EditableProfileCardHeader.SaveButton'
               >
                 {t('Сохранить')}
-              </Button>
+              </ButtonDeprecated>
             </HStack>
           </View.Condition>
         </>

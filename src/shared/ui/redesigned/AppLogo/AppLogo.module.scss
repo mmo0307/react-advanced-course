@@ -1,16 +1,16 @@
 @import '@styles';
 
-.appLogoWrapper {
+.app-logo-wrapper {
   position: relative;
 }
 
-.appLogo {
+.app-logo {
   position: relative;
 
   z-index: 10;
 }
 
-.gradientBig {
+.gradient-big {
   @include size(300px);
 
   position: absolute;
@@ -24,7 +24,7 @@
   pointer-events: none;
 }
 
-.gradientSmall {
+.gradient-small {
   @include size(200px);
 
   pointer-events: none;

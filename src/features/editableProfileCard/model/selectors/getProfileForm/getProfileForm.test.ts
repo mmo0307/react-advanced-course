@@ -8,7 +8,7 @@ describe('getProfileForm.test', () => {
   test('should return error', () => {
     const data = {
       username: 'Misha37',
-      age: 22,
+      age: '22',
       country: Index.Ukraine,
       lastName: 'Mishin',
       firstName: 'Misha',

@@ -17,16 +17,18 @@ type FlexJustify =
   | 'space-around'
   | 'space-evenly';
 
-type FlexAlign = 'center' | 'start' | 'end' | 'stretch';
+type FlexAlign = 'center' | 'start' | 'end' | 'normal';
 
 type FlexDirection = 'row' | 'column';
 
-type FlexGap = '4' | '8' | '16' | '32';
+type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 type DivProps = DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 >;
+
+type TagName = keyof JSX.IntrinsicElements;
 
 interface FlexProps extends PropsWithChildren, DivProps {
   justify?: FlexJustify;
@@ -38,6 +40,8 @@ interface FlexProps extends PropsWithChildren, DivProps {
   gap?: FlexGap;
 
   max?: boolean;
+
+  tagname?: TagName;
 }
 
 const justifyClasses: Record<FlexJustify, string> = {
@@ -53,7 +57,7 @@ const alignClasses: Record<FlexAlign, string> = {
   start: styles.alignStart,
   center: styles.alignCenter,
   end: styles.alignEnd,
-  stretch: styles.alignStretch
+  normal: styles.alignNormal
 };
 
 const directionClasses: Record<FlexDirection, string> = {
@@ -65,6 +69,7 @@ const gapClasses: Record<FlexGap, string> = {
   4: styles.gap4,
   8: styles.gap8,
   16: styles.gap16,
+  24: styles.gap24,
   32: styles.gap32
 };
 

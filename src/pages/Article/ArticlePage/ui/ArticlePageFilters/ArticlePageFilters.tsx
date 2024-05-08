@@ -40,7 +40,7 @@ const ArticlePageFilters: FC<ArticlesPageFiltersProps> = memo(
       <VStack
         max
         gap='16'
-        align='stretch'
+        align='normal'
         className={classNames('', {}, [className])}
       >
         <div className={styles.sortWrapper}>

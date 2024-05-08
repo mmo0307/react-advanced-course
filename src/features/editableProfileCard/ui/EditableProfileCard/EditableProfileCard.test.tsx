@@ -15,7 +15,7 @@ const profile: Profile = {
   id: '1',
   firstName: 'admin',
   lastName: 'admin',
-  age: 20,
+  age: '20',
   currency: Currency.USD,
   country: Index.Ukraine,
   city: 'Kyiv',

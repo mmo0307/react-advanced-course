@@ -2,7 +2,9 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ToggleFeature } from '@/shared/lib/features';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 import { Index } from '../model/consts';
 
@@ -45,14 +47,31 @@ export const CountrySelect = memo(
       //   readonly={readonly}
       // />
 
-      <ListBox
-        className={classNames('', {}, [className])}
-        label={t('Укажите страну')}
-        defaultValue={t('Укажите страну')}
-        items={options}
-        value={value}
-        onChange={onChangeHandler}
-        readonly={readonly}
+      <ToggleFeature
+        name={'isAppRedesigned'}
+        on={
+          <ListBox
+            labelDirection='row'
+            className={classNames('', {}, [className])}
+            label={t('Укажите страну')}
+            defaultValue={t('Укажите страну')}
+            items={options}
+            value={value}
+            onChange={onChangeHandler}
+            readonly={readonly}
+          />
+        }
+        off={
+          <ListBoxDeprecated
+            className={classNames('', {}, [className])}
+            label={t('Укажите страну')}
+            defaultValue={t('Укажите страну')}
+            items={options}
+            value={value}
+            onChange={onChangeHandler}
+            readonly={readonly}
+          />
+        }
       />
     );
   }

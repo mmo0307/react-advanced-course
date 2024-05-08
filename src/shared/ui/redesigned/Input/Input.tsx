@@ -1,32 +1,13 @@
-import React, {
-  InputHTMLAttributes,
-  memo,
-  SyntheticEvent,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import React, { memo, useEffect, useRef, useState } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
+
+import { HStack } from '../Stack';
+import { Text } from '../Text';
+
+import { InputProps } from './model/types';
 
 import styles from './Input.module.scss';
-
-type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readOnly'
->;
-
-interface InputProps extends HTMLInputProps {
-  className?: string;
-
-  value?: string | number;
-
-  onChange?: (value: string) => void;
-
-  autofocus?: boolean;
-
-  readonly?: boolean;
-}
 
 const Input = memo(
   ({
@@ -34,80 +15,89 @@ const Input = memo(
     value,
     onChange,
     type = 'text',
-    placeholder,
-    autofocus,
+    label,
+    autoFocus,
     readonly,
+    addonLeft,
+    addonRight,
+    placeholder,
+    size = 'm',
     ...otherProps
   }: InputProps) => {
     const ref = useRef<HTMLInputElement>(null);
 
-    const [isFocused, setIsFocused] = useState<boolean>(false);
-
-    const [caretPosition, setCaretPosition] = useState<number>(0);
-
-    const isCaretVisible = isFocused && !readonly;
-
-    useEffect(() => {
-      if (autofocus) {
-        setIsFocused(true);
-
-        ref.current?.focus();
-      }
-    }, [autofocus]);
+    const [isFocused, setIsFocused] = useState(false);
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.target.value);
-
-      setCaretPosition(e.target.value.length);
     };
 
-    const onBlur = () => {
-      setIsFocused(false);
+    useEffect(() => {
+      if (autoFocus) {
+        setIsFocused(true);
+        ref?.current?.focus();
+      }
+    }, [autoFocus]);
+
+    const mods: Mods = {
+      [styles.readonly]: readonly,
+      [styles.focused]: isFocused,
+      [styles.withAddonLeft]: Boolean(addonLeft),
+      [styles.withAddonRight]: Boolean(addonRight)
     };
 
     const onFocus = () => {
       setIsFocused(true);
     };
 
-    const onSelect = (e: SyntheticEvent<HTMLInputElement>) => {
-      setCaretPosition((e.target as HTMLInputElement)?.selectionStart || 0);
+    const onBlur = () => {
+      setIsFocused(false);
     };
 
-    return (
-      <div className={classNames(styles.InputWrapper, {}, [className])}>
-        {placeholder && (
-          <div className={styles.placeholder}>{`${placeholder}>`}</div>
-        )}
+    const input = (
+      <div
+        className={classNames(styles.inputWrapper, mods, [
+          className,
+          styles[size]
+        ])}
+      >
+        {addonLeft && <div className={styles.addonLeft}>{addonLeft}</div>}
 
-        <div className={styles.caretWrapper}>
-          <input
-            ref={ref}
-            type={type}
-            value={value}
-            onChange={onChangeHandler}
-            className={classNames(
-              styles.input,
-              {
-                [styles.readonly]: readonly
-              },
-              [className]
-            )}
-            onFocus={onFocus}
-            onBlur={onBlur}
-            onSelect={onSelect}
-            readOnly={readonly}
-            {...otherProps}
-          />
-
-          {isCaretVisible && (
-            <span
-              className={styles.caret}
-              style={{ left: `${caretPosition * 9}px` }}
-            />
+        <input
+          placeholder={placeholder}
+          ref={ref}
+          type={type}
+          value={value}
+          onChange={onChangeHandler}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          className={classNames(
+            styles.input,
+            { [styles.readonly]: readonly },
+            []
           )}
-        </div>
+          disabled={readonly}
+          {...otherProps}
+        />
+
+        {addonRight && <div className={styles.addonRight}>{addonRight}</div>}
       </div>
     );
+
+    if (label) {
+      return (
+        <HStack
+          gap='8'
+          max
+        >
+          <Text text={label} />
+
+          {input}
+        </HStack>
+      );
+    }
+
+    return input;
   }
 );
 

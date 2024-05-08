@@ -8,7 +8,7 @@ export interface Profile {
 
   lastName?: string;
 
-  age?: number;
+  age?: string;
 
   currency?: Currency;
 

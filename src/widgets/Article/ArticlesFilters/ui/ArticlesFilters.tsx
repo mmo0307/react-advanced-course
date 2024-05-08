@@ -5,10 +5,13 @@ import { ArticleSortField, ArticleType } from '@/entities/Article';
 import { ArticleSortSelector, ArticleTypeTabs } from '@/features/Article';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { OrderBy } from '@/shared/types/sort';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { TabItem } from '@/shared/ui/deprecated/Tabs';
 import { Card } from '@/shared/ui/redesigned/Card';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Input } from '@/shared/ui/redesigned/Input';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { TabItem } from '@/shared/ui/redesigned/Tabs';
+
+import SearchIcon from '@/shared/assets/icons/search.svg';
 
 import styles from './ArticlesFilters.module.scss';
 
@@ -27,7 +30,7 @@ interface ArticlesFiltersProps {
 
   onChangeSearch: (newSearch: string) => void;
 
-  onChangeType: (newTab: TabItem) => void;
+  onChangeType: (newTab: TabItem<string>) => void;
 
   onChangeSort: (newSort: ArticleSortField) => void;
 }
@@ -53,9 +56,17 @@ const ArticlesFilters: FC<ArticlesFiltersProps> = ({
         className={classNames(styles.articleFiltersWidget, {}, [className])}
       >
         <Input
+          size='s'
           value={search}
           onChange={onChangeSearch}
           placeholder={t('Поиск')}
+          addonLeft={
+            <Icon
+              Svg={SearchIcon}
+              width={18}
+              height={18}
+            />
+          }
         />
 
         <ArticleTypeTabs

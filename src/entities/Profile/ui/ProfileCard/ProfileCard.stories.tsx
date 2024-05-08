@@ -22,7 +22,7 @@ export const ProfileCardTemplate: Story = {
   args: {
     data: {
       username: 'admin',
-      age: 22,
+      age: '22',
       country: Index.Ukraine,
       lastName: 'Mishin',
       firstName: 'Misha',

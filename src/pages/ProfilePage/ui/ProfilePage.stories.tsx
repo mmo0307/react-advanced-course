@@ -27,7 +27,7 @@ export const Profile: Story = {
       profile: {
         form: {
           username: 'admin',
-          age: 22,
+          age: '22',
           country: Index.Ukraine,
           lastName: 'Mishin',
           firstName: 'Misha',
@@ -48,7 +48,7 @@ export const Profile_DARK: Story = {
       profile: {
         form: {
           username: 'admin',
-          age: 22,
+          age: '22',
           country: Index.Ukraine,
           lastName: 'Mishin',
           firstName: 'Misha',

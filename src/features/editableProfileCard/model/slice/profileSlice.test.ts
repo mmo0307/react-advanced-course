@@ -9,7 +9,7 @@ import { profileActions, profileReducer } from './profileSlice';
 
 const data = {
   username: 'admin',
-  age: 22,
+  age: '22',
   country: Index.Ukraine,
   lastName: 'Blog tv',
   firstName: 'asd',
