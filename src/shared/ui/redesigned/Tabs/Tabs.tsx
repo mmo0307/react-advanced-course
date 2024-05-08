@@ -1,49 +1,48 @@
-import React, { memo, ReactNode, useCallback } from 'react';
+import { memo, useCallback } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '../Button';
+import { VStack } from '../Stack';
 
-import { Card as CardDeprecated, CardTheme } from '../../deprecated/Card';
+import { TabItem } from './model/types';
 
-import styles from './Tabs.module.scss';
-
-export interface TabItem {
-  value: string;
-
-  content: ReactNode;
-}
-
-interface TabsProps {
+interface TabsProps<T extends string> {
   className?: string;
 
-  tabs: TabItem[];
+  tabs: TabItem<T>[];
 
-  value: string;
+  value: T;
 
-  onTabClick: (tab: TabItem) => void;
+  onTabClick: (tab: TabItem<T>) => void;
 }
 
-export const Tabs = memo(
-  ({ className, tabs, onTabClick, value }: TabsProps) => {
-    const onClick = useCallback(
-      (tab: TabItem) => () => {
-        onTabClick(tab);
+const typedMemo: <T>(cb: T) => T = memo;
+
+export const Tabs = typedMemo(
+  <T extends string>({ className, tabs, value, onTabClick }: TabsProps<T>) => {
+    const onTabHandler = useCallback(
+      (tab: TabItem<T>) => () => {
+        onTabClick(tab as TabItem<T>);
       },
       [onTabClick]
     );
 
     return (
-      <div className={classNames(styles.Tabs, {}, [className])}>
+      <VStack
+        gap='8'
+        className={className}
+        align='start'
+      >
         {tabs.map((tab) => (
-          <CardDeprecated
-            theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
-            className={styles.tab}
+          <Button
+            variant={tab.value === value ? 'light' : 'filled'}
             key={tab.value}
-            onClick={onClick(tab)}
+            onClick={onTabHandler(tab)}
+            data-testid={`Tab-${tab.value}`}
           >
             {tab.content}
-          </CardDeprecated>
+          </Button>
         ))}
-      </div>
+      </VStack>
     );
   }
 );

@@ -18,7 +18,9 @@ import styles from './ListBox.module.scss';
 
 export interface ListBoxItem<T extends string> {
   value: T;
+
   content: ReactNode;
+
   disabled?: boolean;
 }
 
@@ -28,17 +30,29 @@ export type SizeListbox = 's' | 'm' | 'l';
 
 interface ListBoxProps<T extends string> {
   className?: string;
+
   value?: T;
+
   defaultValue?: string;
+
   onChange: (value: T) => void;
+
   items: ListBoxItem<T>[];
+
   label?: string;
+
   readonly?: boolean;
+
   direction?: DirectionType;
+
   labelDirection?: LabelDirection;
+
   labelGap?: FlexGap;
+
   labelAlign?: FlexAlign;
+
   labelJustify?: FlexJustify;
+
   size?: SizeListbox;
 }
 
@@ -66,7 +80,7 @@ export const ListBox = typedMemo(
       return items.find((item) => item.value === value);
     }, [items, value]);
 
-    const listbox = (
+    const listBox = (
       <HListbox
         as='div'
         defaultValue={defaultValue}
@@ -147,7 +161,7 @@ export const ListBox = typedMemo(
         >
           <Text text={label} />
 
-          {listbox}
+          {listBox}
         </VStack>
       );
     }
@@ -160,11 +174,11 @@ export const ListBox = typedMemo(
         >
           <Text text={label} />
 
-          {listbox}
+          {listBox}
         </HStack>
       );
     }
 
-    return listbox;
+    return listBox;
   }
 );

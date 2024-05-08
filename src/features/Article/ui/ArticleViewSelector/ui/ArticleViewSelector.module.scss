@@ -1,3 +1,11 @@
-.notSelected {
+.not-selected {
   fill: var(--secondary-color);
+}
+
+.article-view-changer-redesigned {
+  .not-selected-redesigned {
+
+    background: none;
+    fill: var(--hint-redesigned);
+  }
 }
