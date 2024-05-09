@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { ForwardedRef, forwardRef } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 
@@ -6,21 +6,25 @@ import { ButtonProps } from './model/types';
 
 import styles from './Button.module.scss';
 
-const Button = memo(
-  ({
-    className,
-    children,
-    variant = 'clear',
-    disabled,
-    fontSize = 'small',
-    size = 'm',
-    weight = 'normal',
-    fullWidth,
-    addonLeft,
-    addonRight,
-    ...otherProps
-  }: ButtonProps) => (
+const Button = forwardRef(
+  (
+    {
+      className,
+      children,
+      variant = 'clear',
+      disabled,
+      fontSize = 'small',
+      size = 'm',
+      weight = 'normal',
+      fullWidth,
+      addonLeft,
+      addonRight,
+      ...otherProps
+    }: ButtonProps,
+    ref: ForwardedRef<HTMLButtonElement>
+  ) => (
     <button
+      ref={ref}
       type='button'
       className={classNames(
         styles.button,

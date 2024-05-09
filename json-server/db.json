@@ -48,6 +48,13 @@
       "rate": 3,
       "feedback": "TOP SITE",
       "id": "-dhcpAh"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 3,
+      "feedback": "",
+      "id": "9udYymv"
     }
   ],
   "profile-ratings": [
@@ -1602,6 +1609,12 @@
       "userId": "1",
       "text": "fghfdgh",
       "id": "Ed762sa"
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "text": "456",
+      "id": "OL6hKhp"
     }
   ],
   "users": [
