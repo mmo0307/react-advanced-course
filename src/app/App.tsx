@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { memo, Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getUserInited, initAuthData } from '@/entities/User';
@@ -13,10 +13,11 @@ import { PageLoader } from '@/widgets/PageLoader';
 import { Sidebar } from '@/widgets/Sidebar';
 
 import { AppRouter } from './providers/router';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
 import './styles/index.scss';
 
-function App() {
+const App = memo(() => {
   const { theme } = useTheme();
 
   const dispatch = useAppDispatch();
@@ -73,6 +74,6 @@ function App() {
       </View.Condition>
     </>
   );
-}
+});
 
-export default App;
+export default withTheme(App);

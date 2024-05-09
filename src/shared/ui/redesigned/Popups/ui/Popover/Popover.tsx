@@ -1,4 +1,4 @@
-import { memo, ReactNode } from 'react';
+import React, { memo, ReactNode } from 'react';
 import { Popover as HPopover } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';

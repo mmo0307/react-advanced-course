@@ -1,4 +1,4 @@
-import { Fragment, memo, ReactNode, useMemo } from 'react';
+import React, { Fragment, memo, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
