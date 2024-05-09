@@ -36,6 +36,18 @@
   transition: 0.3s transform;
 }
 
+.modal-new {
+  .content {
+    background: var(--light-bg-redesigned);
+  }
+}
+
+.modal-old {
+  .content {
+    background: var(--bg-color);
+  }
+}
+
 .opened {
   z-index: var(--modal-z-index);
 

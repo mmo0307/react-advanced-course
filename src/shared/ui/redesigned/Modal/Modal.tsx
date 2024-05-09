@@ -2,6 +2,7 @@ import React, { FC, PropsWithChildren } from 'react';
 
 import { ANIMATION_DELAY } from '@/shared/const/animation';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeature } from '@/shared/lib/features';
 import { useModal } from '@/shared/lib/hooks/useModal';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 
@@ -40,12 +41,21 @@ const Modal: FC<ModalProps> = ({
   }
 
   return (
-    <Portal>
+    <Portal element={document.getElementById('app') ?? document.body}>
       <div
         className={classNames(
           styles.Modal,
           { [styles.opened]: isOpen, [styles.isClosing]: isClosing },
-          [className, theme, 'app_modal']
+          [
+            className,
+            theme,
+            'app_modal',
+            toggleFeature({
+              name: 'isAppRedesigned',
+              on: () => styles.modalNew,
+              off: () => styles.modalOld
+            })
+          ]
         )}
       >
         <Overlay onClick={close} />

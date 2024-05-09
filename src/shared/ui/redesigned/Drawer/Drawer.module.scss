@@ -41,3 +41,15 @@
 
   touch-action: none;
 }
+
+.drawer-new {
+  .sheet {
+    background: var(--light-bg-redesigned);
+  }
+}
+
+.drawer-old {
+  .sheet {
+    background: var(--bg-color);
+  }
+}

@@ -9,9 +9,16 @@ import { NotificationButton } from '@/features/notificationButton';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeature, toggleFeature } from '@/shared/lib/features';
-import { AppLink, AppLinkThemes } from '@/shared/ui/deprecated/AppLink';
-import { Button, ButtonThemes } from '@/shared/ui/deprecated/Button';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import {
+  AppLink as AppLinkDepreacted,
+  AppLinkThemes
+} from '@/shared/ui/deprecated/AppLink';
+import {
+  Button as ButtonDepreacted,
+  ButtonThemes
+} from '@/shared/ui/deprecated/Button';
+import { Text as TextDepreacted, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Button } from '@/shared/ui/redesigned/Button';
 import { HStack } from '@/shared/ui/redesigned/Stack';
 import { View } from '@/shared/ui/redesigned/View';
 
@@ -61,19 +68,19 @@ const Navbar = memo(({ className }: NavbarProps) => {
           }
           off={
             <header className={classNames(mainClass, {}, [className])}>
-              <Text
+              <TextDepreacted
                 className={styles.appName}
                 title={t('Blog App')}
                 theme={TextTheme.INVERTED}
               />
 
-              <AppLink
+              <AppLinkDepreacted
                 to={getRouteArticleCreate()}
                 theme={AppLinkThemes.SECONDARY}
                 className={styles.createBtn}
               >
                 {t('Создать статью')}
-              </AppLink>
+              </AppLinkDepreacted>
 
               <HStack
                 gap='16'
@@ -89,36 +96,73 @@ const Navbar = memo(({ className }: NavbarProps) => {
       </View.Condition>
 
       <View.Condition if={!Boolean(authData)}>
-        <header className={classNames(mainClass, {}, [className])}>
-          <ToggleFeature
-            name='isAppRedesigned'
-            on={
-              <Button
-                theme={ButtonThemes.CLEAR}
-                className={styles.links}
-                onClick={onShow}
-              >
-                {t('Войти')}
-              </Button>
-            }
-            off={
-              <Button
-                theme={ButtonThemes.CLEAR_INVERTED}
-                className={styles.links}
-                onClick={onShow}
-              >
-                {t('Войти')}
-              </Button>
-            }
-          />
+        <ToggleFeature
+          name='isAppRedesigned'
+          on={
+            <header className={classNames(mainClass, {}, [className])}>
+              <ToggleFeature
+                name='isAppRedesigned'
+                on={
+                  <Button
+                    variant='clear'
+                    className={styles.links}
+                    onClick={onShow}
+                  >
+                    {t('Войти')}
+                  </Button>
+                }
+                off={
+                  <Button
+                    variant='clear'
+                    className={styles.links}
+                    onClick={onShow}
+                  >
+                    {t('Войти')}
+                  </Button>
+                }
+              />
 
-          <View.Condition if={isAuthModal}>
-            <LoginModal
-              isOpen={isAuthModal}
-              onClose={onClose}
-            />
-          </View.Condition>
-        </header>
+              <View.Condition if={isAuthModal}>
+                <LoginModal
+                  isOpen={isAuthModal}
+                  onClose={onClose}
+                />
+              </View.Condition>
+            </header>
+          }
+          off={
+            <header className={classNames(mainClass, {}, [className])}>
+              <ToggleFeature
+                name='isAppRedesigned'
+                on={
+                  <ButtonDepreacted
+                    theme={ButtonThemes.CLEAR}
+                    className={styles.links}
+                    onClick={onShow}
+                  >
+                    {t('Войти')}
+                  </ButtonDepreacted>
+                }
+                off={
+                  <ButtonDepreacted
+                    theme={ButtonThemes.CLEAR_INVERTED}
+                    className={styles.links}
+                    onClick={onShow}
+                  >
+                    {t('Войти')}
+                  </ButtonDepreacted>
+                }
+              />
+
+              <View.Condition if={isAuthModal}>
+                <LoginModal
+                  isOpen={isAuthModal}
+                  onClose={onClose}
+                />
+              </View.Condition>
+            </header>
+          }
+        />
       </View.Condition>
     </>
   );
