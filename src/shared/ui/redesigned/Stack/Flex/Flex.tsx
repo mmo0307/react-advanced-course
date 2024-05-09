@@ -21,6 +21,8 @@ type FlexAlign = 'center' | 'start' | 'end' | 'normal';
 
 type FlexDirection = 'row' | 'column';
 
+type FlexWrap = 'wrap' | 'nowrap';
+
 type FlexGap = '4' | '8' | '16' | '24' | '32';
 
 type DivProps = DetailedHTMLProps<
@@ -34,6 +36,8 @@ interface FlexProps extends PropsWithChildren, DivProps {
   justify?: FlexJustify;
 
   align?: FlexAlign;
+
+  wrap?: FlexWrap;
 
   direction: FlexDirection;
 
@@ -78,6 +82,7 @@ const Flex: FC<FlexProps> = ({
   children,
   justify = 'flex-start',
   align = 'center',
+  wrap = 'nowrap',
   direction = 'row',
   gap,
   max,
@@ -94,6 +99,7 @@ const Flex: FC<FlexProps> = ({
         justifyClasses[justify],
         alignClasses[align],
         directionClasses[direction],
+        styles[wrap],
         gap && gapClasses[gap]
       ]
     )}

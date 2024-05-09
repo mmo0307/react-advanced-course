@@ -35,6 +35,14 @@
     @include flex($alignItems: center);
 
     margin-top: 16px;
+
+    &-redesined {
+      @include flex($alignItems: center);
+
+      justify-content: space-between;
+
+      margin-top: 16px;
+    }
   }
 
   .textBlock {
