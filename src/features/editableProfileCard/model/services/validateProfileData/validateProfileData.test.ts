@@ -14,6 +14,7 @@ const data = {
   city: 'Dnipro',
   currency: Currency.USD
 };
+
 describe('validateProfileData.test', () => {
   test('success', async () => {
     const result = validateProfileData(data);

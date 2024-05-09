@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Loader } from './Loader';
 
 const meta = {
-  title: 'shared/Loader',
+  title: 'redesigned/shared/Loader',
   component: Loader
 } satisfies Meta<typeof Loader>;
 

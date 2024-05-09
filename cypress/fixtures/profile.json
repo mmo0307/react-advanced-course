@@ -2,7 +2,7 @@
   "id": "1",
   "firstName": "test",
   "lastName": "user",
-  "age": 465,
+  "age": "465",
   "currency": "EUR",
   "country": "Ukraine",
   "city": "Dnipro",

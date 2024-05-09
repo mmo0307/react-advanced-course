@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { Flex } from '../Flex/Flex';
 
 const meta = {
-  title: 'shared/Stack/Flex',
+  title: 'redesigned/shared/Stack/Flex',
   component: Flex
 } satisfies Meta<typeof Flex>;
 

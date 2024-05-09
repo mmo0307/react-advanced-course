@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Input } from './Input';
 
 const meta = {
-  title: 'shared/Input',
+  title: 'redesigned/shared/Input',
   component: Input
 } satisfies Meta<typeof Input>;
 

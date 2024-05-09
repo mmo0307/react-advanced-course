@@ -8,7 +8,7 @@ import { Theme } from '@/shared/const/theme';
 import { ListBox } from './ListBox';
 
 const meta = {
-  title: 'shared/Popups/ListBox',
+  title: 'redesigned/shared/Popups/ListBox',
   component: ListBox,
   decorators: [
     (Story) => (

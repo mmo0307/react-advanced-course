@@ -5,7 +5,7 @@ import { Avatar } from './Avatar';
 import avatar from '@/shared/assets/images/avatar.jpg';
 
 const meta = {
-  title: 'shared/Avatar',
+  title: 'redesigned/shared/Avatar',
   component: Avatar
 } satisfies Meta<typeof Avatar>;
 
