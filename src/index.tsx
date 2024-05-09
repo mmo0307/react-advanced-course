@@ -8,6 +8,7 @@ import App from '@/app/App';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 import { StoreProvider } from '@/app/providers/StoreProvider';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { ForceUpdateProvider } from '@/shared/lib/render/forceUpdate';
 
 const container = document.getElementById('root') as HTMLElement;
 
@@ -17,9 +18,11 @@ root.render(
   <BrowserRouter>
     <StoreProvider>
       <ErrorBoundary>
-        <ThemeProvider>
-          <App />
-        </ThemeProvider>
+        <ForceUpdateProvider>
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
+        </ForceUpdateProvider>
       </ErrorBoundary>
     </StoreProvider>
   </BrowserRouter>

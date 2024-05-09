@@ -11,6 +11,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ToggleFeature } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 import {
   Button as ButtonDeprecated,
   ButtonThemes
@@ -56,6 +57,8 @@ const LoginForm: FC<LoginFormProps> = memo(
 
     const isLoading = useSelector(getLoginIsLoading);
 
+    const forceUpdate = useForceUpdate();
+
     const onChangeUserName = useCallback(
       (values: string) => {
         dispatch(loginActions.setUsername(values));
@@ -75,6 +78,8 @@ const LoginForm: FC<LoginFormProps> = memo(
 
       if (result.meta.requestStatus === 'fulfilled') {
         onSuccess();
+
+        forceUpdate();
 
         /* eslint-disable-next-line */
         // @ts-ignore
